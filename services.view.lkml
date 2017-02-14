@@ -60,9 +60,26 @@ view: services {
   }
 
   dimension: record_type {
-    type: string
+    type: number
     sql: ${TABLE}.RecordType ;;
   }
+
+ dimension: record_type_description {
+  type:  string
+  case:   {
+    when: {
+      sql: {$record_type} = 12;;
+      label: "Contact"
+          }
+    when: {
+      sql: {$record_type} = 200;;
+      label: "Bed Night"
+    }
+  }
+
+ }
+
+
 
   dimension: referral_outcome {
     type: string
