@@ -17,6 +17,11 @@ view: enrollment {
     sql: ${TABLE}.id ;;
   }
 
+  dimension:  age_at_entry {
+   type:  number
+  sql: YEAR(${entry_date_date}) - YEAR(${client.dob}) - (DATE_FORMAT(${entry_date_date}, '%m%d') < DATE_FORMAT(${client.dob}, '%m%d'));;
+}
+
   dimension: project_entry_id {
     type: string
     primary_key: yes
