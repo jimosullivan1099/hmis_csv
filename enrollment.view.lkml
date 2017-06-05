@@ -28,6 +28,9 @@ view: enrollment {
     sql: ${TABLE}.ProjectEntryID ;;
   }
 
+
+
+
   dimension: personal_id {
     type: string
     sql: ${TABLE}.PersonalID ;;
@@ -66,6 +69,13 @@ view: enrollment {
   dimension: residence_prior_length_of_stay {
     type: string
     sql: ${TABLE}.ResidencePriorLengthOfStay ;;
+  }
+
+  dimension: orphaned_enrollment {
+    type:  number
+    sql: ( SELECT count(projectentryid)
+FROM enrollment as b
+WHERE not exists (SELECT * FROM  client as a WHERE a.PersonalID=b.PersonalID )) ;;
   }
 
   dimension: disabling_condition {

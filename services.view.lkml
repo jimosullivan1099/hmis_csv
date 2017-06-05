@@ -24,7 +24,7 @@ view: services {
   }
 
   dimension: date_provided {
-    type: string
+    type: date
     sql: ${TABLE}.DateProvided ;;
   }
 
