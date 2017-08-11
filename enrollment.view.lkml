@@ -1,10 +1,4 @@
 view: enrollment {
-  derived_table: {
-    sql: SELECT * FROM enrollment
-      ;;
-      indexes: ["ProjectEntryId","PersonalId"]
-  }
-
 
 
    measure: enrollment_count {
