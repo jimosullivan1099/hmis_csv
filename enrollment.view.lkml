@@ -74,8 +74,9 @@ view: enrollment {
   dimension: orphaned_enrollment {
     type:  number
     sql: ( SELECT count(projectentryid)
-FROM enrollment as b
-WHERE not exists (SELECT * FROM  client as a WHERE a.PersonalID=b.PersonalID )) ;;
+          FROM enrollment as b
+          WHERE not exists (SELECT * FROM  client as a WHERE a.PersonalID=b.PersonalID )
+         ) ;;
   }
 
   dimension: disabling_condition {
@@ -476,6 +477,16 @@ WHERE not exists (SELECT * FROM  client as a WHERE a.PersonalID=b.PersonalID )) 
   dimension: enrolment_head {
     type: string
     sql: ${TABLE}.enrolment_head ;;
+  }
+
+  measure: clients_without_enrollments {
+    type:  count_distinct
+    sql: ${client.personal_id};;
+    filters: {
+      field: project_entry_id
+      value: "null"
+    }
+  drill_fields: [client.personal_id]
   }
 
 
