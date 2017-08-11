@@ -114,6 +114,15 @@ view: client {
     sql: ${TABLE}.NameDataQuality ;;
   }
 
+ measure:  clients_with_unknown_nameDQ {
+   type: count_distinct
+   sql: ${personal_id} ;;
+  filters: {
+    field: name_data_quality
+    value: "-1,-2,-8,-9,-99"
+  }
+  }
+
   dimension: name_suffix {
     type: string
     sql: ${TABLE}.NameSuffix ;;
