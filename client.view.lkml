@@ -115,12 +115,66 @@ view: client {
   }
 
  measure:  clients_with_unknown_nameDQ {
-   type: count_distinct
-   sql: ${personal_id} ;;
-  filters: {
-    field: name_data_quality
-    value: "-1,-2,-8,-9,-99"
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: name_data_quality
+      value: "-1,-2,-8,-9,-99,-NULL"
+    }
   }
+
+  measure:  clients_with_null_nameDQ {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: name_data_quality
+      value: "NULL"
+    }
+  }
+
+  measure:  clients_with_unknown_ssnDQ {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: ssndata_quality
+      value: "-1,-2,-8,-9,-99,-NULL"
+    }
+  }
+
+  measure:  clients_with_null_ssnDQ {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: ssndata_quality
+      value: "NULL"
+    }
+  }
+
+  measure:  clients_with_unknown_dobDQ {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: dobdata_quality
+      value: "-1,-2,-8,-9,-99,-NULL"
+    }
+  }
+
+  measure:  clients_with_null_dobDQ {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: dobdata_quality
+      value: "NULL"
+    }
+  }
+
+  measure:  clients_with_invalid_racenone {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: race_none
+      value: "-8,-9,-99,-NULL"
+    }
   }
 
   dimension: name_suffix {
