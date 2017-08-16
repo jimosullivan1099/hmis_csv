@@ -114,69 +114,6 @@ view: client {
     sql: ${TABLE}.NameDataQuality ;;
   }
 
- measure:  clients_with_unknown_nameDQ {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: name_data_quality
-      value: "-1,-2,-8,-9,-99,-NULL"
-    }
-  }
-
-  measure:  clients_with_null_nameDQ {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: name_data_quality
-      value: "NULL"
-    }
-  }
-
-  measure:  clients_with_unknown_ssnDQ {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: ssndata_quality
-      value: "-1,-2,-8,-9,-99,-NULL"
-    }
-  }
-
-  measure:  clients_with_null_ssnDQ {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: ssndata_quality
-      value: "NULL"
-    }
-  }
-
-  measure:  clients_with_unknown_dobDQ {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: dobdata_quality
-      value: "-1,-2,-8,-9,-99,-NULL"
-    }
-  }
-
-  measure:  clients_with_null_dobDQ {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: dobdata_quality
-      value: "NULL"
-    }
-  }
-
-  measure:  clients_with_invalid_racenone {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: race_none
-      value: "-8,-9,-99,-NULL"
-    }
-  }
-
   dimension: name_suffix {
     type: string
     sql: ${TABLE}.NameSuffix ;;
@@ -256,6 +193,144 @@ view: client {
   measure: count {
     type: count
     drill_fields: [detail*]
+  }
+
+  measure: distinct_count {
+    type:  count_distinct
+    sql:  ${personal_id} ;;
+  }
+
+  measure: count_distinct_difference {
+    type: number
+    sql:  ${count} - ${distinct_count} ;;
+  }
+
+  measure:  clients_with_invalid_name_dq {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: name_data_quality
+      value: "-1,-2,-8,-9,-99,-NULL"
+    }
+  }
+
+  measure:  clients_with_null_name_dq {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: name_data_quality
+      value: "NULL"
+    }
+  }
+
+  measure:  clients_with_invalid_ssn_dq {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: ssndata_quality
+      value: "-1,-2,-8,-9,-99,-NULL"
+    }
+  }
+
+  measure:  clients_with_null_ssn_dq {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: ssndata_quality
+      value: "NULL"
+    }
+  }
+
+  measure:  clients_with_invalid_dob_dq {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: dobdata_quality
+      value: "-1,-2,-8,-9,-99,-NULL"
+    }
+  }
+
+  measure:  clients_with_null_dob_dq {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: dobdata_quality
+      value: "NULL"
+    }
+  }
+
+  measure:  clients_with_invalid_race_none {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: race_none
+      value: "-8,-9,-99,-NULL"
+    }
+  }
+
+  measure:  clients_with_unknown_race_none {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: race_none
+      value: "8,9,99"
+    }
+  }
+
+  measure:  clients_with_unknown_race_none_dq_check {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: race_none
+      value: "8,9,99"
+    }
+    filters: {
+      field: am_ind_aknative
+      value: "0"
+    }
+    filters: {
+      field: asian
+      value: "0"
+    }
+    filters: {
+      field: black_af_american
+      value: "0"
+    }
+    filters: {
+      field: native_hiother_pacific
+      value: "0"
+    }
+    filters: {
+      field: white
+      value: "0"
+    }
+  }
+
+  measure:  clients_with_invalid_ethnicity {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: ethnicity
+      value: "-0,-1,-8,-9,-99"
+    }
+  }
+
+  measure:  clients_with_invalid_gender {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: gender
+      value: "-0,-1,-2,-3,-4,-8,-9,-99"
+    }
+  }
+
+  measure:  clients_with_invalid_veteran_status {
+    type: count_distinct
+    sql: ${personal_id} ;;
+    filters: {
+      field: gender
+      value: "-0,-1,-8,-9,-99"
+    }
   }
 
   # ----- Sets of fields for drilling ------
