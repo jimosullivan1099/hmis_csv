@@ -340,10 +340,7 @@ view: client {
     fields: [
       first_name,
       middlename,
-      last_name,
-      export.export_id,
-      export.source_name,
-      export.software_name
+      last_name
     ]
   }
 
