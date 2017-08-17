@@ -60,6 +60,7 @@ view: client {
 
   dimension: ethnicity {
     type: string
+    drill_fields: [count_details*]
     sql: ${TABLE}.Ethnicity ;;
   }
 
@@ -76,6 +77,7 @@ view: client {
 
   dimension: gender {
     type: string
+    drill_fields: [count_details*]
     sql: ${TABLE}.Gender ;;
   }
 
@@ -343,5 +345,9 @@ view: client {
       export.source_name,
       export.software_name
     ]
+  }
+
+  set: count_details {
+    fields: [personal_id, enrollment.project_id]
   }
 }
