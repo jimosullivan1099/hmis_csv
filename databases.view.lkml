@@ -9,12 +9,12 @@ view: databases {
     drill_fields: [detail*]
   }
 
-  dimension: database {
+  dimension: databasename {
     type: string
     sql: ${TABLE}.`Database` ;;
   }
 
   set: detail {
-    fields: [database]
+    fields: [databasename]
   }
 }
