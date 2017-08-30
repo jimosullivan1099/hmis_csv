@@ -63,3 +63,12 @@ explore: client  {
   }
 
 }
+
+explore: enrollment  {
+  persist_for: " 60 minutes"
+  join: client {
+    type: left_outer
+    sql_on: ${enrollment.personal_id} = ${client.personal_id} ;;
+    relationship: one_to_many
+  }
+}
