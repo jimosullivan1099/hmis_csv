@@ -60,7 +60,7 @@ view: services {
   }
 
   dimension: record_type {
-    type: number
+    type: string
     sql: ${TABLE}.RecordType ;;
   }
 
@@ -120,7 +120,7 @@ view: services {
   }
 
   dimension: type_provided {
-    type: number
+    type: string
     sql: ${TABLE}.TypeProvided ;;
   }
 
