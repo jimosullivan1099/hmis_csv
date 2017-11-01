@@ -85,6 +85,7 @@ explore: enrollment  {
     sql_on: ${enrollment.project_entry_id} = ${employmenteducation.project_entry_id} ;;
     relationship: one_to_many
   }
+
   join:  incomebenefits {
     type:  left_outer
     sql_on: ${enrollment.project_entry_id} = ${incomebenefits.project_entry_id} ;;
@@ -106,6 +107,12 @@ explore: enrollment  {
   join:  services {
     type:  left_outer
     sql_on: ${enrollment.project_entry_id} = ${services.project_entry_id} ;;
+    relationship: one_to_many
+  }
+
+  join:  project {
+    type:  left_outer
+    sql_on: ${enrollment.project_id} = ${project.project_id} ;;
     relationship: one_to_many
   }
 }

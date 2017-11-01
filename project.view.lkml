@@ -59,6 +59,64 @@ view: project {
     sql: ${TABLE}.ProjectType ;;
   }
 
+  dimension: project_type_description {
+    type:  string
+    case:   {
+      when: {
+        sql: ${project_type} = 1;;
+        label: "Emergency Shelter"
+      }
+      when: {
+        sql: ${project_type} = 2;;
+        label: "Transitional Housing"
+      }
+      when: {
+        sql: ${project_type} = 3;;
+        label: "PH - Permanent Supportive Housing (disability required)"
+      }
+      when: {
+        sql: ${project_type} = 4;;
+        label: "Street Outreach"
+      }
+      when: {
+        sql: ${project_type} = 6;;
+        label: "Services Only"
+      }
+      when: {
+        sql: ${project_type} = 7;;
+        label: "Other"
+      }
+      when: {
+        sql: ${project_type} = 8;;
+        label: "Safe Haven"
+      }
+      when: {
+        sql: ${project_type} = 9;;
+        label: "PH - Housing Only"
+      }
+      when: {
+        sql: ${project_type} = 10;;
+        label: "PH - Housing with Services (no disability required)"
+      }
+      when: {
+        sql: ${project_type} = 11;;
+        label: "Day Shelter"
+      }
+      when: {
+        sql: ${project_type} = 12;;
+        label: "Homeless Prevention"
+      }
+      when: {
+        sql: ${project_type} = 13;;
+        label: "PH - Rapid Re-Housing"
+      }
+      when: {
+        sql: ${project_type} = 14;;
+        label: "Coordinated Assessment"
+      }
+    }
+  }
+
   dimension: residential_affiliation {
     type: string
     sql: ${TABLE}.ResidentialAffiliation ;;
