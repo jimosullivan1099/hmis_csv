@@ -60,7 +60,13 @@ explore: client  {
 
   join:  organization {
     type:  inner
-    sql_on: ${project.organization_id} =${organization.organization_id} ;;
+    sql_on: ${project.organization_id} = ${organization.organization_id} ;;
+    relationship: one_to_many
+  }
+
+  join:  funder {
+    type:  inner
+    sql_on: ${project.project_id} = ${funder.project_id} ;;
     relationship: one_to_many
   }
 
