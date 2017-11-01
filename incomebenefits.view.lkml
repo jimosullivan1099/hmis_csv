@@ -374,6 +374,6 @@ view: incomebenefits {
 
   measure: count {
     type: count
-    drill_fields: [export.export_id, export.source_name, export.software_name]
+    drill_fields: [income_benefits_id, export.export_id, export.source_name, export.software_name]
   }
 }
