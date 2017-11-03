@@ -93,6 +93,7 @@ view: incomebenefits {
   }
 
   dimension: income_benefits_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}.IncomeBenefitsID ;;
   }
