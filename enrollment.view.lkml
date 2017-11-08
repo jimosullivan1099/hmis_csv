@@ -408,6 +408,131 @@ view: enrollment {
     sql: ${TABLE}.VAMCStation ;;
   }
 
+  dimension: living_situation {
+    type: string
+    sql: ${TABLE}.LivingSituation ;;
+  }
+
+  dimension: length_of_stay {
+    type: string
+    sql: ${TABLE}.LengthOfStay ;;
+  }
+
+  dimension: los_under_threshold {
+    type: string
+    sql: ${TABLE}.LOSUnderThreshold ;;
+  }
+
+  dimension: previous_street_essh {
+    type: string
+    sql: ${TABLE}.PreviousStreetESSH ;;
+  }
+
+  dimension: move_in_date {
+    type: string
+    sql: ${TABLE}.MoveInDate ;;
+  }
+
+  dimension: eligible_for_rhy {
+    type: string
+    sql: ${TABLE}.EligibleForRHY ;;
+  }
+
+  dimension: runaway_youth {
+    type: string
+    sql: ${TABLE}.RunawayYouth ;;
+  }
+
+  dimension: urgen_referral {
+    type: string
+    sql: ${TABLE}.UrgentReferral ;;
+  }
+
+  dimension: time_to_housing_loss {
+    type: string
+    sql: ${TABLE}.TimeToHousingLoss ;;
+  }
+
+  dimension: zero_income {
+    type: string
+    sql: ${TABLE}.ZeroIncome ;;
+  }
+
+  dimension: annual_percent_ami {
+    type: string
+    sql: ${TABLE}.AnnualPercentAMI ;;
+  }
+
+  dimension: financial_change {
+    type: string
+    sql: ${TABLE}.FinancialChange ;;
+  }
+
+  dimension: household_change {
+    type: string
+    sql: ${TABLE}.HouseholdChange ;;
+  }
+
+  dimension: eviction_history {
+    type: string
+    sql: ${TABLE}.EvictionHistory ;;
+  }
+
+  dimension: subsidy_at_risk {
+    type: string
+    sql: ${TABLE}.SubsidyAtRisk ;;
+  }
+
+  dimension: literal_homeless_history {
+    type: string
+    sql: ${TABLE}.LiteralHomelessHistory ;;
+  }
+
+  dimension: disabled_hoh {
+    type: string
+    sql: ${TABLE}.DisabledHoH ;;
+  }
+
+  dimension: criminal_record {
+    type: string
+    sql: ${TABLE}.CriminalRecord ;;
+  }
+
+  dimension: sex_offender {
+    type: string
+    sql: ${TABLE}.SexOffender ;;
+  }
+
+  dimension: dependent_under_6 {
+    type: string
+    sql: ${TABLE}.DependentUnder6 ;;
+  }
+
+  dimension: single_parent {
+    type: string
+    sql: ${TABLE}.SingleParent ;;
+  }
+
+  dimension: hh5_plus {
+    type: string
+    sql: ${TABLE}.HH5Plus ;;
+  }
+
+  dimension: iraq_afghanistan {
+    type: string
+    sql: ${TABLE}.IraqAfghanistan ;;
+  }
+
+  dimension: fem_vet {
+    type: string
+    sql: ${TABLE}.FemVet ;;
+  }
+
+  dimension: threshold_score {
+    type: string
+    sql: ${TABLE}.ThresholdScore ;;
+  }
+
   dimension_group: date_created {
     type: time
     sql: ${TABLE}.DateCreated ;;
