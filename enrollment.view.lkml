@@ -443,7 +443,7 @@ view: enrollment {
     sql: ${TABLE}.RunawayYouth ;;
   }
 
-  dimension: urgen_referral {
+  dimension: urgent_referral {
     type: string
     sql: ${TABLE}.UrgentReferral ;;
   }
