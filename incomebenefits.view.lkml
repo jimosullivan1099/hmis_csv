@@ -36,6 +36,11 @@ view: incomebenefits {
     sql: ${TABLE}.COBRA ;;
   }
 
+  dimension: connection_with_soar {
+    type: string
+    sql: ${TABLE}.ConnectionWithSOAR ;;
+  }
+
   dimension: data_collection_stage {
     type: string
     sql: ${TABLE}.DataCollectionStage ;;
@@ -93,6 +98,7 @@ view: incomebenefits {
   }
 
   dimension: income_benefits_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}.IncomeBenefitsID ;;
   }
@@ -100,6 +106,11 @@ view: incomebenefits {
   dimension: income_from_any_source {
     type: string
     sql: ${TABLE}.IncomeFromAnySource ;;
+  }
+
+  dimension: indian_health_services {
+    type: string
+    sql: ${TABLE}.IndianHealthServices ;;
   }
 
   dimension: information_date {
@@ -140,6 +151,11 @@ view: incomebenefits {
   dimension: no_hivaidsassistance_reason {
     type: string
     sql: ${TABLE}.NoHIVAIDSAssistanceReason ;;
+  }
+
+  dimension: no_indian_health_services_reason {
+    type: string
+    sql: ${TABLE}.NoIndianHealthServicesReason ;;
   }
 
   dimension: no_medicaid_reason {
@@ -195,6 +211,16 @@ view: incomebenefits {
   dimension: other_income_source_identify {
     type: string
     sql: ${TABLE}.OtherIncomeSourceIdentify ;;
+  }
+
+  dimension: other_insurance {
+    type: string
+    sql: ${TABLE}.OtherInsurance ;;
+  }
+
+  dimension: other_insurance_identify {
+    type: string
+    sql: ${TABLE}.OtherInsuranceIdentify ;;
   }
 
   dimension: other_tanf {
