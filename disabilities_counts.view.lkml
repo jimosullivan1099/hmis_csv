@@ -1,10 +1,10 @@
 view: disabilities_counts{
   derived_table: {
-    sql: SELECT PersonalID, ProjectEntryID, DataCollectionStage, COUNT(Distinct DisabilitiesID)
+    sql: SELECT PersonalID, EnrollmentID, DataCollectionStage, COUNT(Distinct DisabilitiesID)
       FROM disabilities
       GROUP BY ProjectEntryID, DataCollectionStage
        ;;
-    indexes: ["ProjectEntryId"]
+    indexes: ["EnrollmentID"]
   }
 
   measure: count {
@@ -17,9 +17,9 @@ view: disabilities_counts{
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: project_entry_id {
+  dimension: enrollment_id {
     type: string
-    sql: ${TABLE}.ProjectEntryID ;;
+    sql: ${TABLE}.EnrollmentID ;;
   }
 
   dimension: data_collection_stage {
@@ -33,6 +33,6 @@ view: disabilities_counts{
   }
 
   set: detail {
-    fields: [personal_id, project_entry_id, data_collection_stage, disability_count_by_enrollment_and_dcs]
+    fields: [personal_id, enrollment_id, data_collection_stage, disability_count_by_enrollment_and_dcs]
   }
 }

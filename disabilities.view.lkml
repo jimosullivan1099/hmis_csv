@@ -2,7 +2,7 @@ view: disabilities {
   derived_table: {
     sql: SELECT * FROM disabilities
       ;;
-    indexes: ["ProjectEntryId","DisabilitiesId"]
+    indexes: ["EnrollmentID","DisabilitiesId"]
   }
 
   dimension: disabilities_id {
@@ -77,9 +77,9 @@ view: disabilities {
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: project_entry_id {
+  dimension: enrollment_id {
     type: string
-    sql: ${TABLE}.ProjectEntryID ;;
+    sql: ${TABLE}.EnrollmentID ;;
   }
 
   dimension: receiving_services {
