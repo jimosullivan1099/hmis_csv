@@ -1,10 +1,10 @@
-view: disabilities_counts {
+view: disabilities_counts{
   derived_table: {
     sql: SELECT PersonalID, ProjectEntryID, DataCollectionStage, COUNT(Distinct DisabilitiesID)
       FROM disabilities
       GROUP BY ProjectEntryID, DataCollectionStage
        ;;
-    indexes: ["ProjectEntryId","DisabilitiesId"]
+    indexes: ["ProjectEntryId"]
   }
 
   measure: count {
