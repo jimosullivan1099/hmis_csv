@@ -41,7 +41,7 @@ view: enrollment {
   }
 
   dimension: household_id {
-    type: number
+    type: string
     sql: ${TABLE}.HouseholdID ;;
   }
 
@@ -605,7 +605,19 @@ view: enrollment {
       field: project_entry_id
       value: "null"
     }
-  drill_fields: [client.personal_id]
+    drill_fields: [client.personal_id]
+  }
+
+  # Count of enrollments that have the same Household ID and multiple records having RelationshipToHoH equal to self
+  dimension: enrollments_with_multiple_hoh {
+    type:  number
+    sql: (
+          SELECT COUNT(a.ProjectEntryId)
+          FROM enrollment AS a
+          INNER JOIN enrollment AS b ON a.HouseholdID = b.HouseholdID AND a.ProjectEntryID <> b.ProjectEntryID
+          WHERE a.RelationshipToHoH = 1
+            AND b.RelationshipToHoH = 1
+         ) ;;
   }
 
 

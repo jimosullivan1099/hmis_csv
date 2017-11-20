@@ -23,6 +23,12 @@ explore: client  {
     relationship: one_to_many
   }
 
+  join: disabilities_counts {
+    type:  left_outer
+    sql_on: ${enrollment.project_entry_id} = ${disabilities_counts.project_entry_id} ;;
+    relationship: one_to_many
+  }
+
   join:  employmenteducation {
     type:  left_outer
     sql_on: ${enrollment.project_entry_id} = ${employmenteducation.project_entry_id} ;;
