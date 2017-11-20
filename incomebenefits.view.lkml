@@ -258,9 +258,9 @@ view: incomebenefits {
     sql: ${TABLE}.PrivatePay ;;
   }
 
-  dimension: project_entry_id {
+  dimension: enrollment_id {
     type: string
-    sql: ${TABLE}.ProjectEntryID ;;
+    sql: ${TABLE}.EnrollmentID ;;
   }
 
   dimension: rental_assistance_ongoing {

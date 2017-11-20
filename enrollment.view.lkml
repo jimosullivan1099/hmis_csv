@@ -16,10 +16,10 @@ view: enrollment {
   sql: YEAR(${entry_date_date}) - YEAR(${client.dob}) - (DATE_FORMAT(${entry_date_date}, '%m%d') < DATE_FORMAT(${client.dob}, '%m%d'));;
 }
 
-  dimension: project_entry_id {
+  dimension: enrollment_id {
     type: string
     primary_key: yes
-    sql: ${TABLE}.ProjectEntryID ;;
+    sql: ${TABLE}.EnrollmentID ;;
   }
 
 
@@ -67,7 +67,7 @@ view: enrollment {
 
   dimension: orphaned_enrollment {
     type:  number
-    sql: ( SELECT count(projectentryid)
+    sql: ( SELECT count(EnrollmentID)
           FROM enrollment as b
           WHERE not exists (SELECT * FROM  client as a WHERE a.PersonalID=b.PersonalID )
          ) ;;
@@ -602,7 +602,7 @@ view: enrollment {
     type:  count_distinct
     sql: ${client.personal_id};;
     filters: {
-      field: project_entry_id
+      field: enrollment_id
       value: "null"
     }
     drill_fields: [client.personal_id]
@@ -612,9 +612,9 @@ view: enrollment {
   dimension: enrollments_with_multiple_hoh {
     type:  number
     sql: (
-          SELECT COUNT(a.ProjectEntryId)
+          SELECT COUNT(a.EnrollmentID)
           FROM enrollment AS a
-          INNER JOIN enrollment AS b ON a.HouseholdID = b.HouseholdID AND a.ProjectEntryID <> b.ProjectEntryID
+          INNER JOIN enrollment AS b ON a.HouseholdID = b.HouseholdID AND a.EnrollmentID <> b.EnrollmentID
           WHERE a.RelationshipToHoH = 1
             AND b.RelationshipToHoH = 1
          ) ;;
@@ -625,7 +625,7 @@ view: enrollment {
   set: detail {
     fields: [
       id,
-      project_entry_id,
+      enrollment_id,
       personal_id,
       project_id,
       entry_date_time,

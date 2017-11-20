@@ -77,9 +77,9 @@ view: healthanddv {
     sql: ${TABLE}.PregnancyStatus ;;
   }
 
-  dimension: project_entry_id {
+  dimension: enrollment_id {
     type: string
-    sql: ${TABLE}.ProjectEntryID ;;
+    sql: ${TABLE}.EnrollmentID ;;
   }
 
   dimension: user_id {

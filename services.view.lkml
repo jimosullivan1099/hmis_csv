@@ -2,7 +2,7 @@ view: services {
   derived_table: {
     sql: SELECT * FROM services
       ;;
-    indexes: ["ProjectEntryId","PersonalId"]
+    indexes: ["EnrollmentID","PersonalId"]
   }
 
 
@@ -54,9 +54,9 @@ view: services {
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: project_entry_id {
+  dimension: enrollment_id {
     type: string
-    sql: ${TABLE}.ProjectEntryID ;;
+    sql: ${TABLE}.EnrollmentID ;;
   }
 
   dimension: record_type {

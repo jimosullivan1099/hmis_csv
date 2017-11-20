@@ -19,42 +19,42 @@ explore: client  {
 
   join: disabilities {
     type:  left_outer
-    sql_on: ${enrollment.project_entry_id} = ${disabilities.project_entry_id} ;;
+    sql_on: ${enrollment.enrollment_id} = ${disabilities.enrollment_id} ;;
     relationship: one_to_many
   }
 
   join: disabilities_counts {
     type:  left_outer
-    sql_on: ${enrollment.project_entry_id} = ${disabilities_counts.project_entry_id} ;;
+    sql_on: ${enrollment.enrollment_id} = ${disabilities_counts.enrollment_id} ;;
     relationship: one_to_many
   }
 
   join:  employmenteducation {
     type:  left_outer
-    sql_on: ${enrollment.project_entry_id} = ${employmenteducation.project_entry_id} ;;
+    sql_on: ${enrollment.enrollment_id} = ${employmenteducation.enrollment_id} ;;
     relationship: one_to_many
   }
   join:  incomebenefits {
     type:  left_outer
-    sql_on: ${enrollment.project_entry_id} = ${incomebenefits.project_entry_id} ;;
+    sql_on: ${enrollment.enrollment_id} = ${incomebenefits.enrollment_id} ;;
     relationship: one_to_many
   }
 
   join:  exit {
     type:  left_outer
-    sql_on: ${enrollment.project_entry_id} = ${exit.project_entry_id} ;;
+    sql_on: ${enrollment.enrollment_id} = ${exit.enrollment_id} ;;
     relationship: one_to_one
   }
 
   join:  healthanddv {
     type:  left_outer
-    sql_on: ${enrollment.project_entry_id} = ${healthanddv.personal_id} ;;
+    sql_on: ${enrollment.enrollment_id} = ${healthanddv.enrollment_id} ;;
     relationship: one_to_many
   }
 
   join:  services {
     type:  left_outer
-    sql_on: ${enrollment.project_entry_id} = ${services.project_entry_id} ;;
+    sql_on: ${enrollment.enrollment_id} = ${services.enrollment_id} ;;
     relationship: one_to_many
   }
 
@@ -88,37 +88,37 @@ explore: enrollment  {
 
   join: disabilities {
     type:  left_outer
-    sql_on: ${enrollment.project_entry_id} = ${disabilities.project_entry_id} ;;
+    sql_on: ${enrollment.enrollment_id} = ${disabilities.enrollment_id} ;;
     relationship: one_to_many
   }
 
   join:  employmenteducation {
     type:  left_outer
-    sql_on: ${enrollment.project_entry_id} = ${employmenteducation.project_entry_id} ;;
+    sql_on: ${enrollment.enrollment_id} = ${employmenteducation.enrollment_id} ;;
     relationship: one_to_many
   }
 
   join:  incomebenefits {
     type:  left_outer
-    sql_on: ${enrollment.project_entry_id} = ${incomebenefits.project_entry_id} ;;
+    sql_on: ${enrollment.enrollment_id} = ${incomebenefits.enrollment_id} ;;
     relationship: one_to_many
   }
 
   join:  exit {
     type:  left_outer
-    sql_on: ${enrollment.project_entry_id} = ${exit.project_entry_id} ;;
+    sql_on: ${enrollment.enrollment_id} = ${exit.enrollment_id} ;;
     relationship: one_to_one
   }
 
   join:  healthanddv {
     type:  left_outer
-    sql_on: ${enrollment.project_entry_id} = ${healthanddv.personal_id} ;;
+    sql_on: ${enrollment.enrollment_id} = ${healthanddv.enrollment_id} ;;
     relationship: one_to_many
   }
 
   join:  services {
     type:  left_outer
-    sql_on: ${enrollment.project_entry_id} = ${services.project_entry_id} ;;
+    sql_on: ${enrollment.enrollment_id} = ${services.enrollment_id} ;;
     relationship: one_to_many
   }
 
