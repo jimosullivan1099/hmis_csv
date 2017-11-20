@@ -28,7 +28,7 @@ view: disabilities_counts{
   }
 
   dimension: disability_count_by_enrollment_and_dcs {
-    type: number
+    type: string
     sql: ${TABLE}.`COUNT(Distinct DisabilitiesID)` ;;
   }
 
