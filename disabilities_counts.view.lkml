@@ -2,7 +2,7 @@ view: disabilities_counts{
   derived_table: {
     sql: SELECT PersonalID, EnrollmentID, DataCollectionStage, COUNT(Distinct DisabilitiesID)
       FROM disabilities
-      GROUP BY ProjectEntryID, DataCollectionStage
+      GROUP BY EnrollmentID, DataCollectionStage
        ;;
     indexes: ["EnrollmentID"]
   }
