@@ -15,7 +15,6 @@ view: enrollment_household_counts {
 
   measure: count {
     type: count
-    sql:  ${household_id} ;;
     drill_fields: [detail*]
   }
 
