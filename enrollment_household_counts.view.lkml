@@ -50,9 +50,9 @@ view: enrollment_household_counts {
     sql: ${TABLE}.enrollment_count ;;
   }
 
-  dimension: count_distinct_enrollments_per_client {
+  dimension: enrollments_per_client_ratio {
     type: number
-    sql: ${TABLE}.count_distinct_enrollments_per_client ;;
+    sql: ${TABLE}.enrollments_per_client_ratio ;;
   }
 
   set: detail {
@@ -62,7 +62,7 @@ view: enrollment_household_counts {
       count_distinct_clients,
       count_hoh,
       enrollment_count,
-      count_distinct_enrollments_per_client
+      enrollments_per_client_ratio
     ]
   }
 }
