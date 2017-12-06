@@ -6,7 +6,7 @@ view: enrollment_household_counts {
         COUNT(Distinct PersonalID) AS count_distinct_clients,
         COUNT(CASE RelationshipToHoH WHEN '1' THEN 1 ELSE NULL END) AS count_hoh,
         COUNT(EnrollmentID) AS enrollment_count,
-        CAST((COUNT(Distinct EnrollmentID) / COUNT(Distinct PersonalID)) AS integer) AS count_distinct_enrollments_per_client
+        (COUNT(Distinct EnrollmentID) / COUNT(Distinct PersonalID)) AS enrollments_per_client_ratio
       FROM enrollment
       GROUP BY HouseholdID
       ;;
