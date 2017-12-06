@@ -17,6 +17,12 @@ explore: client  {
     relationship: one_to_many
   }
 
+  join: enrollment_household_counts {
+    type:  left_outer
+    sql_on: ${enrollment.household_id} = ${enrollment_household_counts.household_id} ;;
+    relationship: one_to_one
+  }
+
   join: disabilities {
     type:  left_outer
     sql_on: ${enrollment.enrollment_id} = ${disabilities.enrollment_id} ;;

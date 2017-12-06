@@ -1,7 +1,7 @@
 view: enrollment {
 
 
-   measure: enrollment_count {
+  measure: enrollment_count {
     type: count
     drill_fields: [detail*]
   }
