@@ -11,19 +11,16 @@ view: enrollment {
     sql: ${TABLE}.id ;;
   }
 
-  dimension:  age_at_entry {
-   type:  number
-  sql: YEAR(${entry_date_date}) - YEAR(${client.dob}) - (DATE_FORMAT(${entry_date_date}, '%m%d') < DATE_FORMAT(${client.dob}, '%m%d'));;
-}
+  dimension: age_at_entry {
+    type: number
+    sql: YEAR(${entry_date_date}) - YEAR(${client.dob}) - (DATE_FORMAT(${entry_date_date}, '%m%d') < DATE_FORMAT(${client.dob}, '%m%d'));;
+  }
 
   dimension: enrollment_id {
     type: string
     primary_key: yes
     sql: ${TABLE}.EnrollmentID ;;
   }
-
-
-
 
   dimension: personal_id {
     type: string
@@ -63,14 +60,6 @@ view: enrollment {
   dimension: residence_prior_length_of_stay {
     type: string
     sql: ${TABLE}.ResidencePriorLengthOfStay ;;
-  }
-
-  dimension: orphaned_enrollment {
-    type:  number
-    sql: ( SELECT count(EnrollmentID)
-          FROM enrollment as b
-          WHERE not exists (SELECT * FROM  client as a WHERE a.PersonalID=b.PersonalID )
-         ) ;;
   }
 
   dimension: disabling_condition {
@@ -598,29 +587,10 @@ view: enrollment {
     sql: ${TABLE}.enrolment_head ;;
   }
 
-  measure: clients_without_enrollments {
+  measure: count_distinct_clients {
     type:  count_distinct
     sql: ${client.personal_id};;
-    filters: {
-      field: enrollment_id
-      value: "null"
-    }
-    drill_fields: [client.personal_id]
   }
-
-  # Count of enrollments that have the same Household ID and multiple records having RelationshipToHoH equal to self
-  dimension: enrollments_with_multiple_hoh {
-    type:  number
-    sql: (
-          SELECT COUNT(a.EnrollmentID)
-          FROM enrollment AS a
-          INNER JOIN enrollment AS b ON a.HouseholdID = b.HouseholdID AND a.EnrollmentID <> b.EnrollmentID
-          WHERE a.RelationshipToHoH = 1
-            AND b.RelationshipToHoH = 1
-         ) ;;
-  }
-
-
 
   set: detail {
     fields: [
