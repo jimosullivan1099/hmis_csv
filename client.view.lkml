@@ -3,348 +3,198 @@ view: client {
   sql_table_name: client ;;
 
 
-  dimension: afghanistan_oef {
+  dimension: AfghanistanOEF {
     type: string
     sql: ${TABLE}.AfghanistanOEF ;;
   }
 
-  dimension: am_ind_aknative {
+  dimension: AmIndAKNative {
     type: string
     sql: ${TABLE}.AmIndAKNative ;;
   }
 
-  dimension: asian {
+  dimension: Asian {
     type: string
     sql: ${TABLE}.Asian ;;
   }
 
-  dimension: black_af_american {
+  dimension: BlackAfAmerican {
     type: string
     sql: ${TABLE}.BlackAfAmerican ;;
   }
 
-  dimension: date_created {
+  dimension: DateCreated {
     type: string
     sql: ${TABLE}.DateCreated ;;
   }
 
-  dimension: date_deleted {
+  dimension: DateDeleted {
     type: string
     sql: ${TABLE}.DateDeleted ;;
   }
 
-  dimension: date_updated {
+  dimension: DateUpdated {
     type: string
     sql: ${TABLE}.DateUpdated ;;
   }
 
-  dimension: desert_storm {
+  dimension: DesertStorm {
     type: string
     sql: ${TABLE}.DesertStorm ;;
   }
 
-  dimension: discharge_status {
+  dimension: DischargeStatus {
     type: string
     sql: ${TABLE}.DischargeStatus ;;
   }
 
-  dimension: dob {
+  dimension: DOB {
     type: string
     sql: ${TABLE}.DOB ;;
   }
 
-  dimension: dobdata_quality {
+  dimension: DOBDataQuality {
     type: string
     sql: ${TABLE}.DOBDataQuality ;;
   }
 
-  dimension: ethnicity {
+  dimension: Ethnicity {
     type: string
-    drill_fields: [count_details*]
     sql: ${TABLE}.Ethnicity ;;
   }
 
-  dimension: export_id {
+  dimension: ExportID {
     type: string
-    # hidden: yes
     sql: ${TABLE}.ExportID ;;
   }
 
-  dimension: first_name {
+  dimension: FirstName {
     type: string
     sql: ${TABLE}.FirstName ;;
   }
 
-  dimension: gender {
+  dimension: Gender {
     type: string
-    drill_fields: [count_details*]
     sql: ${TABLE}.Gender ;;
   }
 
-  dimension: iraq_oif {
+  dimension: IraqOIF {
     type: string
     sql: ${TABLE}.IraqOIF ;;
   }
 
-  dimension: iraq_ond {
+  dimension: IraqOND {
     type: string
     sql: ${TABLE}.IraqOND ;;
   }
 
-  dimension: korean_war {
+  dimension: KoreanWar {
     type: string
     sql: ${TABLE}.KoreanWar ;;
   }
 
-  dimension: last_name {
+  dimension: LastName {
     type: string
     sql: ${TABLE}.LastName ;;
   }
 
-  dimension: middlename {
+  dimension: Middlename {
     type: string
-    sql: ${TABLE}.Middlename ;;
+    sql: ${TABLE}.MiddleName ;;
   }
 
-  dimension: military_branch {
+  dimension: MilitaryBranch {
     type: string
     sql: ${TABLE}.MilitaryBranch ;;
   }
 
-  dimension: name_data_quality {
+  dimension: NameDataQuality {
     type: string
     sql: ${TABLE}.NameDataQuality ;;
   }
 
-  dimension: name_suffix {
+  dimension: NameSuffix {
     type: string
     sql: ${TABLE}.NameSuffix ;;
   }
 
-  dimension: native_hiother_pacific {
+  dimension: NativeHIOtherPacific {
     type: string
     sql: ${TABLE}.NativeHIOtherPacific ;;
   }
 
-  dimension: other_gender {
+  dimension: OtherGender {
     type: string
     sql: ${TABLE}.OtherGender ;;
   }
 
-  dimension: other_theater {
+  dimension: OtherTheater {
     type: string
     sql: ${TABLE}.OtherTheater ;;
   }
 
-  dimension: personal_id {
+  dimension: PersonalID {
     type: string
     primary_key: yes
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: race_none {
+  dimension: RaceNone {
     type: string
     sql: ${TABLE}.RaceNone ;;
   }
 
-  dimension: ssn {
+  dimension: SSN {
     type: string
     sql: ${TABLE}.SSN ;;
   }
 
-  dimension: ssndata_quality {
+  dimension: SSNDataQuality {
     type: string
     sql: ${TABLE}.SSNDataQuality ;;
   }
 
-  dimension: user_id {
+  dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;
   }
 
-  dimension: veteran_status {
+  dimension: VeteranStatus {
     type: string
     sql: ${TABLE}.VeteranStatus ;;
   }
 
-  dimension: vietnam_war {
+  dimension: VietnamWar {
     type: string
     sql: ${TABLE}.VietnamWar ;;
   }
 
-  dimension: white {
+  dimension: White {
     type: string
     sql: ${TABLE}.White ;;
   }
 
-  dimension: world_war_ii {
+  dimension: WorldWarII {
     type: string
     sql: ${TABLE}.WorldWarII ;;
   }
 
-  dimension: year_entered_service {
+  dimension: YearEnteredService {
     type: string
     sql: ${TABLE}.YearEnteredService ;;
   }
 
-  dimension: year_separated {
+  dimension: YearSeparated {
     type: string
     sql: ${TABLE}.YearSeparated ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [detail*]
   }
 
   measure: distinct_count {
     type:  count_distinct
-    sql:  ${personal_id} ;;
-  }
-
-  measure: count_distinct_difference {
-    type: number
-    sql:  ${count} - ${distinct_count} ;;
-  }
-
-  measure:  clients_with_invalid_name_dq {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: name_data_quality
-      value: "-1,-2,-8,-9,-99,-NULL"
-    }
-  }
-
-  measure:  clients_with_null_name_dq {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: name_data_quality
-      value: "NULL"
-    }
-  }
-
-  measure:  clients_with_invalid_ssn_dq {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: ssndata_quality
-      value: "-1,-2,-8,-9,-99,-NULL"
-    }
-  }
-
-  measure:  clients_with_null_ssn_dq {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: ssndata_quality
-      value: "NULL"
-    }
-  }
-
-  measure:  clients_with_invalid_dob_dq {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: dobdata_quality
-      value: "-1,-2,-8,-9,-99,-NULL"
-    }
-  }
-
-  measure:  clients_with_null_dob_dq {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: dobdata_quality
-      value: "NULL"
-    }
-  }
-
-  measure:  clients_with_invalid_race_none {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: race_none
-      value: "-8,-9,-99,-NULL"
-    }
-  }
-
-  measure:  clients_with_unknown_race_none {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: race_none
-      value: "8,9,99"
-    }
-  }
-
-  measure:  clients_with_unknown_race_none_dq_check {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: race_none
-      value: "8,9,99"
-    }
-    filters: {
-      field: am_ind_aknative
-      value: "0"
-    }
-    filters: {
-      field: asian
-      value: "0"
-    }
-    filters: {
-      field: black_af_american
-      value: "0"
-    }
-    filters: {
-      field: native_hiother_pacific
-      value: "0"
-    }
-    filters: {
-      field: white
-      value: "0"
-    }
-  }
-
-  measure:  clients_with_invalid_ethnicity {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: ethnicity
-      value: "-0,-1,-8,-9,-99"
-    }
-  }
-
-  measure:  clients_with_invalid_gender {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: gender
-      value: "-0,-1,-2,-3,-4,-8,-9,-99"
-    }
-  }
-
-  measure:  clients_with_invalid_veteran_status {
-    type: count_distinct
-    sql: ${personal_id} ;;
-    filters: {
-      field: gender
-      value: "-0,-1,-8,-9,-99"
-    }
-  }
-
-  # ----- Sets of fields for drilling ------
-  set: detail {
-    fields: [
-      first_name,
-      middlename,
-      last_name
-    ]
-  }
-
-  set: count_details {
-    fields: [personal_id, enrollment.project_id]
+    sql:  ${PersonalID} ;;
   }
 }

@@ -1,82 +1,69 @@
 view: enrollmentcoc {
   sql_table_name: enrollmentcoc ;;
 
-  dimension: coccode {
+  dimension: COCCode {
     type: string
     sql: ${TABLE}.COCCode ;;
   }
 
-  dimension: data_collection_stage {
+  dimension: DataCollectionStage {
     type: string
     sql: ${TABLE}.DataCollectionStage ;;
   }
 
-  dimension: date_created {
+  dimension: DateCreated {
     type: string
     sql: ${TABLE}.DateCreated ;;
   }
 
-  dimension: date_deleted {
+  dimension: DateDeleted {
     type: string
     sql: ${TABLE}.DateDeleted ;;
   }
 
-  dimension: date_updated {
+  dimension: DateUpdated {
     type: string
     sql: ${TABLE}.DateUpdated ;;
   }
 
-  dimension: enrollment_cocid {
+  dimension: EnrollmentCOCID {
     type: string
     sql: ${TABLE}.EnrollmentCOCID ;;
   }
 
-  dimension: export_id {
+  dimension: ExportID {
     type: string
     # hidden: yes
     sql: ${TABLE}.ExportID ;;
   }
 
-  dimension: informationdate {
+  dimension: InformationDate {
     type: string
-    sql: ${TABLE}.Informationdate ;;
+    sql: ${TABLE}.InformationDate ;;
   }
 
-  dimension: personal_id {
+  dimension: PersonalID {
     type: string
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: enrollment_id {
+  dimension: EnrollmentID {
     type: string
     sql: ${TABLE}.EnrollmentID ;;
   }
 
-  dimension: project_id {
+  dimension: ProjectID {
     type: string
     # hidden: yes
     sql: ${TABLE}.ProjectID ;;
   }
 
-  dimension: user_id {
+  dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [detail*]
-  }
-
-  # ----- Sets of fields for drilling ------
-  set: detail {
-    fields: [
-      export.export_id,
-      export.source_name,
-      export.software_name,
-      project.project_id,
-      project.project_common_name,
-      project.project_name
-    ]
   }
 }

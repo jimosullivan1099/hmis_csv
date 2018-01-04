@@ -7,59 +7,58 @@ view: services {
 
 
 
-  dimension: services_id {
+  dimension: ServicesID {
     primary_key: yes
     type: string
     sql: ${TABLE}.ServicesID ;;
   }
 
-  dimension: date_created {
+  dimension: DateCreated {
     type: string
     sql: ${TABLE}.DateCreated ;;
   }
 
-  dimension: date_deleted {
+  dimension: DateDeleted {
     type: string
     sql: ${TABLE}.DateDeleted ;;
   }
 
-  dimension: date_provided {
+  dimension: DateProvided {
     type: date
     sql: ${TABLE}.DateProvided ;;
   }
 
-  dimension: date_updated {
+  dimension: DateUpdated {
     type: string
     sql: ${TABLE}.DateUpdated ;;
   }
 
-  dimension: export_id {
+  dimension: ExportID {
     type: string
-    # hidden: yes
     sql: ${TABLE}.ExportID ;;
   }
 
-  dimension: faamount {
+  dimension: FAAmount {
     type: string
     sql: ${TABLE}.FAAmount ;;
   }
 
-  dimension: other_type_provided {
+  dimension: OtherTypeProvided {
     type: string
     sql: ${TABLE}.OtherTypeProvided ;;
   }
 
-  dimension: personal_id {
+  dimension: PersonalID {
     type: string
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: enrollment_id {
+  dimension: EnrollmentID {
     type: string
     sql: ${TABLE}.EnrollmentID ;;
   }
 
-  dimension: record_type {
+  dimension: RecordType {
     type: string
     sql: ${TABLE}.RecordType ;;
   }
@@ -68,39 +67,39 @@ view: services {
   type:  string
   case:   {
     when: {
-      sql: ${record_type} = 12;;
+      sql: ${RecordType} = 12;;
       label: "Contact"
           }
     when: {
-      sql: ${record_type} = 200;;
+      sql: ${RecordType} = 200;;
       label: "Bed Night"
     }
     when: {
-      sql: ${record_type} = 141;;
+      sql: ${RecordType} = 141;;
       label: "PATH service"
     } when: {
-      sql: ${record_type} = 142;;
+      sql: ${RecordType} = 142;;
       label: "RHY Service"
     } when: {
-      sql: ${record_type} = 143;;
+      sql: ${RecordType} = 143;;
       label: "HOPWA Service"
     } when: {
-      sql: ${record_type} = 144;;
+      sql: ${RecordType} = 144;;
       label: "SSVF Service"
     } when: {
-      sql: ${record_type} = 151;;
+      sql: ${RecordType} = 151;;
       label: "HOPWA financial assistance"
     } when: {
-      sql: ${record_type} = 152;;
+      sql: ${RecordType} = 152;;
       label: "SSVF financial assistance"
     } when: {
-      sql: ${record_type} = 161;;
+      sql: ${RecordType} = 161;;
       label: "PATH referral"
     } when: {
-      sql: ${record_type} = 162;;
+      sql: ${RecordType} = 162;;
       label: "RHY referral"
     } when: {
-      sql: ${record_type} = 210;;
+      sql: ${RecordType} = 210;;
       label: "HUD-VASH OTH voucher tracking"
     }
   }
@@ -109,17 +108,17 @@ view: services {
 
 
 
-  dimension: referral_outcome {
+  dimension: ReferralOutcome {
     type: string
     sql: ${TABLE}.ReferralOutcome ;;
   }
 
-  dimension: sub_type_provided {
+  dimension: SubTypeProvided {
     type: string
     sql: ${TABLE}.SubTypeProvided ;;
   }
 
-  dimension: type_provided {
+  dimension: TypeProvided {
     type: string
     sql: ${TABLE}.TypeProvided ;;
   }
@@ -128,143 +127,143 @@ view: services {
     type:  string
     case:   {
       when: {
-        sql: ${record_type} = 12;;
+        sql: ${RecordType} = 12;;
         label: "Contact"
       }
       when: {
-        sql: ${record_type} = 200;;
+        sql: ${RecordType} = 200;;
         label: "Bed Night"
       }
       when: {
-        sql: ${record_type} = 141 and ${type_provided} = 1;;
+        sql: ${RecordType} = 141 and ${TypeProvided} = 1;;
         label: "Re-engagement"
       } when: {
-        sql: ${record_type} = 141 and ${type_provided} = 2;;
+        sql: ${RecordType} = 141 and ${TypeProvided} = 2;;
         label: "Screening"
       } when: {
-        sql: ${record_type} = 141 and ${type_provided} = 3;;
+        sql: ${RecordType} = 141 and ${TypeProvided} = 3;;
         label: "Habilitation/rehabilitation"
       } when: {
-        sql: ${record_type} = 141 and ${type_provided} = 4;;
+        sql: ${RecordType} = 141 and ${TypeProvided} = 4;;
         label: "Community mental health"
       } when: {
-        sql: ${record_type} = 141 and ${type_provided} = 5;;
+        sql: ${RecordType} = 141 and ${TypeProvided} = 5;;
         label: "Substance use treatment"
       } when: {
-        sql: ${record_type} = 141 and ${type_provided} = 6;;
+        sql: ${RecordType} = 141 and ${TypeProvided} = 6;;
         label: "Case management"
       } when: {
-        sql: ${record_type} = 141 and ${type_provided} = 7;;
+        sql: ${RecordType} = 141 and ${TypeProvided} = 7;;
         label: "Residential supportive servicesl"
       } when: {
-        sql: ${record_type} = 141 and ${type_provided} = 8;;
+        sql: ${RecordType} = 141 and ${TypeProvided} = 8;;
         label: "Housing minor renovation"
       } when: {
-        sql: ${record_type} = 141 and ${type_provided} = 9;;
+        sql: ${RecordType} = 141 and ${TypeProvided} = 9;;
         label: "Housing moving assistance"
       }
       when: {
-        sql: ${record_type} = 141 and ${type_provided} = 10;;
+        sql: ${RecordType} = 141 and ${TypeProvided} = 10;;
         label: "Housing eligibility determination"
       }
       when: {
-        sql: ${record_type} = 141 and ${type_provided} = 11;;
+        sql: ${RecordType} = 141 and ${TypeProvided} = 11;;
         label:  "Security deposits"
       }
       when: {
-        sql: ${record_type} = 141 and ${type_provided} = 12;;
+        sql: ${RecordType} = 141 and ${TypeProvided} = 12;;
         label: "One-time rent for eviction prevention"
       }
       when: {
-        sql: ${record_type} = 141 and ${type_provided} = 13;;
+        sql: ${RecordType} = 141 and ${TypeProvided} = 13;;
         label: "Clinical assessment"
       }
 
       when: {
-        sql: ${record_type} = 142 and ${type_provided} = 1;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 1;;
         label: "Basic support services"
       } when: {
-        sql: ${record_type} = 142 and ${type_provided} = 2;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 2;;
         label: "Community service/service learning (CSL)"
       } when: {
-        sql: ${record_type} = 142 and ${type_provided} = 3;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 3;;
         label: "Counseling/therapy"
       } when: {
-        sql: ${record_type} = 142 and ${type_provided} = 4;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 4;;
         label: "Dental care"
       } when: {
-        sql: ${record_type} = 142 and ${type_provided} = 5;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 5;;
         label: "Education"
       } when: {
-        sql: ${record_type} = 142 and ${type_provided} = 6;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 6;;
         label: "Employment and training services"
       } when: {
-        sql: ${record_type} = 142 and ${type_provided} = 7;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 7;;
         label: "Criminal justice /legal services"
       } when: {
-        sql: ${record_type} = 142 and ${type_provided} = 8;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 8;;
         label: "Life skills training"
       } when: {
-        sql: ${record_type} = 142 and ${type_provided} = 9;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 9;;
         label: "Parenting education for parent of youth"
       }
       when: {
-        sql: ${record_type} = 142 and ${type_provided} = 10;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 10;;
         label: "Parenting education for youth with children"
       }
       when: {
-        sql: ${record_type} = 142 and ${type_provided} = 11;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 11;;
         label:  "Peer (youth) counseling"
       }
       when: {
-        sql: ${record_type} = 142 and ${type_provided} = 12;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 12;;
         label: "Post-natal care"
       }
       when: {
-        sql: ${record_type} = 142 and ${type_provided} = 13;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 13;;
         label: "Pre-natal care"
       }
       when: {
-        sql: ${record_type} = 142 and ${type_provided} = 14;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 14;;
         label: "Health/medical care"
       } when: {
-        sql: ${record_type} = 142 and ${type_provided} = 15;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 15;;
         label: "Psychological or psychiatric care"
       } when: {
-        sql: ${record_type} = 142 and ${type_provided} = 16;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 16;;
         label: "Recreational activities"
       } when: {
-        sql: ${record_type} = 142 and ${type_provided} = 17;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 17;;
         label: "Substance abuse assessment and/or treatment"
       } when: {
-        sql: ${record_type} = 142 and ${type_provided} = 18;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 18;;
         label: "Substance abuse prevention"
       } when: {
-        sql: ${record_type} = 142 and ${type_provided} = 19;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 19;;
         label: "Support group"
       }
       when: {
-        sql: ${record_type} = 142 and ${type_provided} = 20;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 20;;
         label: "Preventative – overnight interim, respite"
       }
       when: {
-        sql: ${record_type} = 142 and ${type_provided} = 21;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 21;;
         label:  "Preventative – formal placement in an alternative setting outside of BCP"
       }
       when: {
-        sql: ${record_type} = 142 and ${type_provided} = 22;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 22;;
         label: "Preventative – entry into BCP after preventative services"
       }
       when: {
-        sql: ${record_type} = 142 and ${type_provided} = 23;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 23;;
         label: "Street outreach – health and hygiene products distributed"
       }
       when: {
-        sql: ${record_type} = 142 and ${type_provided} = 24;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 24;;
         label: "Street outreach – food and drink items"
       }
       when: {
-        sql: ${record_type} = 142 and ${type_provided} = 25;;
+        sql: ${RecordType} = 142 and ${TypeProvided} = 25;;
         label: "Street outreach – services information/brochures"
       }
 
@@ -275,28 +274,12 @@ view: services {
 
 
 
-  dimension: user_id {
+  dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [detail*]
-  }
-
-  # ----- Sets of fields for drilling ------
-  set: detail {
-    fields: [
-      services_id,
-      export.export_id,
-      export.source_name,
-      export.software_name,
-      servicemappings.count,
-      servicemappings_copy.count,
-      servicemappings_dm154.count,
-      _casenotes.count,
-      _casenotes1.count
-    ]
   }
 }

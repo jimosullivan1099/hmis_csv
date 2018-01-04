@@ -5,125 +5,123 @@ view: disabilities {
     indexes: ["EnrollmentID","DisabilitiesId"]
   }
 
-  dimension: disabilities_id {
+  dimension: DisabilitiesID {
     primary_key: yes
     type: string
     sql: ${TABLE}.DisabilitiesID ;;
   }
 
-  dimension: data_collection_stage {
+  dimension: DataCollectionStage {
     type: string
     sql: ${TABLE}.DataCollectionStage ;;
   }
 
-  dimension: date_created {
+  dimension: DateCreated {
     type: string
     sql: ${TABLE}.DateCreated ;;
   }
 
-  dimension: date_deleted {
+  dimension: DateDeleted {
     type: string
     sql: ${TABLE}.DateDeleted ;;
   }
 
-  dimension: date_updated {
+  dimension: DateUpdated {
     type: string
     sql: ${TABLE}.DateUpdated ;;
   }
 
-  dimension: disability_response {
+  dimension: DisabilityResponse {
     type: string
     sql: ${TABLE}.DisabilityResponse ;;
   }
 
-  dimension: disability_type {
+  dimension: DisabilityType {
     type: string
     sql: ${TABLE}.DisabilityType ;;
   }
 
-  dimension: documentation_on_file {
+  dimension: DocumentationOnFile {
     type: string
     sql: ${TABLE}.DocumentationOnFile ;;
   }
 
-  dimension: export_id {
+  dimension: ExportID {
     type: string
-    # hidden: yes
     sql: ${TABLE}.ExportID ;;
   }
 
-  dimension: indefinite_and_impairs {
+  dimension: IndefiniteAndImpairs {
     type: string
     sql: ${TABLE}.IndefiniteAndImpairs ;;
   }
 
-  dimension: information_date {
+  dimension: InformationDate {
     type: string
     sql: ${TABLE}.InformationDate ;;
   }
 
-  dimension: pathhow_confirmed {
+  dimension: PATHHowConfirmed {
     type: string
     sql: ${TABLE}.PATHHowConfirmed ;;
   }
 
-  dimension: pathsmiinformation {
+  dimension: PATHSMIInformation {
     type: string
     sql: ${TABLE}.PATHSMIInformation ;;
   }
 
-  dimension: personal_id {
+  dimension: PersonalID {
     type: string
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: enrollment_id {
+  dimension: EnrollmentID {
     type: string
     sql: ${TABLE}.EnrollmentID ;;
   }
 
-  dimension: receiving_services {
+  dimension: ReceivingServices {
     type: string
     sql: ${TABLE}.ReceivingServices ;;
   }
 
-  dimension: tcell_count {
+  dimension: TCellCount {
     type: string
     sql: ${TABLE}.TCellCount ;;
   }
 
-  dimension: tcell_count_available {
+  dimension: TCellCountAvailable {
     type: string
     sql: ${TABLE}.TCellCountAvailable ;;
   }
 
-  dimension: tcell_source {
+  dimension: TCellSource {
     type: string
     sql: ${TABLE}.TCellSource ;;
   }
 
-  dimension: user_id {
+  dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;
   }
 
-  dimension: viral_load {
+  dimension: ViralLoad {
     type: string
     sql: ${TABLE}.ViralLoad ;;
   }
 
-  dimension: viral_load_available {
+  dimension: ViralLoadAvailable {
     type: string
     sql: ${TABLE}.ViralLoadAvailable ;;
   }
 
-  dimension: viral_load_source {
+  dimension: ViralLoadSource {
     type: string
     sql: ${TABLE}.ViralLoadSource ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [disabilities_id, export.export_id, export.source_name, export.software_name]
   }
 }

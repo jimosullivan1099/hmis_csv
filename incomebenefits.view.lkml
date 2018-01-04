@@ -1,405 +1,404 @@
 view: incomebenefits {
   sql_table_name: incomebenefits ;;
 
-  dimension: adap {
+  dimension: ADAP {
     type: string
     sql: ${TABLE}.ADAP ;;
   }
 
-  dimension: alimony {
+  dimension: Alimony {
     type: string
     sql: ${TABLE}.Alimony ;;
   }
 
-  dimension: alimony_amount {
+  dimension: AlimonyAmount {
     type: string
     sql: ${TABLE}.AlimonyAmount ;;
   }
 
-  dimension: benefits_from_any_source {
+  dimension: BenefitsFromAnySource {
     type: string
     sql: ${TABLE}.BenefitsFromAnySource ;;
   }
 
-  dimension: child_support {
+  dimension: ChildSupport {
     type: string
     sql: ${TABLE}.ChildSupport ;;
   }
 
-  dimension: child_support_amount {
+  dimension: ChildSupportAmount {
     type: string
     sql: ${TABLE}.ChildSupportAmount ;;
   }
 
-  dimension: cobra {
+  dimension: COBRA {
     type: string
     sql: ${TABLE}.COBRA ;;
   }
 
-  dimension: connection_with_soar {
+  dimension: ConnectionWithSOAR {
     type: string
     sql: ${TABLE}.ConnectionWithSOAR ;;
   }
 
-  dimension: data_collection_stage {
+  dimension: DataCollectionStage {
     type: string
     sql: ${TABLE}.DataCollectionStage ;;
   }
 
-  dimension: date_created {
+  dimension: DateCreated {
     type: string
     sql: ${TABLE}.DateCreated ;;
   }
 
-  dimension: date_deleted {
+  dimension: DateDeleted {
     type: string
     sql: ${TABLE}.DateDeleted ;;
   }
 
-  dimension: date_updated {
+  dimension: DateUpdated {
     type: string
     sql: ${TABLE}.DateUpdated ;;
   }
 
-  dimension: earned {
+  dimension: Earned {
     type: string
     sql: ${TABLE}.Earned ;;
   }
 
-  dimension: earned_amount {
+  dimension: EarnedAmount {
     type: string
     sql: ${TABLE}.EarnedAmount ;;
   }
 
-  dimension: employer_provided {
+  dimension: EmployerProvided {
     type: string
     sql: ${TABLE}.EmployerProvided ;;
   }
 
-  dimension: export_id {
+  dimension: ExportID {
     type: string
     # hidden: yes
     sql: ${TABLE}.ExportID ;;
   }
 
-  dimension: ga {
+  dimension: GA {
     type: string
     sql: ${TABLE}.GA ;;
   }
 
-  dimension: gaamount {
+  dimension: GAAmount {
     type: string
     sql: ${TABLE}.GAAmount ;;
   }
 
-  dimension: hivaidsassistance {
+  dimension: HIVAIDSAssistance {
     type: string
     sql: ${TABLE}.HIVAIDSAssistance ;;
   }
 
-  dimension: income_benefits_id {
+  dimension: IncomeBenefitsID {
     primary_key: yes
     type: string
     sql: ${TABLE}.IncomeBenefitsID ;;
   }
 
-  dimension: income_from_any_source {
+  dimension: IncomeFromAnySource {
     type: string
     sql: ${TABLE}.IncomeFromAnySource ;;
   }
 
-  dimension: indian_health_services {
+  dimension: IndianHealthServices {
     type: string
     sql: ${TABLE}.IndianHealthServices ;;
   }
 
-  dimension: information_date {
+  dimension: InformationDate {
     type: string
     sql: ${TABLE}.InformationDate ;;
   }
 
-  dimension: insurance_from_any_source {
+  dimension: InsuranceFromAnySource {
     type: string
     sql: ${TABLE}.InsuranceFromAnySource ;;
   }
 
-  dimension: medicaid {
+  dimension: Medicaid {
     type: string
     sql: ${TABLE}.Medicaid ;;
   }
 
-  dimension: medicare {
+  dimension: Medicare {
     type: string
     sql: ${TABLE}.Medicare ;;
   }
 
-  dimension: no_adapreason {
+  dimension: NoADAPReason {
     type: string
     sql: ${TABLE}.NoADAPReason ;;
   }
 
-  dimension: no_cobrareason {
+  dimension: NoCOBRAReason {
     type: string
     sql: ${TABLE}.NoCOBRAReason ;;
   }
 
-  dimension: no_employer_provided_reason {
+  dimension: NoEmployerProvidedReason {
     type: string
     sql: ${TABLE}.NoEmployerProvidedReason ;;
   }
 
-  dimension: no_hivaidsassistance_reason {
+  dimension: NoHIVAIDSAssistanceReason {
     type: string
     sql: ${TABLE}.NoHIVAIDSAssistanceReason ;;
   }
 
-  dimension: no_indian_health_services_reason {
+  dimension: NoIndianHealthServicesReason {
     type: string
     sql: ${TABLE}.NoIndianHealthServicesReason ;;
   }
 
-  dimension: no_medicaid_reason {
+  dimension: NoMedicaidReason {
     type: string
     sql: ${TABLE}.NoMedicaidReason ;;
   }
 
-  dimension: no_medicare_reason {
+  dimension: NoMedicareReason {
     type: string
     sql: ${TABLE}.NoMedicareReason ;;
   }
 
-  dimension: no_private_pay_reason {
+  dimension: NoPrivatePayReason {
     type: string
     sql: ${TABLE}.NoPrivatePayReason ;;
   }
 
-  dimension: no_schipreason {
+  dimension: NoSCHIPReason {
     type: string
     sql: ${TABLE}.NoSCHIPReason ;;
   }
 
-  dimension: no_state_health_ins_reason {
+  dimension: NoStateHealthInsReason {
     type: string
     sql: ${TABLE}.NoStateHealthInsReason ;;
   }
 
-  dimension: no_vamed_reason {
+  dimension: NoVAMedReason {
     type: string
     sql: ${TABLE}.NoVAMedReason ;;
   }
 
-  dimension: other_benefits_source {
+  dimension: OtherBenefitsSource {
     type: string
     sql: ${TABLE}.OtherBenefitsSource ;;
   }
 
-  dimension: other_benefits_source_identify {
+  dimension: OtherBenefitsSourceIdentify {
     type: string
     sql: ${TABLE}.OtherBenefitsSourceIdentify ;;
   }
 
-  dimension: other_income_source {
+  dimension: OtherIncomeSource {
     type: string
     sql: ${TABLE}.OtherIncomeSource ;;
   }
 
-  dimension: other_income_source_amount {
+  dimension: OtherIncomeSourceAmount {
     type: string
     sql: ${TABLE}.OtherIncomeSourceAmount ;;
   }
 
-  dimension: other_income_source_identify {
+  dimension: OtherIncomeSourceIdentify {
     type: string
     sql: ${TABLE}.OtherIncomeSourceIdentify ;;
   }
 
-  dimension: other_insurance {
+  dimension: OtherInsurance {
     type: string
     sql: ${TABLE}.OtherInsurance ;;
   }
 
-  dimension: other_insurance_identify {
+  dimension: OtherInsuranceIdentify {
     type: string
     sql: ${TABLE}.OtherInsuranceIdentify ;;
   }
 
-  dimension: other_tanf {
+  dimension: OtherTANF {
     type: string
     sql: ${TABLE}.OtherTANF ;;
   }
 
-  dimension: pension {
+  dimension: Pension {
     type: string
     sql: ${TABLE}.Pension ;;
   }
 
-  dimension: pension_amount {
+  dimension: PensionAmount {
     type: string
     sql: ${TABLE}.PensionAmount ;;
   }
 
-  dimension: personal_id {
+  dimension: PersonalID {
     type: string
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: private_disability {
+  dimension: PrivateDisability {
     type: string
     sql: ${TABLE}.PrivateDisability ;;
   }
 
-  dimension: private_disability_amount {
+  dimension: PrivateDisabilityAmount {
     type: string
     sql: ${TABLE}.PrivateDisabilityAmount ;;
   }
 
-  dimension: private_pay {
+  dimension: PrivatePay {
     type: string
     sql: ${TABLE}.PrivatePay ;;
   }
 
-  dimension: enrollment_id {
+  dimension: EnrollmentID {
     type: string
     sql: ${TABLE}.EnrollmentID ;;
   }
 
-  dimension: rental_assistance_ongoing {
+  dimension: RentalAssistanceOngoing {
     type: string
     sql: ${TABLE}.RentalAssistanceOngoing ;;
   }
 
-  dimension: rental_assistance_temp {
+  dimension: RentalAssistanceTemp {
     type: string
     sql: ${TABLE}.RentalAssistanceTemp ;;
   }
 
-  dimension: schip {
+  dimension: SCHIP {
     type: string
     sql: ${TABLE}.SCHIP ;;
   }
 
-  dimension: snap {
+  dimension: SNAP {
     type: string
     sql: ${TABLE}.SNAP ;;
   }
 
-  dimension: soc_sec_retirement {
+  dimension: SocSecRetirement {
     type: string
     sql: ${TABLE}.SocSecRetirement ;;
   }
 
-  dimension: soc_sec_retirement_amount {
+  dimension: SocSecRetirementAmount {
     type: string
     sql: ${TABLE}.SocSecRetirementAmount ;;
   }
 
-  dimension: ssdi {
+  dimension: SSDI {
     type: string
     sql: ${TABLE}.SSDI ;;
   }
 
-  dimension: ssdiamount {
+  dimension: SSDIAmount {
     type: string
     sql: ${TABLE}.SSDIAmount ;;
   }
 
-  dimension: ssi {
+  dimension: SSI {
     type: string
     sql: ${TABLE}.SSI ;;
   }
 
-  dimension: ssiamount {
+  dimension: SSIAmount {
     type: string
     sql: ${TABLE}.SSIAmount ;;
   }
 
-  dimension: state_health_ins {
+  dimension: StateHealthIns {
     type: string
     sql: ${TABLE}.StateHealthIns ;;
   }
 
-  dimension: tanf {
+  dimension: TANF {
     type: string
     sql: ${TABLE}.TANF ;;
   }
 
-  dimension: tanfamount {
+  dimension: TANFAmount {
     type: string
     sql: ${TABLE}.TANFAmount ;;
   }
 
-  dimension: tanfchild_care {
+  dimension: TANFChildCare {
     type: string
     sql: ${TABLE}.TANFChildCare ;;
   }
 
-  dimension: tanftransportation {
+  dimension: TANFTransportation {
     type: string
     sql: ${TABLE}.TANFTransportation ;;
   }
 
-  dimension: total_monthly_income {
+  dimension: TotalMonthlyIncome {
     type: string
     sql: ${TABLE}.TotalMonthlyIncome ;;
   }
 
-  dimension: unemployment {
+  dimension: Unemployment {
     type: string
     sql: ${TABLE}.Unemployment ;;
   }
 
-  dimension: unemployment_amount {
+  dimension: UnemploymentAmount {
     type: string
     sql: ${TABLE}.UnemploymentAmount ;;
   }
 
-  dimension: user_id {
+  dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;
   }
 
-  dimension: vadisability_non_service {
+  dimension: VADisabilityNonService {
     type: string
     sql: ${TABLE}.VADisabilityNonService ;;
   }
 
-  dimension: vadisability_non_service_amount {
+  dimension: VADisabilityNonServiceAmount {
     type: string
     sql: ${TABLE}.VADisabilityNonServiceAmount ;;
   }
 
-  dimension: vadisability_service {
+  dimension: VADisabilityService {
     type: string
     sql: ${TABLE}.VADisabilityService ;;
   }
 
-  dimension: vadisability_service_amount {
+  dimension: VADisabilityServiceAmount {
     type: string
     sql: ${TABLE}.VADisabilityServiceAmount ;;
   }
 
-  dimension: vamedical_services {
+  dimension: VAMedicalServices {
     type: string
     sql: ${TABLE}.VAMedicalServices ;;
   }
 
-  dimension: wic {
+  dimension: WIC {
     type: string
     sql: ${TABLE}.WIC ;;
   }
 
-  dimension: workers_comp {
+  dimension: WorkersComp {
     type: string
     sql: ${TABLE}.WorkersComp ;;
   }
 
-  dimension: workers_comp_amount {
+  dimension: WorkersCompAmount {
     type: string
     sql: ${TABLE}.WorkersCompAmount ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [income_benefits_id, export.export_id, export.source_name, export.software_name]
   }
 }

@@ -1,99 +1,98 @@
 view: healthanddv {
   sql_table_name: healthanddv ;;
 
-  dimension: currently_fleeing {
+  dimension: CurrentlyFleeing {
     type: string
     sql: ${TABLE}.CurrentlyFleeing ;;
   }
 
-  dimension: data_collection_stage {
+  dimension: DataCollectionStage {
     type: string
     sql: ${TABLE}.DataCollectionStage ;;
   }
 
-  dimension: date_created {
+  dimension: DateCreated {
     type: string
     sql: ${TABLE}.DateCreated ;;
   }
 
-  dimension: date_deleted {
+  dimension: DateDeleted {
     type: string
     sql: ${TABLE}.DateDeleted ;;
   }
 
-  dimension: date_updated {
+  dimension: DateUpdated {
     type: string
     sql: ${TABLE}.DateUpdated ;;
   }
 
-  dimension: dental_health_status {
+  dimension: DentalHealthStatus {
     type: string
     sql: ${TABLE}.DentalHealthStatus ;;
   }
 
-  dimension: domestic_violence_victim {
+  dimension: DomesticViolenceVictim {
     type: string
     sql: ${TABLE}.DomesticViolenceVictim ;;
   }
 
-  dimension: due_date {
+  dimension: DueDate {
     type: string
     sql: ${TABLE}.DueDate ;;
   }
 
-  dimension: export_id {
+  dimension: ExportID {
     type: string
     # hidden: yes
     sql: ${TABLE}.ExportID ;;
   }
 
-  dimension: general_health_status {
+  dimension: GeneralHealthStatus {
     type: string
     sql: ${TABLE}.GeneralHealthStatus ;;
   }
 
-  dimension: health_and_dvid {
+  dimension: HealthAndDVID {
     type: string
     sql: ${TABLE}.HealthAndDVID ;;
   }
 
-  dimension: information_date {
+  dimension: InformationDate {
     type: string
     sql: ${TABLE}.InformationDate ;;
   }
 
-  dimension: mental_health_status {
+  dimension: MentalHealthStatus {
     type: string
     sql: ${TABLE}.MentalHealthStatus ;;
   }
 
-  dimension: personal_id {
+  dimension: PersonalID {
     type: string
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: pregnancy_status {
+  dimension: PregnancyStatus {
     type: string
     sql: ${TABLE}.PregnancyStatus ;;
   }
 
-  dimension: enrollment_id {
+  dimension: EnrollmentID {
     type: string
     sql: ${TABLE}.EnrollmentID ;;
   }
 
-  dimension: user_id {
+  dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;
   }
 
-  dimension: when_occurred {
+  dimension: WhenOccurred {
     type: string
     sql: ${TABLE}.WhenOccurred ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [export.export_id, export.source_name, export.software_name]
   }
 }

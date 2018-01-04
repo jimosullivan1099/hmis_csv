@@ -9,20 +9,19 @@ view: disabilities_counts{
 
   measure: count {
     type: count
-    drill_fields: [detail*]
   }
 
-  dimension: personal_id {
+  dimension: PersonalID {
     type: string
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: enrollment_id {
+  dimension: EnrollmentID {
     type: string
     sql: ${TABLE}.EnrollmentID ;;
   }
 
-  dimension: data_collection_stage {
+  dimension: DataCollectionStage {
     type: string
     sql: ${TABLE}.DataCollectionStage ;;
   }
@@ -30,9 +29,5 @@ view: disabilities_counts{
   dimension: disability_count_by_enrollment_and_dcs {
     type: string
     sql: ${TABLE}.`COUNT(Distinct DisabilitiesID)` ;;
-  }
-
-  set: detail {
-    fields: [personal_id, enrollment_id, data_collection_stage, disability_count_by_enrollment_and_dcs]
   }
 }

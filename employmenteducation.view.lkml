@@ -1,84 +1,82 @@
 view: employmenteducation {
   sql_table_name: employmenteducation ;;
 
-  dimension: data_collection_stage {
+  dimension: DataCollectionStage {
     type: string
     sql: ${TABLE}.DataCollectionStage ;;
   }
 
-  dimension: date_created {
+  dimension: DateCreated {
     type: string
     sql: ${TABLE}.DateCreated ;;
   }
 
-  dimension: date_deleted {
+  dimension: DateDeleted {
     type: string
     sql: ${TABLE}.DateDeleted ;;
   }
 
-  dimension: date_updated {
+  dimension: DateUpdated {
     type: string
     sql: ${TABLE}.DateUpdated ;;
   }
 
-  dimension: employed {
+  dimension: Employed {
     type: string
     sql: ${TABLE}.Employed ;;
   }
 
-  dimension: employment_education_id {
+  dimension: EmploymentEducationID {
     type: string
     sql: ${TABLE}.EmploymentEducationID ;;
   }
 
-  dimension: employment_type {
+  dimension: EmploymentType {
     type: string
     sql: ${TABLE}.EmploymentType ;;
   }
 
-  dimension: export_id {
+  dimension: ExportID {
     type: string
-    # hidden: yes
     sql: ${TABLE}.ExportID ;;
   }
 
-  dimension: information_date {
+  dimension: InformationDate {
     type: string
     sql: ${TABLE}.InformationDate ;;
   }
 
-  dimension: last_grade_completed {
+  dimension: LastGradeCompleted {
     type: string
     sql: ${TABLE}.LastGradeCompleted ;;
   }
 
-  dimension: not_employed_reason {
+  dimension: NotEmployedReason {
     type: string
     sql: ${TABLE}.NotEmployedReason ;;
   }
 
-  dimension: personal_id {
+  dimension: PersonalID {
     type: string
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: enrollment_id {
+  dimension: EnrollmentID {
     type: string
     sql: ${TABLE}.EnrollmentID ;;
   }
 
-  dimension: school_status {
+  dimension: SchoolStatus {
     type: string
     sql: ${TABLE}.SchoolStatus ;;
   }
 
-  dimension: user_id {
+  dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [export.export_id, export.source_name, export.software_name]
   }
 }

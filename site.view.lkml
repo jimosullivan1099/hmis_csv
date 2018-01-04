@@ -1,94 +1,80 @@
 view: site {
   sql_table_name: site ;;
 
-  dimension: site_id {
+  dimension: SiteID {
     primary_key: yes
     type: string
     sql: ${TABLE}.SiteID ;;
   }
 
-  dimension: address {
+  dimension: Address {
     type: string
     sql: ${TABLE}.Address ;;
   }
 
-  dimension: city {
+  dimension: City {
     type: string
     sql: ${TABLE}.City ;;
   }
 
-  dimension: co_ccode {
+  dimension: CoCCode {
     type: string
     sql: ${TABLE}.CoCCode ;;
   }
 
-  dimension: date_created {
+  dimension: DateCreated {
     type: string
     sql: ${TABLE}.DateCreated ;;
   }
 
-  dimension: date_deleted {
+  dimension: DateDeleted {
     type: string
     sql: ${TABLE}.DateDeleted ;;
   }
 
-  dimension: date_updated {
+  dimension: DateUpdated {
     type: string
     sql: ${TABLE}.DateUpdated ;;
   }
 
-  dimension: export_id {
+  dimension: ExportID {
     type: string
     # hidden: yes
     sql: ${TABLE}.ExportID ;;
   }
 
-  dimension: geo_code {
+  dimension: GeoCode {
     type: string
     sql: ${TABLE}.GeoCode ;;
   }
 
-  dimension: principal_site {
+  dimension: PrincipalSite {
     type: string
     sql: ${TABLE}.PrincipalSite ;;
   }
 
-  dimension: project_id {
+  dimension: ProjectID {
     type: string
     # hidden: yes
     sql: ${TABLE}.ProjectID ;;
   }
 
-  dimension: state {
+  dimension: State {
     type: string
     sql: ${TABLE}.State ;;
   }
 
-  dimension: user_id {
+  dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;
   }
 
-  dimension: zip {
+  dimension: Zip {
     type: string
     sql: ${TABLE}.Zip ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [detail*]
-  }
-
-  # ----- Sets of fields for drilling ------
-  set: detail {
-    fields: [
-      site_id,
-      project.project_id,
-      project.project_common_name,
-      project.project_name,
-      export.export_id,
-      export.source_name,
-      export.software_name
-    ]
   }
 }

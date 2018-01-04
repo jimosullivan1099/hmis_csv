@@ -1,689 +1,543 @@
 view: enrollment {
 
 
-  measure: enrollment_count {
+  measure: count {
     type: count
-    drill_fields: [detail*]
   }
 
-  dimension: id {
-    type: number
-    sql: ${TABLE}.id ;;
-  }
-
-  dimension: age_at_entry {
-    type: number
-    sql: YEAR(${entry_date_date}) - YEAR(${client.dob}) - (DATE_FORMAT(${entry_date_date}, '%m%d') < DATE_FORMAT(${client.dob}, '%m%d'));;
-  }
-
-  dimension: enrollment_id {
+  dimension: EnrollmentID {
     type: string
     primary_key: yes
     sql: ${TABLE}.EnrollmentID ;;
   }
 
-  dimension: personal_id {
+  dimension: PersonalID {
     type: string
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: project_id {
+  dimension: ProjectID {
     type: string
     sql: ${TABLE}.ProjectID ;;
   }
 
-  dimension_group: entry_date {
+  dimension_group: EntryDate {
     type: time
     sql: ${TABLE}.EntryDate ;;
   }
 
-  dimension: household_id {
+  dimension: HouseholdID {
     type: string
     sql: ${TABLE}.HouseholdID ;;
   }
 
-  dimension: relationship_to_ho_h {
+  dimension: RelationshipToHoH {
     type: string
     sql: ${TABLE}.RelationshipToHoH ;;
   }
 
-  dimension: residence_prior {
+  dimension: ResidencePrior {
     type: string
     sql: ${TABLE}.ResidencePrior ;;
   }
 
-  dimension: other_residence_prior {
+  dimension: OtherResidencePrior {
     type: string
     sql: ${TABLE}.OtherResidencePrior ;;
   }
 
-  dimension: residence_prior_length_of_stay {
+  dimension: ResidencePriorLengthOfStay {
     type: string
     sql: ${TABLE}.ResidencePriorLengthOfStay ;;
   }
 
-  dimension: disabling_condition {
+  dimension: DisablingCondition {
     type: string
     sql: ${TABLE}.DisablingCondition ;;
   }
 
-  dimension: entry_from_street_essh {
+  dimension: EntryFromStreetESSH {
     type: string
     sql: ${TABLE}.EntryFromStreetESSH ;;
   }
 
-  dimension: date_to_street_essh {
+  dimension: DateToStreetESSH {
     type: string
     sql: ${TABLE}.DateToStreetESSH ;;
   }
 
-  dimension: times_homeless_past_three_years {
+  dimension: TimesHomelessPastThreeYears {
     type: string
     sql: ${TABLE}.TimesHomelessPastThreeYears ;;
   }
 
-  dimension: months_homeless_past_three_years {
+  dimension: MonthsHomelessPastThreeYears {
     type: string
     sql: ${TABLE}.MonthsHomelessPastThreeYears ;;
   }
 
-  dimension: housing_status {
+  dimension: HousingStatus {
     type: string
     sql: ${TABLE}.HousingStatus ;;
   }
 
-  dimension: date_of_engagement {
+  dimension: DateOfEngagement {
     type: string
     sql: ${TABLE}.DateOfEngagement ;;
   }
 
-  dimension: in_permanent_housing {
+  dimension: InPermanentHousing {
     type: string
     sql: ${TABLE}.InPermanentHousing ;;
   }
 
-  dimension: residential_move_in_date {
+  dimension: ResidentialMoveInDate {
     type: string
     sql: ${TABLE}.ResidentialMoveInDate ;;
   }
 
-  dimension: date_of_pathstatus {
+  dimension: DateOfPATHStatus {
     type: string
     sql: ${TABLE}.DateOfPATHStatus ;;
   }
 
-  dimension: client_enrolled_in_path {
+  dimension: ClientEnrolledInPATH {
     type: string
     sql: ${TABLE}.ClientEnrolledInPATH ;;
   }
 
-  dimension: reason_not_enrolled {
+  dimension: ReasonNotEnrolled {
     type: string
     sql: ${TABLE}.ReasonNotEnrolled ;;
   }
 
-  dimension: worst_housing_situation {
+  dimension: WorstHousingSituation {
     type: string
     sql: ${TABLE}.WorstHousingSituation ;;
   }
 
-  dimension: percent_ami {
+  dimension: PercentAMI {
     type: string
     sql: ${TABLE}.PercentAMI ;;
   }
 
-  dimension: last_permanent_street {
+  dimension: LastPermanentStreet {
     type: string
     sql: ${TABLE}.LastPermanentStreet ;;
   }
 
-  dimension: last_permanent_city {
+  dimension: LastPermanentCity {
     type: string
     sql: ${TABLE}.LastPermanentCity ;;
   }
 
-  dimension: last_permanent_state {
+  dimension: LastPermanentState {
     type: string
     sql: ${TABLE}.LastPermanentState ;;
   }
 
-  dimension: last_permanent_zip {
+  dimension: LastPermanentZIP {
     type: string
     sql: ${TABLE}.LastPermanentZIP ;;
   }
 
-  dimension: address_data_quality {
+  dimension: AddressDataQuality {
     type: string
     sql: ${TABLE}.AddressDataQuality ;;
   }
 
-  dimension: date_of_bcpstatus {
+  dimension: DateOfBCPStatus {
     type: string
     sql: ${TABLE}.DateOfBCPStatus ;;
   }
 
-  dimension: fysbyouth {
+  dimension: FYSBYouth {
     type: string
     sql: ${TABLE}.FYSBYouth ;;
   }
 
-  dimension: reason_no_services {
+  dimension: ReasonNoServices {
     type: string
     sql: ${TABLE}.ReasonNoServices ;;
   }
 
-  dimension: sexual_orientation {
+  dimension: SexualOrientation {
     type: string
     sql: ${TABLE}.SexualOrientation ;;
   }
 
-  dimension: former_ward_child_welfare {
+  dimension: FormerWardChildWelfare {
     type: string
     sql: ${TABLE}.FormerWardChildWelfare ;;
   }
 
-  dimension: child_welfare_years {
+  dimension: ChildWelfareYears {
     type: string
     sql: ${TABLE}.ChildWelfareYears ;;
   }
 
-  dimension: child_welfare_months {
+  dimension: ChildWelfareMonths {
     type: string
     sql: ${TABLE}.ChildWelfareMonths ;;
   }
 
-  dimension: former_ward_juvenile_justice {
+  dimension: FormerWardJuvenileJustice {
     type: string
     sql: ${TABLE}.FormerWardJuvenileJustice ;;
   }
 
-  dimension: juvenile_justice_years {
+  dimension: JuvenileJusticeYears {
     type: string
     sql: ${TABLE}.JuvenileJusticeYears ;;
   }
 
-  dimension: juvenile_justice_months {
+  dimension: JuvenileJusticeMonths {
     type: string
     sql: ${TABLE}.JuvenileJusticeMonths ;;
   }
 
-  dimension: household_dynamics {
+  dimension: HouseholdDynamics {
     type: string
     sql: ${TABLE}.HouseholdDynamics ;;
   }
 
-  dimension: sexual_orientation_gender_idyouth {
+  dimension: SexualOrientationGenderIDYouth {
     type: string
     sql: ${TABLE}.SexualOrientationGenderIDYouth ;;
   }
 
-  dimension: sexual_orientation_gender_idfam {
+  dimension: SexualOrientationGenderIDFam {
     type: string
     sql: ${TABLE}.SexualOrientationGenderIDFam ;;
   }
 
-  dimension: housing_issues_youth {
+  dimension: HousingIssuesYouth {
     type: string
     sql: ${TABLE}.HousingIssuesYouth ;;
   }
 
-  dimension: housing_issues_fam {
+  dimension: HousingIssuesFam {
     type: string
     sql: ${TABLE}.HousingIssuesFam ;;
   }
 
-  dimension: school_educational_issues_youth {
+  dimension: SchoolEducationalIssuesYouth {
     type: string
     sql: ${TABLE}.SchoolEducationalIssuesYouth ;;
   }
 
-  dimension: school_educational_issues_fam {
+  dimension: SchoolEducationalIssuesFam {
     type: string
     sql: ${TABLE}.SchoolEducationalIssuesFam ;;
   }
 
-  dimension: unemployment_youth {
+  dimension: UnemploymentYouth {
     type: string
     sql: ${TABLE}.UnemploymentYouth ;;
   }
 
-  dimension: unemployment_fam {
+  dimension: UnemploymentFam {
     type: string
     sql: ${TABLE}.UnemploymentFam ;;
   }
 
-  dimension: mental_health_issues_youth {
+  dimension: MentalHealthIssuesYouth {
     type: string
     sql: ${TABLE}.MentalHealthIssuesYouth ;;
   }
 
-  dimension: mental_health_issues_fam {
+  dimension: MentalHealthIssuesFam {
     type: string
     sql: ${TABLE}.MentalHealthIssuesFam ;;
   }
 
-  dimension: health_issues_youth {
+  dimension: HealthIssuesYouth {
     type: string
     sql: ${TABLE}.HealthIssuesYouth ;;
   }
 
-  dimension: health_issues_fam {
+  dimension: HealthIssuesFam {
     type: string
     sql: ${TABLE}.HealthIssuesFam ;;
   }
 
-  dimension: physical_disability_youth {
+  dimension: PhysicalDisabilityYouth {
     type: string
     sql: ${TABLE}.PhysicalDisabilityYouth ;;
   }
 
-  dimension: physical_disability_fam {
+  dimension: PhysicalDisabilityFam {
     type: string
     sql: ${TABLE}.PhysicalDisabilityFam ;;
   }
 
-  dimension: mental_disability_youth {
+  dimension: MentalDisabilityYouth {
     type: string
     sql: ${TABLE}.MentalDisabilityYouth ;;
   }
 
-  dimension: mental_disability_fam {
+  dimension: MentalDisabilityFam {
     type: string
     sql: ${TABLE}.MentalDisabilityFam ;;
   }
 
-  dimension: abuse_and_neglect_youth {
+  dimension: AbuseAndNeglectYouth {
     type: string
     sql: ${TABLE}.AbuseAndNeglectYouth ;;
   }
 
-  dimension: abuse_and_neglect_fam {
+  dimension: AbuseAndNeglectFam {
     type: string
     sql: ${TABLE}.AbuseAndNeglectFam ;;
   }
 
-  dimension: alcohol_drug_abuse_youth {
+  dimension: AlcoholDrugAbuseYouth {
     type: string
     sql: ${TABLE}.AlcoholDrugAbuseYouth ;;
   }
 
-  dimension: alcohol_drug_abuse_fam {
+  dimension: AlcoholDrugAbuseFam {
     type: string
     sql: ${TABLE}.AlcoholDrugAbuseFam ;;
   }
 
-  dimension: insufficient_income {
+  dimension: InsufficientIncome {
     type: string
     sql: ${TABLE}.InsufficientIncome ;;
   }
 
-  dimension: active_military_parent {
+  dimension: ActiveMilitaryParent {
     type: string
     sql: ${TABLE}.ActiveMilitaryParent ;;
   }
 
-  dimension: incarcerated_parent {
+  dimension: IncarceratedParent {
     type: string
     sql: ${TABLE}.IncarceratedParent ;;
   }
 
-  dimension: incarcerated_parent_status {
+  dimension: IncarceratedParentStatus {
     type: string
     sql: ${TABLE}.IncarceratedParentStatus ;;
   }
 
-  dimension: referral_source {
+  dimension: ReferralSource {
     type: string
     sql: ${TABLE}.ReferralSource ;;
   }
 
-  dimension: count_outreach_referral_approaches {
+  dimension: CountOutreachReferralApproaches {
     type: string
     sql: ${TABLE}.CountOutreachReferralApproaches ;;
   }
 
-  dimension: exchange_for_sex {
+  dimension: ExchangeForSex {
     type: string
     sql: ${TABLE}.ExchangeForSex ;;
   }
 
-  dimension: exchange_for_sex_past_three_months {
+  dimension: ExchangeForSexPastThreeMonths {
     type: string
     sql: ${TABLE}.ExchangeForSexPastThreeMonths ;;
   }
 
-  dimension: count_of_exchange_for_sex {
+  dimension: CountOfExchangeForSex {
     type: string
     sql: ${TABLE}.CountOfExchangeForSex ;;
   }
 
-  dimension: asked_or_forced_to_exchange_for_sex {
+  dimension: AskedOrForcedToExchangeForSex {
     type: string
     sql: ${TABLE}.AskedOrForcedToExchangeForSex ;;
   }
 
-  dimension: asked_or_forced_to_exchange_for_sex_past_three_months {
+  dimension: AskedOrForcedToExchangeForSexPastThreeMonths {
     type: string
     sql: ${TABLE}.AskedOrForcedToExchangeForSexPastThreeMonths ;;
   }
 
-  dimension: work_place_violence_threats {
+  dimension: WorkPlaceViolenceThreats {
     type: string
     sql: ${TABLE}.WorkPlaceViolenceThreats ;;
   }
 
-  dimension: workplace_promise_difference {
+  dimension: WorkplacePromiseDifference {
     type: string
     sql: ${TABLE}.WorkplacePromiseDifference ;;
   }
 
-  dimension: coerced_to_continue_work {
+  dimension: CoercedToContinueWork {
     type: string
     sql: ${TABLE}.CoercedToContinueWork ;;
   }
 
-  dimension: labor_exploit_past_three_months {
+  dimension: LaborExploitPastThreeMonths {
     type: string
     sql: ${TABLE}.LaborExploitPastThreeMonths ;;
   }
 
-  dimension: hpscreening_score {
+  dimension: HPScreeningScore {
     type: string
     sql: ${TABLE}.HPScreeningScore ;;
   }
 
-  dimension: vamcstation {
+  dimension: VAMCStation {
     type: string
     sql: ${TABLE}.VAMCStation ;;
   }
 
-  dimension: living_situation {
+  dimension: LivingSituation {
     type: string
     sql: ${TABLE}.LivingSituation ;;
   }
 
-  dimension: length_of_stay {
+  dimension: LengthOfStay {
     type: string
     sql: ${TABLE}.LengthOfStay ;;
   }
 
-  dimension: los_under_threshold {
+  dimension: LOSUnderThreshold {
     type: string
     sql: ${TABLE}.LOSUnderThreshold ;;
   }
 
-  dimension: previous_street_essh {
+  dimension: PreviousStreetESSH {
     type: string
     sql: ${TABLE}.PreviousStreetESSH ;;
   }
 
-  dimension: move_in_date {
+  dimension: MoveInDate {
     type: string
     sql: ${TABLE}.MoveInDate ;;
   }
 
-  dimension: eligible_for_rhy {
+  dimension: EligibleForRHY {
     type: string
     sql: ${TABLE}.EligibleForRHY ;;
   }
 
-  dimension: runaway_youth {
+  dimension: RunawayYouth {
     type: string
     sql: ${TABLE}.RunawayYouth ;;
   }
 
-  dimension: urgent_referral {
+  dimension: UrgentReferral {
     type: string
     sql: ${TABLE}.UrgentReferral ;;
   }
 
-  dimension: time_to_housing_loss {
+  dimension: TimeToHousingLoss {
     type: string
     sql: ${TABLE}.TimeToHousingLoss ;;
   }
 
-  dimension: zero_income {
+  dimension: ZeroIncome {
     type: string
     sql: ${TABLE}.ZeroIncome ;;
   }
 
-  dimension: annual_percent_ami {
+  dimension: AnnualPercentAMI {
     type: string
     sql: ${TABLE}.AnnualPercentAMI ;;
   }
 
-  dimension: financial_change {
+  dimension: FinancialChange {
     type: string
     sql: ${TABLE}.FinancialChange ;;
   }
 
-  dimension: household_change {
+  dimension: HouseholdChange {
     type: string
     sql: ${TABLE}.HouseholdChange ;;
   }
 
-  dimension: eviction_history {
+  dimension: EvictionHistory {
     type: string
     sql: ${TABLE}.EvictionHistory ;;
   }
 
-  dimension: subsidy_at_risk {
+  dimension: SubsidyAtRisk {
     type: string
     sql: ${TABLE}.SubsidyAtRisk ;;
   }
 
-  dimension: literal_homeless_history {
+  dimension: LiteralHomelessHistory {
     type: string
     sql: ${TABLE}.LiteralHomelessHistory ;;
   }
 
-  dimension: disabled_hoh {
+  dimension: DisabledHoH {
     type: string
     sql: ${TABLE}.DisabledHoH ;;
   }
 
-  dimension: criminal_record {
+  dimension: CriminalRecord {
     type: string
     sql: ${TABLE}.CriminalRecord ;;
   }
 
-  dimension: sex_offender {
+  dimension: SexOffender {
     type: string
     sql: ${TABLE}.SexOffender ;;
   }
 
-  dimension: dependent_under_6 {
+  dimension: DependentUnder6 {
     type: string
     sql: ${TABLE}.DependentUnder6 ;;
   }
 
-  dimension: single_parent {
+  dimension: SingleParent {
     type: string
     sql: ${TABLE}.SingleParent ;;
   }
 
-  dimension: hh5_plus {
+  dimension: HH5Plus {
     type: string
     sql: ${TABLE}.HH5Plus ;;
   }
 
-  dimension: iraq_afghanistan {
+  dimension: IraqAfghanistan {
     type: string
     sql: ${TABLE}.IraqAfghanistan ;;
   }
 
-  dimension: fem_vet {
+  dimension: FemVet {
     type: string
     sql: ${TABLE}.FemVet ;;
   }
 
-  dimension: threshold_score {
+  dimension: ThresholdScore {
     type: string
     sql: ${TABLE}.ThresholdScore ;;
   }
 
-  dimension_group: date_created {
+  dimension_group: DateCreated {
     type: time
     sql: ${TABLE}.DateCreated ;;
   }
 
-  dimension_group: date_updated {
+  dimension_group: DateUpdated {
     type: time
     sql: ${TABLE}.DateUpdated ;;
   }
 
-  dimension: user_id {
+  dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;
   }
 
-  dimension: date_deleted {
+  dimension: DateDeleted {
     type: string
     sql: ${TABLE}.DateDeleted ;;
   }
 
-  dimension: export_id {
+  dimension: ExportID {
     type: string
     sql: ${TABLE}.ExportID ;;
   }
 
-  dimension: orig_household_id {
-    type: number
-    sql: ${TABLE}.orig_household_id ;;
-  }
-
-  dimension: fixed_household_id {
-    type: number
-    sql: ${TABLE}.fixed_household_id ;;
-  }
-
-  dimension: orig_rel_to_hoh {
-    type: number
-    sql: ${TABLE}.orig_rel_to_hoh ;;
-  }
-
-  dimension: fixed_rel_to_hoh {
-    type: number
-    sql: ${TABLE}.fixed_rel_to_hoh ;;
-  }
-
-  dimension: m_migrated {
-    type: yesno
-    sql: ${TABLE}.m_migrated ;;
-  }
-
-  dimension: m_target_id {
-    type: number
-    sql: ${TABLE}.m_target_id ;;
-  }
-
-  dimension: enrolment_type {
-    type: yesno
-    sql: ${TABLE}.enrolment_type ;;
-  }
-
-  dimension: enrolment_head {
-    type: string
-    sql: ${TABLE}.enrolment_head ;;
-  }
-
   measure: count_distinct_clients {
     type:  count_distinct
-    sql: ${client.personal_id};;
-  }
-
-  set: detail {
-    fields: [
-      id,
-      enrollment_id,
-      personal_id,
-      project_id,
-      entry_date_time,
-      household_id,
-      relationship_to_ho_h,
-      residence_prior,
-      other_residence_prior,
-      residence_prior_length_of_stay,
-      disabling_condition,
-      entry_from_street_essh,
-      date_to_street_essh,
-      times_homeless_past_three_years,
-      months_homeless_past_three_years,
-      housing_status,
-      date_of_engagement,
-      in_permanent_housing,
-      residential_move_in_date,
-      date_of_pathstatus,
-      client_enrolled_in_path,
-      reason_not_enrolled,
-      worst_housing_situation,
-      percent_ami,
-      last_permanent_street,
-      last_permanent_city,
-      last_permanent_state,
-      last_permanent_zip,
-      address_data_quality,
-      date_of_bcpstatus,
-      fysbyouth,
-      reason_no_services,
-      sexual_orientation,
-      former_ward_child_welfare,
-      child_welfare_years,
-      child_welfare_months,
-      former_ward_juvenile_justice,
-      juvenile_justice_years,
-      juvenile_justice_months,
-      household_dynamics,
-      sexual_orientation_gender_idyouth,
-      sexual_orientation_gender_idfam,
-      housing_issues_youth,
-      housing_issues_fam,
-      school_educational_issues_youth,
-      school_educational_issues_fam,
-      unemployment_youth,
-      unemployment_fam,
-      mental_health_issues_youth,
-      mental_health_issues_fam,
-      health_issues_youth,
-      health_issues_fam,
-      physical_disability_youth,
-      physical_disability_fam,
-      mental_disability_youth,
-      mental_disability_fam,
-      abuse_and_neglect_youth,
-      abuse_and_neglect_fam,
-      alcohol_drug_abuse_youth,
-      alcohol_drug_abuse_fam,
-      insufficient_income,
-      active_military_parent,
-      incarcerated_parent,
-      incarcerated_parent_status,
-      referral_source,
-      count_outreach_referral_approaches,
-      exchange_for_sex,
-      exchange_for_sex_past_three_months,
-      count_of_exchange_for_sex,
-      asked_or_forced_to_exchange_for_sex,
-      asked_or_forced_to_exchange_for_sex_past_three_months,
-      work_place_violence_threats,
-      workplace_promise_difference,
-      coerced_to_continue_work,
-      labor_exploit_past_three_months,
-      hpscreening_score,
-      vamcstation,
-      date_created_time,
-      date_updated_time,
-      user_id,
-      date_deleted,
-      export_id,
-      orig_household_id,
-      fixed_household_id,
-      orig_rel_to_hoh,
-      fixed_rel_to_hoh,
-      m_migrated,
-      m_target_id,
-      enrolment_type,
-      enrolment_head
-    ]
+    sql: ${client.PersonalID};;
   }
 }
