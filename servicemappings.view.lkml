@@ -1,143 +1,124 @@
 view: servicemappings {
   sql_table_name: servicemappings ;;
 
-  dimension: activity {
+  dimension: Activity {
     type: string
     sql: ${TABLE}.Activity ;;
   }
 
-  dimension: activity_type {
+  dimension: ActivityType {
     type: string
     sql: ${TABLE}.ActivityType ;;
   }
 
-  dimension: cost {
+  dimension: Cost {
     type: string
     sql: ${TABLE}.Cost ;;
   }
 
-  dimension: date_created {
+  dimension: DateCreated {
     type: string
     sql: ${TABLE}.DateCreated ;;
   }
 
-  dimension: date_deleted {
+  dimension: DateDeleted {
     type: string
     sql: ${TABLE}.DateDeleted ;;
   }
 
-  dimension: date_ended {
+  dimension: DateEnded {
     type: string
     sql: ${TABLE}.DateEnded ;;
   }
 
-  dimension: date_provided {
+  dimension: DateProvided {
     type: string
     sql: ${TABLE}.DateProvided ;;
   }
 
-  dimension: date_updated {
+  dimension: DateUpdated {
     type: string
     sql: ${TABLE}.DateUpdated ;;
   }
 
-  dimension: export_id {
+  dimension: ExportID {
     type: string
     # hidden: yes
     sql: ${TABLE}.ExportID ;;
   }
 
-  dimension: faamount {
+  dimension: FAAmount {
     type: string
     sql: ${TABLE}.FAAmount ;;
   }
 
-  dimension: organization_id {
+  dimension: OrganizationID {
     type: string
     # hidden: yes
     sql: ${TABLE}.OrganizationID ;;
   }
 
-  dimension: other_type_provided {
+  dimension: OtherTypeProvided {
     type: string
     sql: ${TABLE}.OtherTypeProvided ;;
   }
 
-  dimension: personal_id {
+  dimension: PersonalID {
     type: string
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: project_entry_id {
+  dimension: ProjectEntryID {
     type: string
     sql: ${TABLE}.ProjectEntryID ;;
   }
 
-  dimension: project_id {
+  dimension: ProjectID {
     type: string
-    # hidden: yes
     sql: ${TABLE}.ProjectID ;;
   }
 
-  dimension: record_type {
+  dimension: RecordType {
     type: string
     sql: ${TABLE}.RecordType ;;
   }
 
-  dimension: referral_outcome {
+  dimension: ReferralOutcome {
     type: string
     sql: ${TABLE}.ReferralOutcome ;;
   }
 
-  dimension: services_id {
+  dimension: ServicesID {
     type: string
-    # hidden: yes
     sql: ${TABLE}.ServicesID ;;
   }
 
-  dimension: sub_type_provided {
+  dimension: SubTypeProvided {
     type: string
     sql: ${TABLE}.SubTypeProvided ;;
   }
 
-  dimension: type_provided {
+  dimension: TypeProvided {
     type: string
     sql: ${TABLE}.TypeProvided ;;
   }
 
-  dimension: unit_amount {
+  dimension: UnitAmount {
     type: string
     sql: ${TABLE}.UnitAmount ;;
   }
 
-  dimension: unit_type {
+  dimension: UnitType {
     type: string
-    sql: ${TABLE}.UNitType ;;
+    sql: ${TABLE}.UnitType ;;
   }
 
-  dimension: user_id {
+  dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [detail*]
-  }
-
-  # ----- Sets of fields for drilling ------
-  set: detail {
-    fields: [
-      organization.organization_name,
-      organization.organization_id,
-      organization.organization_common_name,
-      project.project_id,
-      project.project_common_name,
-      project.project_name,
-      export.export_id,
-      export.source_name,
-      export.software_name,
-      services.services_id
-    ]
   }
 }

@@ -1,290 +1,288 @@
 view: exit {
   sql_table_name: `exit` ;;
 
-  dimension: exit_id {
+  dimension: ExitID {
     primary_key: yes
     type: string
     sql: ${TABLE}.ExitID ;;
   }
 
-  dimension: assessment_disposition {
+  dimension: AssessmentDisposition {
     type: string
     sql: ${TABLE}.AssessmentDisposition ;;
   }
 
-  dimension: assistance_mainstream_benefits {
+  dimension: AssistanceMainstreamBenefits {
     type: string
     sql: ${TABLE}.AssistanceMainstreamBenefits ;;
   }
 
-  dimension: connection_with_soar {
+  dimension: ConnectionWithSOAR {
     type: string
     sql: ${TABLE}.ConnectionWithSOAR ;;
   }
 
-  dimension: date_created {
+  dimension: DateCreated {
     type: date
     sql: ${TABLE}.DateCreated ;;
   }
 
-  dimension: date_deleted {
+  dimension: DateDeleted {
     type: date
     sql: ${TABLE}.DateDeleted ;;
   }
 
-  dimension: date_updated {
+  dimension: DateUpdated {
     type: date
     sql: ${TABLE}.DateUpdated ;;
   }
 
-  dimension: destination {
+  dimension: Destination {
     type: string
     sql: ${TABLE}.Destination ;;
   }
 
-  dimension: early_exit_reason {
+  dimension: EarlyExitReason {
     type: string
     sql: ${TABLE}.EarlyExitReason ;;
   }
 
-  dimension: exit_counseling {
+  dimension: ExitCounseling {
     type: string
     sql: ${TABLE}.ExitCounseling ;;
   }
 
-  dimension: exit_date {
+  dimension: ExitDate {
     type: date
     sql: ${TABLE}.ExitDate ;;
   }
 
-  dimension: export_id {
+  dimension: ExportID {
     type: string
-    # hidden: yes
     sql: ${TABLE}.ExportID ;;
   }
 
-  dimension: family_reunification_achieved {
+  dimension: FamilyReunificationAchieved {
     type: string
     sql: ${TABLE}.FamilyReunificationAchieved ;;
   }
 
-  dimension: further_follow_up_services {
+  dimension: FurtherFollowUpServices {
     type: string
     sql: ${TABLE}.FurtherFollowUpServices ;;
   }
 
-  dimension: housing_assessment {
+  dimension: HousingAssessment {
     type: string
     sql: ${TABLE}.HousingAssessment ;;
   }
 
-  dimension: other_aftercare_plan_or_action {
+  dimension: OtherAftercarePlanOrAction {
     type: string
     sql: ${TABLE}.OtherAftercarePlanOrAction ;;
   }
 
-  dimension: other_destination {
+  dimension: OtherDestination {
     type: string
     sql: ${TABLE}.OtherDestination ;;
   }
 
-  dimension: other_disposition {
+  dimension: OtherDisposition {
     type: string
     sql: ${TABLE}.OtherDisposition ;;
   }
 
-  dimension: permanent_housing_placement {
+  dimension: PermanentHousingPlacement {
     type: string
     sql: ${TABLE}.PermanentHousingPlacement ;;
   }
 
-  dimension: personal_id {
+  dimension: PersonalID {
     type: string
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: project_completion_status {
+  dimension: ProjectCompletionStatus {
     type: string
     sql: ${TABLE}.ProjectCompletionStatus ;;
   }
 
-  dimension: enrollment_id {
+  dimension: EnrollmentID {
     type: string
     sql: ${TABLE}.EnrollmentID ;;
   }
 
-  dimension: resource_package {
+  dimension: ResourcePackage {
     type: string
     sql: ${TABLE}.ResourcePackage ;;
   }
 
-  dimension: scheduled_follow_up_contacts {
+  dimension: ScheduledFollowUpContacts {
     type: string
     sql: ${TABLE}.ScheduledFollowUpContacts ;;
   }
 
-  dimension: subsidy_information {
+  dimension: SubsidyInformation {
     type: string
     sql: ${TABLE}.SubsidyInformation ;;
   }
 
-  dimension: temporary_shelter_placement {
+  dimension: TemporaryShelterPlacement {
     type: string
     sql: ${TABLE}.TemporaryShelterPlacement ;;
   }
 
-  dimension: user_id {
+  dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;
   }
 
-  dimension: written_aftercare_plan {
+  dimension: WrittenAftercarePlan {
     type: string
     sql: ${TABLE}.WrittenAftercarePlan ;;
   }
 
-  dimension: exchange_for_sex {
+  dimension: ExchangeForSex {
     type: string
     sql: ${TABLE}.ExchangeForSex ;;
   }
 
-  dimension: exchange_for_sex_past_three_months {
+  dimension: ExchangeForSexPastThreeMonths {
     type: string
     sql: ${TABLE}.ExchangeForSexPastThreeMonths ;;
   }
 
-  dimension: count_of_exchange_for_sex {
+  dimension: CountOfExchangeForSex {
     type: string
     sql: ${TABLE}.CountOfExchangeForSex ;;
   }
 
-  dimension: asked_or_forced_to_exchange_for_sex {
+  dimension: AskedOrForcedToExchangeForSex {
     type: string
     sql: ${TABLE}.AskedOrForcedToExchangeForSex ;;
   }
 
-  dimension: asked_or_forced_to_exchange_for_sex_past_three_months {
+  dimension: AskedOrForcedToExchangeForSexPastThreeMonths {
     type: string
     sql: ${TABLE}.AskedOrForcedToExchangeForSexPastThreeMonths ;;
   }
 
-  dimension: workplace_violence_threats {
+  dimension: WorkPlaceViolenceThreats {
     type: string
     sql: ${TABLE}.WorkPlaceViolenceThreats ;;
   }
 
-  dimension: workplace_promise_difference {
+  dimension: WorkplacePromiseDifference {
     type: string
     sql: ${TABLE}.WorkplacePromiseDifference ;;
   }
 
-  dimension: coerced_to_continue_work {
+  dimension: CoercedToContinueWork {
     type: string
     sql: ${TABLE}.CoercedToContinueWork ;;
   }
 
-  dimension: labor_exploit_past_three_months {
+  dimension: LaborExploitPastThreeMonths {
     type: string
     sql: ${TABLE}.LaborExploitPastThreeMonths ;;
   }
 
-  dimension: counseling_received {
+  dimension: CounselingReceived {
     type: string
     sql: ${TABLE}.CounselingReceived ;;
   }
 
-  dimension: individual_counseling {
+  dimension: IndividualCounseling {
     type: string
     sql: ${TABLE}.IndividualCounseling ;;
   }
 
-  dimension: family_counseling {
+  dimension: FamilyCounseling {
     type: string
     sql: ${TABLE}.FamilyCounseling ;;
   }
 
-  dimension: group_counseling {
+  dimension: GroupCounseling {
     type: string
     sql: ${TABLE}.GroupCounseling ;;
   }
 
-  dimension: session_count_at_exit {
+  dimension: SessionCountAtExit {
     type: string
     sql: ${TABLE}.SessionCountAtExit ;;
   }
 
-  dimension: post_exit_counseling_plan {
+  dimension: PostExitCounselingPlan {
     type: string
     sql: ${TABLE}.PostExitCounselingPlan ;;
   }
 
-  dimension: sessions_in_plan {
+  dimension: SessionsInPlan {
     type: string
     sql: ${TABLE}.SessionsInPlan ;;
   }
 
-  dimension: destination_safe_client {
+  dimension: DestinationSafeClient {
     type: string
     sql: ${TABLE}.DestinationSafeClient ;;
   }
 
-  dimension: destination_safe_worker {
+  dimension: DestinationSafeWorker {
     type: string
     sql: ${TABLE}.DestinationSafeWorker ;;
   }
 
-  dimension: pos_adult_connections {
+  dimension: PosAdultConnections {
     type: string
     sql: ${TABLE}.PosAdultConnections ;;
   }
 
-  dimension: pos_peer_connections {
+  dimension: PosPeerConnections {
     type: string
     sql: ${TABLE}.PosPeerConnections ;;
   }
 
-  dimension: pos_community_connections {
+  dimension: PosCommunityConnections {
     type: string
     sql: ${TABLE}.PosCommunityConnections ;;
   }
 
-  dimension: aftercare_date {
+  dimension: AftercareDate {
     type: string
     sql: ${TABLE}.AftercareDate ;;
   }
 
-  dimension: aftercare_provided {
+  dimension: AftercareProvided {
     type: string
     sql: ${TABLE}.AftercareProvided ;;
   }
 
-  dimension: email_social_media {
+  dimension: EmailSocialMedia {
     type: string
     sql: ${TABLE}.EmailSocialMedia ;;
   }
 
-  dimension: telephone {
+  dimension: Telephone {
     type: string
     sql: ${TABLE}.Telephone ;;
   }
 
-  dimension: in_person_individual {
+  dimension: InPersonIndividual {
     type: string
     sql: ${TABLE}.InPersonIndividual ;;
   }
 
-  dimension: in_person_group {
+  dimension: InPersonGroup {
     type: string
     sql: ${TABLE}.InPersonGroup ;;
   }
 
-  dimension: cm_exit_reason {
+  dimension: CMExitReason {
     type: string
     sql: ${TABLE}.CMExitReason ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [exit_id, export.export_id, export.source_name, export.software_name]
   }
 }

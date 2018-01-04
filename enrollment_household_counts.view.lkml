@@ -15,16 +15,14 @@ view: enrollment_household_counts{
 
   measure: count {
     type: count
-    drill_fields: [detail*]
   }
 
   measure: count_distinct {
     type: count_distinct
-    sql:  ${household_id} ;;
-    drill_fields: [detail*]
+    sql:  ${HouseholdID} ;;
   }
 
-  dimension: household_id {
+  dimension: HouseholdID {
     type: string
     primary_key: yes
     sql: ${TABLE}.HouseholdID ;;
@@ -53,16 +51,5 @@ view: enrollment_household_counts{
   dimension: enrollments_per_client_ratio {
     type: number
     sql: ${TABLE}.enrollments_per_client_ratio ;;
-  }
-
-  set: detail {
-    fields: [
-      household_id,
-      count_clients,
-      count_distinct_clients,
-      count_hoh,
-      enrollment_count,
-      enrollments_per_client_ratio
-    ]
   }
 }

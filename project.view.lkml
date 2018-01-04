@@ -1,60 +1,60 @@
 view: project {
   sql_table_name: project ;;
 
-  dimension: project_id {
+  dimension: ProjectID {
     primary_key: yes
     type: string
     sql: ${TABLE}.ProjectID ;;
   }
 
-  dimension: continuum_project {
+  dimension: ContinuumProject {
     type: string
     sql: ${TABLE}.ContinuumProject ;;
   }
 
-  dimension: date_created {
+  dimension: DateCreated {
     type: string
     sql: ${TABLE}.DateCreated ;;
   }
 
-  dimension: date_deleted {
+  dimension: DateDeleted {
     type: string
     sql: ${TABLE}.DateDeleted ;;
   }
 
-  dimension: date_updated {
+  dimension: DateUpdated {
     type: string
     sql: ${TABLE}.DateUpdated ;;
   }
 
-  dimension: export_id {
+  dimension: ExportID {
     type: string
     # hidden: yes
     sql: ${TABLE}.ExportID ;;
   }
 
-  dimension: organization_id {
+  dimension: OrganizationID {
     type: string
     # hidden: yes
     sql: ${TABLE}.OrganizationID ;;
   }
 
-  dimension: pitcount {
+  dimension: PITCount {
     type: string
     sql: ${TABLE}.PITCount ;;
   }
 
-  dimension: project_common_name {
+  dimension: ProjectCommonName {
     type: string
     sql: ${TABLE}.ProjectCommonName ;;
   }
 
-  dimension: project_name {
+  dimension: ProjectName {
     type: string
     sql: ${TABLE}.ProjectName ;;
   }
 
-  dimension: project_type {
+  dimension: ProjectType {
     type: string
     sql: ${TABLE}.ProjectType ;;
   }
@@ -63,110 +63,81 @@ view: project {
     type:  string
     case:   {
       when: {
-        sql: ${project_type} = 1;;
+        sql: ${ProjectType} = 1;;
         label: "Emergency Shelter"
       }
       when: {
-        sql: ${project_type} = 2;;
+        sql: ${ProjectType} = 2;;
         label: "Transitional Housing"
       }
       when: {
-        sql: ${project_type} = 3;;
+        sql: ${ProjectType} = 3;;
         label: "PH - Permanent Supportive Housing (disability required)"
       }
       when: {
-        sql: ${project_type} = 4;;
+        sql: ${ProjectType} = 4;;
         label: "Street Outreach"
       }
       when: {
-        sql: ${project_type} = 6;;
+        sql: ${ProjectType} = 6;;
         label: "Services Only"
       }
       when: {
-        sql: ${project_type} = 7;;
+        sql: ${ProjectType} = 7;;
         label: "Other"
       }
       when: {
-        sql: ${project_type} = 8;;
+        sql: ${ProjectType} = 8;;
         label: "Safe Haven"
       }
       when: {
-        sql: ${project_type} = 9;;
+        sql: ${ProjectType} = 9;;
         label: "PH - Housing Only"
       }
       when: {
-        sql: ${project_type} = 10;;
+        sql: ${ProjectType} = 10;;
         label: "PH - Housing with Services (no disability required)"
       }
       when: {
-        sql: ${project_type} = 11;;
+        sql: ${ProjectType} = 11;;
         label: "Day Shelter"
       }
       when: {
-        sql: ${project_type} = 12;;
+        sql: ${ProjectType} = 12;;
         label: "Homeless Prevention"
       }
       when: {
-        sql: ${project_type} = 13;;
+        sql: ${ProjectType} = 13;;
         label: "PH - Rapid Re-Housing"
       }
       when: {
-        sql: ${project_type} = 14;;
+        sql: ${ProjectType} = 14;;
         label: "Coordinated Assessment"
       }
     }
   }
 
-  dimension: residential_affiliation {
+  dimension: ResidentialAffiliation {
     type: string
     sql: ${TABLE}.ResidentialAffiliation ;;
   }
 
-  dimension: target_population {
+  dimension: TargetPopulation {
     type: string
     sql: ${TABLE}.TargetPopulation ;;
   }
 
-  dimension: tracking_method {
+  dimension: TrackingMethod {
     type: string
     sql: ${TABLE}.TrackingMethod ;;
   }
 
-  dimension: user_id {
+  dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [detail*]
-  }
-
-  # ----- Sets of fields for drilling ------
-  set: detail {
-    fields: [
-      project_id,
-      project_common_name,
-      project_name,
-      organization.organization_name,
-      organization.organization_id,
-      organization.organization_common_name,
-      export.export_id,
-      export.source_name,
-      export.software_name,
-      affiliation.count,
-      custom_bed_night_mappings.count,
-      enrollment.count,
-      enrollmentcoc.count,
-      funder.count,
-      inventory.count,
-      projectcoc.count,
-      servicemappings.count,
-      servicemappings_copy.count,
-      servicemappings_dm154.count,
-      site.count,
-      _casenotes.count,
-      _casenotes1.count
-    ]
   }
 }
