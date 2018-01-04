@@ -28,6 +28,7 @@ view: enrollmentcoc {
 
   dimension: EnrollmentCOCID {
     type: string
+    primary_key: yes
     sql: ${TABLE}.EnrollmentCOCID ;;
   }
 

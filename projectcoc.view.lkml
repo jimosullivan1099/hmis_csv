@@ -28,6 +28,7 @@ view: projectcoc {
   }
 
   dimension: ProjectCoCID {
+    primary_key: yes
     type: string
     sql: ${TABLE}.ProjectCoCID ;;
   }
