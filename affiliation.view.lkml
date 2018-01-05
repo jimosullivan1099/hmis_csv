@@ -3,6 +3,7 @@ view: affiliation {
 
   dimension: AffliationID {
     type: string
+    primary_key: yes
     sql: ${TABLE}.AffliationID ;;
   }
 

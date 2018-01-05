@@ -6,9 +6,8 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard"
 
-
-
 explore: client  {
+
   persist_for: " 60 minutes"
 
   join: enrollment {
