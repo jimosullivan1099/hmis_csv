@@ -3,7 +3,7 @@ view: disabilities {
     sql: SELECT * FROM disabilities
       ;;
     indexes: ["DisabilitiesID", "EnrollmentID", "DisabilitiesID", "PersonalID"]
-    sql_trigger_value: SELECT 1 ;;
+    sql_trigger_value: SELECT COUNT(*) FROM disabilities ;;
   }
 
   dimension: DisabilitiesID {

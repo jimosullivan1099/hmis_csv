@@ -2,7 +2,7 @@ view: incomebenefits {
   derived_table: {
     sql: SELECT * FROM incomebenefits ;;
     indexes: ["IncomeBenefitsID", "EnrollmentID", "PersonalID"]
-    sql_trigger_value: SELECT 1 ;;
+    sql_trigger_value: SELECT COUNT(*) FROM incomebenefits ;;
   }
 
   dimension: ADAP {

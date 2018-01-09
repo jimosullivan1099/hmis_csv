@@ -2,7 +2,7 @@ view: enrollmentcoc {
   derived_table: {
     sql: SELECT * FROM enrollmentcoc ;;
     indexes: ["EnrollmentCoCID", "EnrollmentID", "PersonalID"]
-    sql_trigger_value: SELECT 1 ;;
+    sql_trigger_value: SELECT COUNT(*) FROM enrollmentcoc ;;
   }
 
   dimension: COCCode {
