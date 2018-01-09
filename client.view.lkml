@@ -3,7 +3,7 @@ view: client {
   derived_table: {
     sql: SELECT * FROM client ;;
     indexes: ["PersonalID"]
-    sql_trigger_value: SELECT 1 ;;
+    sql_trigger_value: SELECT COUNT(*) FROM client ;;
   }
 
 

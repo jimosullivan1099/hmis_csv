@@ -2,7 +2,7 @@ view: services {
   derived_table: {
     sql: SELECT * FROM services ;;
     indexes: ["ServicesID", "EnrollmentID", "PersonalID"]
-    sql_trigger_value: SELECT 1 ;;
+    sql_trigger_value: SELECT COUNT(*) FROM services ;;
   }
 
   dimension: ServicesID {

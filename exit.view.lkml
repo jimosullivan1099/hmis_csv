@@ -2,7 +2,7 @@ view: exit {
   derived_table: {
     sql: SELECT * FROM `exit` ;;
     indexes: ["ExitID", "EnrollmentID", "PersonalID"]
-    sql_trigger_value: SELECT 1 ;;
+    sql_trigger_value: SELECT COUNT(*) FROM `exit` ;;
   }
 
   dimension: ExitID {

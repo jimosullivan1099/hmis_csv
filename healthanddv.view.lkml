@@ -2,7 +2,7 @@ view: healthanddv {
   derived_table: {
     sql: SELECT * FROM healthanddv ;;
     indexes: ["HealthAndDVID", "EnrollmentID", "PersonalID"]
-    sql_trigger_value: SELECT 1 ;;
+    sql_trigger_value: SELECT COUNT(*) FROM healthanddv ;;
   }
 
   dimension: CurrentlyFleeing {

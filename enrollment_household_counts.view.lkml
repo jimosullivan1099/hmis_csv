@@ -11,7 +11,7 @@ view: enrollment_household_counts{
       GROUP BY HouseholdID
       ;;
     indexes: ["HouseholdID"]
-    sql_trigger_value: SELECT 1 ;;
+    sql_trigger_value: SELECT COUNT(*) FROM enrollment ;;
   }
 
   measure: count {
