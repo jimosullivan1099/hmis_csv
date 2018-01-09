@@ -4,7 +4,7 @@ view: disabilities_counts{
       FROM disabilities
       GROUP BY EnrollmentID, DataCollectionStage
        ;;
-    indexes: ["PersonalID", "EnrollmentID", "DataCollectionStage"]
+    indexes: ["PersonalID", "EnrollmentID"]
     sql_trigger_value: SELECT 1 ;;
   }
 
