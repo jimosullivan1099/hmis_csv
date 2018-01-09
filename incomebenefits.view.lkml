@@ -1,5 +1,9 @@
 view: incomebenefits {
-  sql_table_name: incomebenefits ;;
+  derived_table: {
+    sql: SELECT * FROM incomebenefits ;;
+    indexes: ["IncomeBenefitsID", "EnrollmentID", "PersonalID"]
+    sql_trigger_value: SELECT 1 ;;
+  }
 
   dimension: ADAP {
     type: string

@@ -1,5 +1,9 @@
 view: healthanddv {
-  sql_table_name: healthanddv ;;
+  derived_table: {
+    sql: SELECT * FROM healthanddv ;;
+    indexes: ["HealthAndDVID", "EnrollmentID", "PersonalID"]
+    sql_trigger_value: SELECT 1 ;;
+  }
 
   dimension: CurrentlyFleeing {
     type: string

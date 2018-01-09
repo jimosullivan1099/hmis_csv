@@ -1,11 +1,9 @@
 view: services {
   derived_table: {
-    sql: SELECT * FROM services
-      ;;
-    indexes: ["EnrollmentID","PersonalId"]
+    sql: SELECT * FROM services ;;
+    indexes: ["ServicesID", "EnrollmentID", "PersonalID"]
+    sql_trigger_value: SELECT 1 ;;
   }
-
-
 
   dimension: ServicesID {
     primary_key: yes
@@ -270,9 +268,6 @@ view: services {
     }
 
   }
-
-
-
 
   dimension: UserID {
     type: string

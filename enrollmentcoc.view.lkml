@@ -1,5 +1,9 @@
 view: enrollmentcoc {
-  sql_table_name: enrollmentcoc ;;
+  derived_table: {
+    sql: SELECT * FROM enrollmentcoc ;;
+    indexes: ["EnrollmentCoCID", "EnrollmentID", "PersonalID"]
+    sql_trigger_value: SELECT 1 ;;
+  }
 
   dimension: COCCode {
     type: string
