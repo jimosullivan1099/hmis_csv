@@ -1,5 +1,10 @@
 view: enrollment {
 
+  derived_table: {
+    sql: SELECT * FROM enrollment ;;
+    indexes: ["EnrollmentID", "PersonalID"]
+    sql_trigger_value: SELECT 1 ;;
+  }
 
   measure: count {
     type: count

@@ -2,7 +2,8 @@ view: disabilities {
   derived_table: {
     sql: SELECT * FROM disabilities
       ;;
-    indexes: ["EnrollmentID","DisabilitiesId"]
+    indexes: ["DisabilitiesID", "EnrollmentID", "DisabilitiesID", "PersonalID"]
+    sql_trigger_value: SELECT 1 ;;
   }
 
   dimension: DisabilitiesID {

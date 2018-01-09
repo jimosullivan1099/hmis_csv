@@ -1,5 +1,9 @@
 view: exit {
-  sql_table_name: `exit` ;;
+  derived_table: {
+    sql: SELECT * FROM `exit` ;;
+    indexes: ["ExitID", "EnrollmentID", "PersonalID"]
+    sql_trigger_value: SELECT 1 ;;
+  }
 
   dimension: ExitID {
     primary_key: yes

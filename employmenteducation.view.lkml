@@ -1,5 +1,9 @@
 view: employmenteducation {
-  sql_table_name: employmenteducation ;;
+  derived_table: {
+    sql: SELECT * FROM employmenteducation ;;
+    indexes: ["EmploymentEducationID", "EnrollmentID", "PersonalID"]
+    sql_trigger_value: SELECT 1 ;;
+  }
 
   dimension: DataCollectionStage {
     type: string

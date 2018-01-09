@@ -1,5 +1,9 @@
 view: enrollmentcoc {
-  sql_table_name: enrollmentcoc ;;
+  derived_table: {
+    sql: SELECT * FROM enrollmentcoc ;;
+    indexes: ["EnrollmentCoCID", "EnrollmentID", "PersonalID"]
+    sql_trigger_value: SELECT 1 ;;
+  }
 
   dimension: COCCode {
     type: string
@@ -26,10 +30,10 @@ view: enrollmentcoc {
     sql: ${TABLE}.DateUpdated ;;
   }
 
-  dimension: EnrollmentCOCID {
+  dimension: EnrollmentCoCID {
     type: string
     primary_key: yes
-    sql: ${TABLE}.EnrollmentCOCID ;;
+    sql: ${TABLE}.EnrollmentCoCID ;;
   }
 
   dimension: ExportID {

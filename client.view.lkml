@@ -1,6 +1,10 @@
 view: client {
 
-  sql_table_name: client ;;
+  derived_table: {
+    sql: SELECT * FROM client ;;
+    indexes: ["PersonalID"]
+    sql_trigger_value: SELECT 1 ;;
+  }
 
 
   dimension: AfghanistanOEF {
