@@ -4,6 +4,7 @@ include: "*.view.lkml"         # include all views in this project
 include: "*.dashboard.lookml"  # include all dashboards in this project
 
 explore: base {
+  persist_for: "24 hours"
   view_name: files
   join: file_fields {
     relationship: one_to_many

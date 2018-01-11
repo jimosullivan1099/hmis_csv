@@ -8,7 +8,7 @@ include: "*.dashboard"
 
 explore: client  {
 
-  persist_for: " 60 minutes"
+  persist_for: "60 minutes"
 
   join: enrollment {
     type: left_outer
