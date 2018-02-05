@@ -1,6 +1,6 @@
 view: data_types {
   derived_table: {
-    sql: SELECT * FROM data_types
+    sql: SELECT * FROM hmis_csv_6_11_standards.data_types
       ;;
   }
 

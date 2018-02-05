@@ -1,6 +1,6 @@
 view: lists {
   derived_table: {
-    sql: SELECT * FROM lists ;;
+    sql: SELECT * FROM hmis_csv_6_11_standards.lists ;;
     indexes: ["id", "list_code"]
     sql_trigger_value: SELECT 1 ;;
   }

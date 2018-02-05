@@ -1,7 +1,10 @@
 connection: "hmis_csv_standards_dbz"
 
-include: "*.view.lkml"         # include all views in this project
-include: "*.dashboard.lookml"  # include all dashboards in this project
+include: "data_types.view"
+include: "files.view"
+include: "file_fields.view"
+include: "lists.view"
+include: "list_values.view"
 
 explore: base {
   persist_for: "24 hours"
