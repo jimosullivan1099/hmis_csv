@@ -1,6 +1,6 @@
 view: file_fields {
   derived_table: {
-    sql: SELECT * FROM file_fields ;;
+    sql: SELECT * FROM hmis_csv_6_11_standards.file_fields ;;
     indexes: ["id", "filename", "list", "name"]
     sql_trigger_value: SELECT 1 ;;
   }

@@ -1,12 +1,29 @@
 connection: "csv_review_dbz"
 
-# include all the views
-include: "*.view"
+include: "affiliation.view"
+include: "client.view"
+include: "disabilities.view"
+include: "disabilities_counts.view"
+include: "employmenteducation.view"
+include: "enrollment.view"
+include: "enrollment_household_counts.view"
+include: "enrollmentcoc.view"
+include: "exit.view"
+include: "export.view"
+include: "funder.view"
+include: "healthanddv.view"
+include: "incomebenefits.view"
+include: "inventory.view"
+include: "organization.view"
+include: "project.view"
+include: "projectcoc.view"
+include: "services.view"
+include: "site.view"
 
 # include all the dashboards
 include: "*.dashboard"
 
-explore: client  {
+explore: client {
 
   persist_for: "60 minutes"
 
@@ -39,6 +56,13 @@ explore: client  {
     sql_on: ${enrollment.EnrollmentID} = ${employmenteducation.EnrollmentID} ;;
     relationship: one_to_many
   }
+
+  join:  enrollmentcoc {
+    type:  left_outer
+    sql_on: ${enrollment.EnrollmentID} = ${incomebenefits.EnrollmentID} ;;
+    relationship: one_to_many
+  }
+
   join:  incomebenefits {
     type:  left_outer
     sql_on: ${enrollment.EnrollmentID} = ${incomebenefits.EnrollmentID} ;;
