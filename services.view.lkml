@@ -1,64 +1,137 @@
 view: services {
   derived_table: {
-    sql: SELECT * FROM services ;;
+    sql:
+      SELECT
+        t.*,
+        (
+          SELECT GROUP_CONCAT(ff.name, '_' , CONCAT(lv.value, ':', lv.text ) SEPARATOR '; ')
+          FROM ${list_values.SQL_TABLE_NAME} lv INNER JOIN ${file_fields.SQL_TABLE_NAME} ff ON ff.list = lv.list_code
+          WHERE ff.filename = 'Services.csv'
+        ) AS lookup
+      FROM services t ;;
     indexes: ["ServicesID", "EnrollmentID", "PersonalID"]
     sql_trigger_value: SELECT COUNT(*) FROM services ;;
   }
 
+  dimension: lookup {
+    type: string
+    hidden: yes
+    sql: ${TABLE}.lookup ;;
+  }
+
   dimension: ServicesID {
+    type: string
+    label: "ServicesID"
     primary_key: yes
-    type: string
     sql: ${TABLE}.ServicesID ;;
-  }
-
-  dimension: DateCreated {
-    type: string
-    sql: ${TABLE}.DateCreated ;;
-  }
-
-  dimension: DateDeleted {
-    type: string
-    sql: ${TABLE}.DateDeleted ;;
-  }
-
-  dimension: DateProvided {
-    type: date
-    sql: ${TABLE}.DateProvided ;;
-  }
-
-  dimension: DateUpdated {
-    type: string
-    sql: ${TABLE}.DateUpdated ;;
-  }
-
-  dimension: ExportID {
-    type: string
-    sql: ${TABLE}.ExportID ;;
-  }
-
-  dimension: FAAmount {
-    type: string
-    sql: ${TABLE}.FAAmount ;;
-  }
-
-  dimension: OtherTypeProvided {
-    type: string
-    sql: ${TABLE}.OtherTypeProvided ;;
-  }
-
-  dimension: PersonalID {
-    type: string
-    sql: ${TABLE}.PersonalID ;;
   }
 
   dimension: EnrollmentID {
     type: string
+    label: "EnrollmentID"
     sql: ${TABLE}.EnrollmentID ;;
+  }
+
+  dimension: PersonalID {
+    type: string
+    label: "PersonalID"
+    sql: ${TABLE}.PersonalID ;;
+  }
+
+  dimension: DateProvided {
+    type: string
+    label: "DateProvided"
+    sql: ${TABLE}.DateProvided ;;
   }
 
   dimension: RecordType {
     type: string
+    label: "RecordType"
     sql: ${TABLE}.RecordType ;;
+  }
+
+  dimension: RecordTypeText {
+    type: string
+    label: "RecordTypeText"
+    sql: CASE WHEN ${TABLE}.RecordType IS NOT NULL AND ${TABLE}.RecordType <> '' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.lookup, CONCAT('RecordType_', ${TABLE}.RecordType, ':'), -1), ';', 1) END ;;
+  }
+
+  dimension: TypeProvided {
+    type: string
+    label: "TypeProvided"
+    sql: ${TABLE}.TypeProvided ;;
+  }
+
+  dimension: TypeProvidedText {
+    type: string
+    label: "TypeProvidedText"
+    sql: CASE WHEN ${TABLE}.TypeProvided IS NOT NULL AND ${TABLE}.TypeProvided <> '' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.lookup, CONCAT('TypeProvided_', ${TABLE}.TypeProvided, ':'), -1), ';', 1) END ;;
+  }
+
+  dimension: OtherTypeProvided {
+    type: string
+    label: "OtherTypeProvided"
+    sql: ${TABLE}.OtherTypeProvided ;;
+  }
+
+  dimension: SubTypeProvided {
+    type: string
+    label: "SubTypeProvided"
+    sql: ${TABLE}.SubTypeProvided ;;
+  }
+
+  dimension: SubTypeProvidedText {
+    type: string
+    label: "SubTypeProvidedText"
+    sql: CASE WHEN ${TABLE}.SubTypeProvided IS NOT NULL AND ${TABLE}.SubTypeProvided <> '' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.lookup, CONCAT('SubTypeProvided_', ${TABLE}.SubTypeProvided, ':'), -1), ';', 1) END ;;
+  }
+
+  dimension: FAAmount {
+    type: string
+    label: "FAAmount"
+    sql: ${TABLE}.FAAmount ;;
+  }
+
+  dimension: ReferralOutcome {
+    type: string
+    label: "ReferralOutcome"
+    sql: ${TABLE}.ReferralOutcome ;;
+  }
+
+  dimension: ReferralOutcomeText {
+    type: string
+    label: "ReferralOutcomeText"
+    sql: CASE WHEN ${TABLE}.ReferralOutcome IS NOT NULL AND ${TABLE}.ReferralOutcome <> '' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.lookup, CONCAT('ReferralOutcome_', ${TABLE}.ReferralOutcome, ':'), -1), ';', 1) END ;;
+  }
+
+  dimension: DateCreated {
+    type: string
+    label: "DateCreated"
+    sql: ${TABLE}.DateCreated ;;
+  }
+
+  dimension: DateUpdated {
+    type: string
+    label: "DateUpdated"
+    sql: ${TABLE}.DateUpdated ;;
+  }
+
+  dimension: UserID {
+    type: string
+    label: "UserID"
+    sql: ${TABLE}.UserID ;;
+  }
+
+  dimension: DateDeleted {
+    type: string
+    label: "DateDeleted"
+    sql: ${TABLE}.DateDeleted ;;
+  }
+
+  dimension: ExportID {
+    type: string
+    label: "ExportID"
+    sql: ${TABLE}.ExportID ;;
   }
 
  dimension: record_type_description {
@@ -103,23 +176,6 @@ view: services {
   }
 
  }
-
-
-
-  dimension: ReferralOutcome {
-    type: string
-    sql: ${TABLE}.ReferralOutcome ;;
-  }
-
-  dimension: SubTypeProvided {
-    type: string
-    sql: ${TABLE}.SubTypeProvided ;;
-  }
-
-  dimension: TypeProvided {
-    type: string
-    sql: ${TABLE}.TypeProvided ;;
-  }
 
   dimension:type_provided_description {
     type:  string
@@ -267,11 +323,6 @@ view: services {
 
     }
 
-  }
-
-  dimension: UserID {
-    type: string
-    sql: ${TABLE}.UserID ;;
   }
 
   measure: count {

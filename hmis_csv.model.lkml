@@ -59,7 +59,7 @@ explore: client {
 
   join:  enrollmentcoc {
     type:  left_outer
-    sql_on: ${enrollment.EnrollmentID} = ${incomebenefits.EnrollmentID} ;;
+    sql_on: ${enrollment.EnrollmentID} = ${enrollmentcoc.EnrollmentID} ;;
     relationship: one_to_many
   }
 
