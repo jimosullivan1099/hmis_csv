@@ -6,13 +6,13 @@ view: client {
   derived_table: {
     sql:
       SELECT
-        c.*,
+        t.*,
         (
           SELECT GROUP_CONCAT(ff.name, '_' , CONCAT(lv.value, ':', lv.text ) SEPARATOR '; ')
           FROM ${list_values.SQL_TABLE_NAME} lv INNER JOIN ${file_fields.SQL_TABLE_NAME} ff ON ff.list = lv.list_code
           WHERE ff.filename = 'Client.csv'
         ) AS lookup
-      FROM client c ;;
+      FROM client t ;;
     indexes: ["PersonalID"]
     sql_trigger_value: SELECT COUNT(*) FROM client ;;
   }
