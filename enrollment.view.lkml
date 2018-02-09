@@ -43,8 +43,8 @@ view: enrollment {
     sql: ${TABLE}.ProjectID ;;
   }
 
-  dimension: EntryDate {
-    type: string
+  dimension_group: EntryDate {
+    type: time
     label: "EntryDate"
     sql: ${TABLE}.EntryDate ;;
   }

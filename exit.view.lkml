@@ -38,8 +38,8 @@ view: exit {
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension: ExitDate {
-    type: string
+  dimension_group: ExitDate {
+    type: time
     label: "ExitDate"
     sql: ${TABLE}.ExitDate ;;
   }
