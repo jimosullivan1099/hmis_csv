@@ -38,7 +38,12 @@ view: exit {
     sql: ${TABLE}.PersonalID ;;
   }
 
-  dimension_group: ExitDate {
+  dimension: ExitDate {
+    label: "ExitDate"
+    sql: ${TABLE}.ExitDate ;;
+  }
+
+  dimension_group: ExitDateGroup {
     type: time
     label: "ExitDate"
     sql: ${TABLE}.ExitDate ;;
