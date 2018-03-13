@@ -338,6 +338,27 @@ view: incomebenefits {
     sql: ${TABLE}.OtherIncomeSourceIdentify ;;
   }
 
+  dimension: IncomeAmountSum {
+    type: number
+    label: "IncomeAmountSum"
+    sql:
+      CAST(${TABLE}.EarnedAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.UnemploymentAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.SSIAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.SSDIAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.VADisabilityServiceAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.VADisabilityNonServiceAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.PrivateDisabilityAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.WorkersCompAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.TANFAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.GAAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.SocSecRetirementAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.PensionAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.ChildSupportAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.AlimonyAmount AS DECIMAL(12,2))
+      + CAST(${TABLE}.OtherIncomeAmount AS DECIMAL(12,2)) ;;
+  }
+
   dimension: BenefitsFromAnySource {
     type: string
     label: "BenefitsFromAnySource"
