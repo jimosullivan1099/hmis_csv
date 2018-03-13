@@ -13,7 +13,7 @@ view: incomebenefits {
     sql_trigger_value: SELECT COUNT(*) FROM incomebenefits ;;
   }
 
-  dimension: lookup {
+  dimension: lookup_test {
     type: string
     hidden: yes
     sql: ${TABLE}.lookup ;;
