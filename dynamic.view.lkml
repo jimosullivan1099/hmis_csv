@@ -5,7 +5,8 @@ view: dynamic {
         {% parameter table_field_parameter_1 %} AS table_field_1,
         {% parameter table_field_parameter_2 %} AS table_field_2
       FROM `{% parameter table_1_name %}`
-      LEFT OUTER JOIN `{% parameter table_2_name %}` ON `{% parameter table_1_name %}`.`{% parameter join_field %}` = `{% parameter table_2_name %}`.`{% parameter join_field %}`
+      {% parameter join_type %} JOIN `{% parameter table_2_name %}` ON `{% parameter table_1_name %}`.`{% parameter join_field %}` = `{% parameter table_2_name %}`.`{% parameter join_field %}`
+
     ;;
     indexes: ["table_field_1", "table_field_2"]
   }
@@ -16,6 +17,20 @@ view: dynamic {
 
   parameter: table_2_name {
     type: unquoted
+  }
+
+  parameter: join_type {
+    type: unquoted
+    default_value: "LEFT"
+    allowed_value: {
+      value: "LEFT"
+    }
+    allowed_value: {
+      value: "RIGHT"
+    }
+    allowed_value: {
+      value: "INNER"
+    }
   }
 
   parameter: join_field {
