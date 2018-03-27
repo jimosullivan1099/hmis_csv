@@ -4,8 +4,8 @@ view: dynamic {
       SELECT
         {% parameter table_field_parameter_1 %} AS table_field_1,
         {% parameter table_field_parameter_2 %} AS table_field_2
-      FROM {% parameter table_1_name %}
-      LEFT OUTER JOIN {% parameter table_2_name %} ON {% parameter table_1_name %}.{% parameter join_field %} = {% parameter table_2_name %}.{% parameter join_field %}
+      FROM `{% parameter table_1_name %}`
+      LEFT OUTER JOIN `{% parameter table_2_name %}` ON `{% parameter table_1_name %}`.`{% parameter join_field %}` = `{% parameter table_2_name %}`.`{% parameter join_field %}`
     ;;
     indexes: ["table_field_1", "table_field_2"]
   }
