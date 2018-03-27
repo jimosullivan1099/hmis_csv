@@ -4,6 +4,7 @@ include: "affiliation.view"
 include: "client.view"
 include: "disabilities.view"
 include: "disabilities_counts.view"
+include: "dynamic.view"
 include: "employmenteducation.view"
 include: "enrollment.view"
 include: "enrollment_household_counts.view"
@@ -157,3 +158,5 @@ explore: enrollment  {
     relationship: one_to_many
   }
 }
+
+explore: dynamic {}
