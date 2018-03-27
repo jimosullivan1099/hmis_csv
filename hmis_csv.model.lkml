@@ -4,6 +4,7 @@ include: "affiliation.view"
 include: "client.view"
 include: "disabilities.view"
 include: "disabilities_counts.view"
+include: "disability_types_counts.view"
 include: "dynamic.view"
 include: "employmenteducation.view"
 include: "enrollment.view"
@@ -49,6 +50,12 @@ explore: client {
   join: disabilities_counts {
     type:  left_outer
     sql_on: ${enrollment.EnrollmentID} = ${disabilities_counts.EnrollmentID} ;;
+    relationship: one_to_many
+  }
+
+  join: disability_types_counts {
+    type:  left_outer
+    sql_on: ${enrollment.EnrollmentID} = ${disability_types_counts.EnrollmentID} ;;
     relationship: one_to_many
   }
 
