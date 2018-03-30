@@ -9,6 +9,7 @@ include: "dynamic.view"
 include: "employmenteducation.view"
 include: "enrollment.view"
 include: "enrollment_household_counts.view"
+include: "enrollment_exit_counts.view"
 include: "enrollmentcoc.view"
 include: "exit.view"
 include: "export.view"
@@ -35,9 +36,15 @@ explore: client {
     relationship: one_to_many
   }
 
-  join: enrollment_household_counts{
+  join: enrollment_household_counts {
     type:  left_outer
     sql_on: ${enrollment.HouseholdID} = ${enrollment_household_counts.HouseholdID} ;;
+    relationship: one_to_one
+  }
+
+  join: enrollment_exit_counts {
+    type:  left_outer
+    sql_on: ${enrollment.EnrollmentID} = ${enrollment_exit_counts.EnrollmentID} ;;
     relationship: one_to_one
   }
 

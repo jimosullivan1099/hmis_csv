@@ -28,4 +28,8 @@ view: disability_types_counts {
     type: number
     sql: ${TABLE}.count ;;
   }
+
+  measure: count {
+    type: count
+  }
 }
