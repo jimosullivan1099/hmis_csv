@@ -2,13 +2,21 @@ view: dynamic {
   derived_table: {
     sql:
       SELECT
-        {% parameter table_field_parameter_1 %} AS table_field_1,
-        {% parameter table_field_parameter_2 %} AS table_field_2
-      FROM `{% parameter table_1_name %}`
-      {% parameter join_type %} JOIN `{% parameter table_2_name %}` ON `{% parameter table_1_name %}`.`{% parameter join_field %}` = `{% parameter table_2_name %}`.`{% parameter join_field %}`
+        a.{% parameter table_field_parameter_1 %} AS table_field_1,
+        b.{% parameter table_field_parameter_2 %} AS table_field_2
+      FROM `{% parameter schema_1_name %}`.`{% parameter table_1_name %}` a
+      {% parameter join_type %} JOIN `{% parameter schema_2_name %}`.`{% parameter table_2_name %}` b ON a.`{% parameter join_field %}` = b.`{% parameter join_field %}`
 
     ;;
     indexes: ["table_field_1", "table_field_2"]
+  }
+
+  parameter: schema_1_name {
+    type: unquoted
+  }
+
+  parameter: schema_2_name {
+    type: unquoted
   }
 
   parameter: table_1_name {

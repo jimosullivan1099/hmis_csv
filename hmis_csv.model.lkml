@@ -23,6 +23,15 @@ include: "projectcoc.view"
 include: "services.view"
 include: "site.view"
 
+include: "assessment_custom.view"
+include: "client_custom.view"
+include: "client_files.view"
+include: "client_location.view"
+include: "enrollment_custom.view"
+include: "notes_custom.view"
+include: "roi_custom.view"
+include: "services_custom.view"
+
 # include all the dashboards
 include: "*.dashboard"
 
@@ -174,3 +183,35 @@ explore: enrollment  {
 }
 
 explore: dynamic {}
+
+explore: assessment_custom {
+  hidden: yes
+}
+
+explore: client_custom {
+  hidden: yes
+}
+
+explore: client_files {
+  hidden: yes
+}
+
+explore: client_location {
+  hidden: yes
+}
+
+explore: enrollment_custom {
+  hidden: yes
+}
+
+explore: notes_custom {
+  hidden: yes
+}
+
+explore: roi_custom {
+  hidden: yes
+}
+
+explore: services_custom {
+  hidden: yes
+}
