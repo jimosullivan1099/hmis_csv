@@ -10,7 +10,7 @@ view: employmenteducation {
         ) AS lookup
       FROM employmenteducation t ;;
     indexes: ["EmploymentEducationID", "EnrollmentID", "PersonalID"]
-    sql_trigger_value: SELECT COUNT(*) FROM employmenteducation ;;
+    datagroup_trigger: client_data
   }
 
   dimension: lookup {

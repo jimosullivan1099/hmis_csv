@@ -6,7 +6,7 @@ view: disability_types_counts {
       GROUP BY EnrollmentID, DisabilityType, DataCollectionStage
        ;;
     indexes: ["EnrollmentID"]
-    sql_trigger_value: SELECT COUNT(*) FROM disabilities ;;
+    datagroup_trigger: client_data
   }
 
   dimension: EnrollmentID {

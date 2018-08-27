@@ -10,7 +10,7 @@ view: exit {
         ) AS lookup
       FROM `exit` t ;;
     indexes: ["ExitID", "EnrollmentID", "PersonalID"]
-    sql_trigger_value: SELECT COUNT(*) FROM `exit` ;;
+    datagroup_trigger: client_data
   }
 
   dimension: lookup {

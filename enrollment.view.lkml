@@ -11,7 +11,7 @@ view: enrollment {
         ) AS lookup
       FROM enrollment t ;;
     indexes: ["EnrollmentID", "PersonalID"]
-    sql_trigger_value: SELECT COUNT(*) FROM enrollment ;;
+    datagroup_trigger: client_data
   }
 
   measure: count {

@@ -14,7 +14,7 @@ view: client {
         ) AS lookup
       FROM client t ;;
     indexes: ["PersonalID"]
-    sql_trigger_value: SELECT COUNT(*) FROM client ;;
+    datagroup_trigger: client_data
   }
 
   dimension: lookup {

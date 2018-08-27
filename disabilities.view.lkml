@@ -10,7 +10,7 @@ view: disabilities {
         ) AS lookup
       FROM disabilities t ;;
     indexes: ["DisabilitiesID", "EnrollmentID", "DisabilitiesID", "PersonalID"]
-    sql_trigger_value: SELECT COUNT(*) FROM disabilities ;;
+    datagroup_trigger: client_data
   }
 
   dimension: lookup {

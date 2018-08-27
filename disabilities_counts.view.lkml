@@ -5,7 +5,7 @@ view: disabilities_counts{
       GROUP BY EnrollmentID, DataCollectionStage
        ;;
     indexes: ["PersonalID", "EnrollmentID"]
-    sql_trigger_value: SELECT COUNT(*) FROM disabilities ;;
+    datagroup_trigger: client_data
   }
 
   measure: count {

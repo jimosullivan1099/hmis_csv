@@ -10,7 +10,7 @@ view: incomebenefits {
         ) AS lookup
       FROM incomebenefits t ;;
     indexes: ["IncomeBenefitsID", "EnrollmentID", "PersonalID"]
-    sql_trigger_value: SELECT COUNT(*) FROM incomebenefits ;;
+    datagroup_trigger: client_data
   }
 
   dimension: lookup {

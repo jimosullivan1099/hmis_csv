@@ -10,7 +10,7 @@ view: enrollmentcoc {
         ) AS lookup
       FROM enrollmentcoc t ;;
     indexes: ["EnrollmentCoCID", "EnrollmentID", "PersonalID"]
-    sql_trigger_value: SELECT COUNT(*) FROM enrollmentcoc ;;
+    datagroup_trigger: client_data
   }
 
   dimension: lookup {

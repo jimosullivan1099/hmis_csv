@@ -35,6 +35,10 @@ include: "services_custom.view"
 # include all the dashboards
 include: "*.dashboard"
 
+datagroup: client_data {
+  sql_trigger: SELECT COUNT(1) FROM client ;;
+}
+
 explore: client {
 
   persist_for: "60 minutes"
