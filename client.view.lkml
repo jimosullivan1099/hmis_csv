@@ -90,6 +90,12 @@ view: client {
     sql: ${TABLE}.DOB ;;
   }
 
+  dimension: DOB_date {
+    label: "DOB Date"
+    type: date
+    sql: ${TABLE}.DOB ;;
+  }
+
   dimension: DOBDataQuality {
     type: string
     label: "DOBDataQuality"
@@ -348,9 +354,21 @@ view: client {
     sql: ${TABLE}.DateCreated ;;
   }
 
+  dimension: DateCreated_date {
+    label: "DOB Date"
+    type: date
+    sql: ${TABLE}.DateCreated ;;
+  }
+
   dimension: DateUpdated {
     type: string
     label: "DateUpdated"
+    sql: ${TABLE}.DateUpdated ;;
+  }
+
+  dimension: DateUpdated_date {
+    label: "DOB Date"
+    type: date
     sql: ${TABLE}.DateUpdated ;;
   }
 
