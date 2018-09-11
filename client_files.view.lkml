@@ -19,6 +19,12 @@ view: client_files {
     sql: ${TABLE}.PersonalID ;;
   }
 
+  dimension: AgencyID {
+    type: string
+    label: "AgencyID"
+    sql: ${TABLE}.AgencyID ;;
+  }
+
   dimension: Category {
     type: string
     label: "Category"
