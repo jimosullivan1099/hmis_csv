@@ -43,7 +43,7 @@ explore: client {
   conditionally_filter: {
     filters: {
       field: enrollment.date_filter
-      value: "2012/01/01 to 2015/01/01"
+      value: "2015/01/01 to today"
     }
   }
 
@@ -145,7 +145,7 @@ explore: enrollment  {
   conditionally_filter: {
     filters: {
       field: enrollment.date_filter
-      value: "2012/01/01 to 2015/01/01"
+      value: "2015/01/01 to today"
     }
   }
 
