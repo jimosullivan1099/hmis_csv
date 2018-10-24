@@ -14,6 +14,14 @@ view: enrollment {
     datagroup_trigger: client_data
   }
 
+  filter: date_filter {
+    label: "Reporting Period Filter"
+    type: date
+    sql:  ${EntryDateGroup_date} < {% date_end date_filter %}
+            AND (${exit.ExitDateGroup_date} >= {% date_start date_filter %} OR ${exit.ExitDateGroup_date} is NULL)
+            ;;
+  }
+
   measure: count {
     type: count
   }

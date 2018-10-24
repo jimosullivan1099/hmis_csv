@@ -32,9 +32,6 @@ include: "notes_custom.view"
 include: "roi_custom.view"
 include: "services_custom.view"
 
-# include all the dashboards
-include: "*.dashboard"
-
 datagroup: client_data {
   sql_trigger: SELECT COUNT(1) FROM client ;;
 }
@@ -42,6 +39,13 @@ datagroup: client_data {
 explore: client {
 
   persist_for: "60 minutes"
+
+  conditionally_filter: {
+    filters: {
+      field: enrollment.date_filter
+      value: "2012/01/01 to 2015/01/01"
+    }
+  }
 
   join: enrollment {
     type: left_outer
@@ -137,6 +141,14 @@ explore: client {
 
 explore: enrollment  {
   persist_for: " 60 minutes"
+
+  conditionally_filter: {
+    filters: {
+      field: enrollment.date_filter
+      value: "2012/01/01 to 2015/01/01"
+    }
+  }
+
   join: client {
     type: left_outer
     sql_on: ${enrollment.PersonalID} = ${client.PersonalID} ;;
