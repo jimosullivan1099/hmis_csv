@@ -40,12 +40,12 @@ explore: client {
 
   persist_for: "60 minutes"
 
-  conditionally_filter: {
-    filters: {
-      field: enrollment.date_filter
-      value: "2015/01/01 to today"
-    }
-  }
+#   conditionally_filter: {
+#     filters: {
+#       field: enrollment.date_filter
+#       value: "2015/01/01 to today"
+#     }
+#   }
 
   join: enrollment {
     type: left_outer
@@ -142,12 +142,12 @@ explore: client {
 explore: enrollment  {
   persist_for: " 60 minutes"
 
-  conditionally_filter: {
-    filters: {
-      field: enrollment.date_filter
-      value: "2015/01/01 to today"
-    }
-  }
+#   conditionally_filter: {
+#     filters: {
+#       field: enrollment.date_filter
+#       value: "2015/01/01 to today"
+#     }
+#   }
 
   join: client {
     type: left_outer
