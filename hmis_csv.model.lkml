@@ -33,7 +33,7 @@ include: "roi_custom.view"
 include: "services_custom.view"
 
 datagroup: client_data {
-  sql_trigger: SELECT COUNT(1) FROM client ;;
+  sql_trigger: SELECT 1 ;;
 }
 
 explore: client {
