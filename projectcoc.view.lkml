@@ -44,6 +44,41 @@ view: projectcoc {
     sql: ${TABLE}.UserID ;;
   }
 
+  dimension: Geocode {
+    type: string
+    sql: ${TABLE}.Geocode ;;
+  }
+
+  dimension: Address1 {
+    type: string
+    sql: ${TABLE}.Address1 ;;
+  }
+
+  dimension: Address2 {
+    type: string
+    sql: ${TABLE}.Address2 ;;
+  }
+
+  dimension: City {
+    type: string
+    sql: ${TABLE}.City ;;
+  }
+
+  dimension: State {
+    type: string
+    sql: ${TABLE}.State ;;
+  }
+
+  dimension: ZIP {
+    type: string
+    sql: ${TABLE}.ZIP ;;
+  }
+
+  dimension: GeographyType {
+    type: string
+    sql: ${TABLE}.GeographyType ;;
+  }
+
   measure: count {
     type: count
   }

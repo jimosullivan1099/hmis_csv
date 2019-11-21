@@ -37,6 +37,11 @@ view: organization {
     sql: ${TABLE}.OrganizationName ;;
   }
 
+  dimension: VictimServicesProvider {
+    type: string
+    sql: ${TABLE}.VictimServicesProvider ;;
+  }
+
   dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;

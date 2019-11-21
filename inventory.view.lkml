@@ -17,11 +17,6 @@ view: inventory {
     sql: ${TABLE}.BedInventory ;;
   }
 
-  dimension: BedType {
-    type: string
-    sql: ${TABLE}.BedType ;;
-  }
-
   dimension: CHBedCount {
     type: string
     sql: ${TABLE}.CHBedCount ;;
@@ -53,19 +48,34 @@ view: inventory {
     sql: ${TABLE}.ExportID ;;
   }
 
-  dimension: HMISParticipatingBeds {
-    type: string
-    sql: ${TABLE}.HMISParticipatingBeds ;;
-  }
-
   dimension: HouseHoldType {
     type: string
     sql: ${TABLE}.HouseHoldType ;;
   }
 
-  dimension: InformationDate {
+  dimension: CHVetBedInventory {
     type: string
-    sql: ${TABLE}.InformationDate ;;
+    sql: ${TABLE}.CHVetBedInventory ;;
+  }
+
+  dimension: YouthVetBedInventory {
+    type: string
+    sql: ${TABLE}.YouthVetBedInventory ;;
+  }
+
+  dimension: CHYouthBedInventory {
+    type: string
+    sql: ${TABLE}.CHYouthBedInventory ;;
+  }
+
+  dimension: OtherBedInventory {
+    type: string
+    sql: ${TABLE}.OtherBedInventory  ;;
+  }
+
+  dimension: ESBedType {
+    type: string
+    sql: ${TABLE}.ESBedType ;;
   }
 
   dimension: InventoryEndDate {

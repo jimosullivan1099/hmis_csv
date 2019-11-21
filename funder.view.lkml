@@ -204,6 +204,11 @@ view: funder {
     }
   }
 
+  dimension: OtherFunder {
+    type: string
+    sql: ${TABLE}.OtherFunder ;;
+  }
+
   dimension: GrantID {
     type: string
     sql: ${TABLE}.GrantID ;;

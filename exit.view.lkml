@@ -67,24 +67,6 @@ view: exit {
     sql: ${TABLE}.OtherDestination ;;
   }
 
-  dimension: AssessmentDisposition {
-    type: string
-    label: "AssessmentDisposition"
-    sql: ${TABLE}.AssessmentDisposition ;;
-  }
-
-  dimension: AssessmentDispositionText {
-    type: string
-    label: "AssessmentDispositionText"
-    sql: CASE WHEN ${TABLE}.AssessmentDisposition IS NOT NULL AND ${TABLE}.AssessmentDisposition <> '' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.lookup, CONCAT('AssessmentDisposition_', ${TABLE}.AssessmentDisposition, ':'), -1), ';', 1) END ;;
-  }
-
-  dimension: OtherDisposition {
-    type: string
-    label: "OtherDisposition"
-    sql: ${TABLE}.OtherDisposition ;;
-  }
-
   dimension: HousingAssessment {
     type: string
     label: "HousingAssessment"

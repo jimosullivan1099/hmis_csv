@@ -132,6 +132,11 @@ view: project {
     sql: ${TABLE}.TrackingMethod ;;
   }
 
+  dimension: HMISParticipatingProject {
+    type: string
+    sql: ${TABLE}.HMISParticipatingProject ;;
+  }
+
   dimension: UserID {
     type: string
     sql: ${TABLE}.UserID ;;

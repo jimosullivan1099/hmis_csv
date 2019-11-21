@@ -326,6 +326,12 @@ view: enrollment {
     sql: CASE WHEN ${TABLE}.SexualOrientation IS NOT NULL AND ${TABLE}.SexualOrientation <> '' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.lookup, CONCAT('SexualOrientation_', ${TABLE}.SexualOrientation, ':'), -1), ';', 1) END ;;
   }
 
+  dimension: SexualOrientationOther {
+    type: string
+    label: "SexualOrientationOther"
+    sql: ${TABLE}.SexualOrientationOther ;;
+  }
+
   dimension: FormerWardChildWelfare {
     type: string
     label: "FormerWardChildWelfare"
