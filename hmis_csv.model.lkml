@@ -1,7 +1,11 @@
 connection: "csv_review_dbz"
 
 include: "affiliation.view"
+include: "assessment.view"
+include: "assessmentquestions.view"
+include: "assessmentresults.view"
 include: "client.view"
+include: "currentlivingsituation.view"
 include: "disabilities.view"
 include: "disabilities_counts.view"
 include: "disability_types_counts.view"
@@ -11,6 +15,7 @@ include: "enrollment.view"
 include: "enrollment_household_counts.view"
 include: "enrollment_exit_counts.view"
 include: "enrollmentcoc.view"
+include: "event.view"
 include: "exit.view"
 include: "export.view"
 include: "funder.view"
@@ -66,6 +71,30 @@ explore: client {
     relationship: one_to_one
   }
 
+  join: assessment {
+    type:  left_outer
+    sql_on: ${enrollment.EnrollmentID} = ${assessment.EnrollmentID} ;;
+    relationship: one_to_many
+  }
+
+  join: assessmentquestions {
+    type:  left_outer
+    sql_on: ${assessment.AssessmentID} = ${assessmentquestions.AssessmentID} ;;
+    relationship: one_to_many
+  }
+
+  join: assessmentresults {
+    type:  left_outer
+    sql_on: ${assessment.AssessmentID} = ${assessmentresults.AssessmentID} ;;
+    relationship: one_to_many
+  }
+
+  join: currentlivingsituation {
+    type:  left_outer
+    sql_on: ${enrollment.EnrollmentID} = ${currentlivingsituation.EnrollmentID} ;;
+    relationship: one_to_many
+  }
+
   join: disabilities {
     type:  left_outer
     sql_on: ${enrollment.EnrollmentID} = ${disabilities.EnrollmentID} ;;
@@ -93,6 +122,12 @@ explore: client {
   join:  enrollmentcoc {
     type:  left_outer
     sql_on: ${enrollment.EnrollmentID} = ${enrollmentcoc.EnrollmentID} ;;
+    relationship: one_to_many
+  }
+
+  join: event {
+    type:  left_outer
+    sql_on: ${enrollment.EnrollmentID} = ${event.EnrollmentID} ;;
     relationship: one_to_many
   }
 
