@@ -1,8 +1,6 @@
 view: assessmentresults {
   derived_table: {
     sql: SELECT * FROM assessmentresults ;;
-    indexes: ["AssessmentResultID", "AssessmentID", "EnrollmentID", "PersonalID"]
-    datagroup_trigger: client_data
   }
 
   dimension: AssessmentID {

@@ -1,8 +1,6 @@
 view: event {
   derived_table: {
     sql: SELECT * FROM event ;;
-    indexes: ["EventID", "EnrollmentID", "PersonalID"]
-    datagroup_trigger: client_data
   }
 
   dimension: EventID {
