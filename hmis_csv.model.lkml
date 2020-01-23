@@ -46,13 +46,6 @@ explore: client {
 
   persist_for: "60 minutes"
 
-#   conditionally_filter: {
-#     filters: {
-#       field: enrollment.date_filter
-#       value: "2015/01/01 to today"
-#     }
-#   }
-
   join: enrollment {
     type: left_outer
     sql_on: ${client.PersonalID} = ${enrollment.PersonalID} ;;
@@ -178,13 +171,6 @@ explore: client {
 explore: enrollment  {
   persist_for: " 60 minutes"
 
-#   conditionally_filter: {
-#     filters: {
-#       field: enrollment.date_filter
-#       value: "2015/01/01 to today"
-#     }
-#   }
-
   join: client {
     type: left_outer
     sql_on: ${enrollment.PersonalID} = ${client.PersonalID} ;;
@@ -232,6 +218,54 @@ explore: enrollment  {
     sql_on: ${enrollment.ProjectID} = ${project.ProjectID} ;;
     relationship: one_to_many
   }
+}
+
+explore: currentlivingsituation {
+  hidden: yes
+}
+
+explore: disabilities {
+  hidden: yes
+}
+
+explore: employmenteducation {
+  hidden: yes
+}
+
+explore: enrollmentcoc {
+  hidden: yes
+}
+
+explore: event {
+  hidden: yes
+}
+
+explore: exit {
+  hidden: yes
+}
+
+explore: healthanddv {
+  hidden: yes
+}
+
+explore: incomebenefits {
+  hidden: yes
+}
+
+explore: organization {
+  hidden: yes
+}
+
+explore: project {
+  hidden: yes
+}
+
+explore: projectcoc {
+  hidden: yes
+}
+
+explore: services {
+  hidden: yes
 }
 
 explore: dynamic {}
