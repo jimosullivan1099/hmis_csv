@@ -1,9 +1,5 @@
 view: user {
-  derived_table: {
-    sql: SELECT * FROM user ;;
-    indexes: ["UserID"]
-    datagroup_trigger: client_data
-  }
+  sql_table_name: user ;;
 
   dimension: UserID {
     primary_key: yes

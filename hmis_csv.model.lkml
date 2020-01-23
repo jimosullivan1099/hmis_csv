@@ -27,6 +27,7 @@ include: "project.view"
 include: "projectcoc.view"
 include: "services.view"
 include: "site.view"
+include: "user.view"
 
 include: "assessment_custom.view"
 include: "client_custom.view"
@@ -220,6 +221,10 @@ explore: enrollment  {
   }
 }
 
+explore: affiliation {
+  hidden: yes
+}
+
 explore: currentlivingsituation {
   hidden: yes
 }
@@ -252,6 +257,14 @@ explore: incomebenefits {
   hidden: yes
 }
 
+explore: funder {
+  hidden: yes
+}
+
+explore: inventory {
+  hidden: yes
+}
+
 explore: organization {
   hidden: yes
 }
@@ -265,6 +278,10 @@ explore: projectcoc {
 }
 
 explore: services {
+  hidden: yes
+}
+
+explore: user {
   hidden: yes
 }
 
