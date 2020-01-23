@@ -249,6 +249,10 @@ explore: exit {
   hidden: yes
 }
 
+explore: export {
+  hidden: yes
+}
+
 explore: healthanddv {
   hidden: yes
 }
