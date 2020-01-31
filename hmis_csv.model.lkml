@@ -225,28 +225,136 @@ explore: affiliation {
   hidden: yes
 }
 
+explore: assessment {
+  hidden: yes
+
+  join: enrollment {
+    type: left_outer
+    sql_on: ${assessment.EnrollmentID} = ${enrollment.EnrollmentID} ;;
+    relationship: many_to_one
+  }
+
+  join: client {
+    type: left_outer
+    sql_on: ${assessment.PersonalID} = ${client.PersonalID} ;;
+    relationship: many_to_one
+  }
+}
+
+explore: assessmentquestions {
+  hidden: yes
+
+  join: enrollment {
+    type: left_outer
+    sql_on: ${assessmentquestions.EnrollmentID} = ${enrollment.EnrollmentID} ;;
+    relationship: many_to_one
+  }
+
+  join: client {
+    type: left_outer
+    sql_on: ${assessmentquestions.PersonalID} = ${client.PersonalID} ;;
+    relationship: many_to_one
+  }
+}
+
+explore: assessmentresults {
+  hidden: yes
+}
+
 explore: currentlivingsituation {
   hidden: yes
+
+  join: enrollment {
+    type: left_outer
+    sql_on: ${currentlivingsituation.EnrollmentID} = ${enrollment.EnrollmentID} ;;
+    relationship: many_to_one
+  }
+
+  join: client {
+    type: left_outer
+    sql_on: ${currentlivingsituation.PersonalID} = ${client.PersonalID} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: disabilities {
   hidden: yes
+
+  join: enrollment {
+    type: left_outer
+    sql_on: ${disabilities.EnrollmentID} = ${enrollment.EnrollmentID} ;;
+    relationship: many_to_one
+  }
+
+  join: client {
+    type: left_outer
+    sql_on: ${disabilities.PersonalID} = ${client.PersonalID} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: employmenteducation {
   hidden: yes
+
+  join: enrollment {
+    type: left_outer
+    sql_on: ${employmenteducation.EnrollmentID} = ${enrollment.EnrollmentID} ;;
+    relationship: many_to_one
+  }
+
+  join: client {
+    type: left_outer
+    sql_on: ${employmenteducation.PersonalID} = ${client.PersonalID} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: enrollmentcoc {
   hidden: yes
+
+  join: enrollment {
+    type: left_outer
+    sql_on: ${enrollmentcoc.EnrollmentID} = ${enrollment.EnrollmentID} ;;
+    relationship: many_to_one
+  }
+
+  join: client {
+    type: left_outer
+    sql_on: ${enrollmentcoc.PersonalID} = ${client.PersonalID} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: event {
   hidden: yes
+
+  join: enrollment {
+    type: left_outer
+    sql_on: ${event.EnrollmentID} = ${enrollment.EnrollmentID} ;;
+    relationship: many_to_one
+  }
+
+  join: client {
+    type: left_outer
+    sql_on: ${event.PersonalID} = ${client.PersonalID} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: exit {
   hidden: yes
+
+  join: enrollment {
+    type: left_outer
+    sql_on: ${exit.EnrollmentID} = ${enrollment.EnrollmentID} ;;
+    relationship: many_to_one
+  }
+
+  join: client {
+    type: left_outer
+    sql_on: ${exit.PersonalID} = ${client.PersonalID} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: export {
@@ -255,10 +363,34 @@ explore: export {
 
 explore: healthanddv {
   hidden: yes
+
+  join: enrollment {
+    type: left_outer
+    sql_on: ${healthanddv.EnrollmentID} = ${enrollment.EnrollmentID} ;;
+    relationship: many_to_one
+  }
+
+  join: client {
+    type: left_outer
+    sql_on: ${healthanddv.PersonalID} = ${client.PersonalID} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: incomebenefits {
   hidden: yes
+
+  join: enrollment {
+    type: left_outer
+    sql_on: ${incomebenefits.EnrollmentID} = ${enrollment.EnrollmentID} ;;
+    relationship: many_to_one
+  }
+
+  join: client {
+    type: left_outer
+    sql_on: ${incomebenefits.PersonalID} = ${client.PersonalID} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: funder {
@@ -283,6 +415,18 @@ explore: projectcoc {
 
 explore: services {
   hidden: yes
+
+  join: enrollment {
+    type: left_outer
+    sql_on: ${services.EnrollmentID} = ${enrollment.EnrollmentID} ;;
+    relationship: many_to_one
+  }
+
+  join: client {
+    type: left_outer
+    sql_on: ${services.PersonalID} = ${client.PersonalID} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: user {
