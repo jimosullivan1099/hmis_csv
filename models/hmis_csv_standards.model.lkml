@@ -1,10 +1,6 @@
 connection: "hmis_csv_standards_dbz"
 
-include: "data_types.view"
-include: "files.view"
-include: "file_fields.view"
-include: "lists.view"
-include: "list_values.view"
+include: "/views/hud_standards/*.view.lkml"
 
 explore: base {
   persist_for: "24 hours"

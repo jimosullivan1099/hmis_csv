@@ -1,42 +1,8 @@
-connection: "csv_review_dbz"
-
-include: "affiliation.view"
-include: "assessment.view"
-include: "assessmentquestions.view"
-include: "assessmentresults.view"
-include: "client.view"
-include: "currentlivingsituation.view"
-include: "disabilities.view"
-include: "disabilities_counts.view"
-include: "disability_types_counts.view"
-include: "dynamic.view"
-include: "employmenteducation.view"
-include: "enrollment.view"
-include: "enrollment_household_counts.view"
-include: "enrollment_exit_counts.view"
-include: "enrollmentcoc.view"
-include: "event.view"
-include: "exit.view"
-include: "export.view"
-include: "funder.view"
-include: "healthanddv.view"
-include: "incomebenefits.view"
-include: "inventory.view"
-include: "organization.view"
-include: "project.view"
-include: "projectcoc.view"
-include: "services.view"
-include: "site.view"
-include: "user.view"
-
-include: "assessment_custom.view"
-include: "client_custom.view"
-include: "client_files.view"
-include: "client_location.view"
-include: "enrollment_custom.view"
-include: "notes_custom.view"
-include: "roi_custom.view"
-include: "services_custom.view"
+include: "views/hud/*.view.lkml"
+include: "views/custom/*.view.lkml"
+include: "views/analysis/*.view.lkml"
+include: "/views/hud_standards/list_values.view"
+include: "/views/hud_standards/file_fields.view"
 
 datagroup: client_data {
   sql_trigger: SELECT 1 ;;
@@ -432,8 +398,6 @@ explore: services {
 explore: user {
   hidden: yes
 }
-
-explore: dynamic {}
 
 explore: assessment_custom {
   hidden: yes

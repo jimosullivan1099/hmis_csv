@@ -1,5 +1,5 @@
-include: "list_values.view"
-include: "file_fields.view"
+include: "/views/hud_standards/list_values.view"
+include: "/views/hud_standards/file_fields.view"
 
 view: client {
 
@@ -397,5 +397,61 @@ view: client {
   measure: distinct_count {
     type:  count_distinct
     sql:  ${PersonalID} ;;
+  }
+
+
+
+
+
+  measure: NullNameDataQuality {
+    view_label: "Client DQ Errors"
+    label: "Null NameDataQuality"
+    type: count_distinct
+
+    filters: {
+      field: NameDataQuality
+      value: "NULL,EMPTY"
+    }
+
+    drill_fields: [client_queries_drill_fields*]
+    sql: ${PersonalID} ;;
+  }
+
+  measure: NullSSNDataQuality {
+    view_label: "Client DQ Errors"
+    label: "Null SSNDataQuality"
+    type: count_distinct
+
+    filters: {
+      field: SSNDataQuality
+      value: "NULL,EMPTY"
+    }
+
+    drill_fields: [client_queries_drill_fields*]
+    sql: ${PersonalID} ;;
+  }
+
+  measure: NullDOBDataQuality {
+    view_label: "Client DQ Errors"
+    label: "Null DOBDataQuality"
+    type: count_distinct
+
+    filters: {
+      field: DOBDataQuality
+      value: "NULL,EMPTY"
+    }
+
+    drill_fields: [client_queries_drill_fields*]
+    sql: ${PersonalID} ;;
+  }
+
+
+
+
+
+  set: client_queries_drill_fields {
+    fields: [
+      PersonalID
+    ]
   }
 }
