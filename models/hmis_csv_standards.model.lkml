@@ -3,7 +3,7 @@ connection: "hmis_csv_standards_dbz"
 include: "/views/hud_standards/*.view.lkml"
 
 explore: base {
-  persist_for: "24 hours"
+  # persist_for: "24 hours"
   view_name: files
   join: file_fields {
     relationship: one_to_many

@@ -6,12 +6,13 @@ include: "/views/hud_standards/file_fields.view"
 
 datagroup: client_data {
   sql_trigger: SELECT 1 ;;
-  max_cache_age: "24 hours"
+  # max_cache_age: "24 hours"
 }
 
 explore: client {
+  from: client_queries
 
-  persist_for: "60 minutes"
+  persist_with: client_data
 
   join: enrollment {
     type: left_outer
@@ -136,7 +137,7 @@ explore: client {
 }
 
 explore: enrollment  {
-  persist_for: " 60 minutes"
+  # persist_for: " 60 minutes"
 
   join: client {
     type: left_outer
