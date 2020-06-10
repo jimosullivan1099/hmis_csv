@@ -7,7 +7,6 @@ view: enrollment_exit_counts {
       GROUP BY e.EnrollmentID
       ;;
     indexes: ["EnrollmentID", "ExitID"]
-    datagroup_trigger: client_data
   }
 
   dimension: EnrollmentID {

@@ -11,7 +11,6 @@ view: enrollment_household_counts{
       GROUP BY HouseholdID
       ;;
     indexes: ["HouseholdID"]
-    datagroup_trigger: client_data
   }
 
   measure: count {

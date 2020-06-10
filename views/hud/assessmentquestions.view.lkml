@@ -1,9 +1,5 @@
 view: assessmentquestions {
-  derived_table: {
-    sql: SELECT * FROM assessmentquestions ;;
-    indexes: ["AssessmentQuestionID", "AssessmentID", "EnrollmentID", "PersonalID"]
-    datagroup_trigger: client_data
-  }
+  sql_table_name: assessmentquestions ;;
 
   dimension: AssessmentAnswer {
     type: string

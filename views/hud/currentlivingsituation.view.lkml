@@ -1,9 +1,5 @@
 view: currentlivingsituation {
-  derived_table: {
-    sql: SELECT * FROM currentlivingsituation ;;
-    indexes: ["CurrentLivingSitID", "EnrollmentID", "PersonalID"]
-    datagroup_trigger: client_data
-  }
+  sql_table_name: currentlivingsituation ;;
 
   dimension: CurrentLivingSitID {
     primary_key: yes

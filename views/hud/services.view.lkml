@@ -1,23 +1,5 @@
 view: services {
-  derived_table: {
-    sql:
-      SELECT
-        t.*,
-        (
-          SELECT GROUP_CONCAT(ff.name, '_' , CONCAT(lv.value, ':', lv.text ) SEPARATOR '; ')
-          FROM ${list_values.SQL_TABLE_NAME} lv INNER JOIN ${file_fields.SQL_TABLE_NAME} ff ON ff.list = lv.list_code
-          WHERE ff.filename = 'Services.csv'
-        ) AS lookup
-      FROM services t ;;
-    indexes: ["ServicesID", "EnrollmentID", "PersonalID"]
-    datagroup_trigger: client_data
-  }
-
-  dimension: lookup {
-    type: string
-    hidden: yes
-    sql: ${TABLE}.lookup ;;
-  }
+  sql_table_name: services ;;
 
   dimension: ServicesID {
     type: string
@@ -50,22 +32,10 @@ view: services {
     sql: ${TABLE}.RecordType ;;
   }
 
-  dimension: RecordTypeText {
-    type: string
-    label: "RecordTypeText"
-    sql: CASE WHEN ${TABLE}.RecordType IS NOT NULL AND ${TABLE}.RecordType <> '' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.lookup, CONCAT('RecordType_', ${TABLE}.RecordType, ':'), -1), ';', 1) END ;;
-  }
-
   dimension: TypeProvided {
     type: string
     label: "TypeProvided"
     sql: ${TABLE}.TypeProvided ;;
-  }
-
-  dimension: TypeProvidedText {
-    type: string
-    label: "TypeProvidedText"
-    sql: CASE WHEN ${TABLE}.TypeProvided IS NOT NULL AND ${TABLE}.TypeProvided <> '' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.lookup, CONCAT('TypeProvided_', ${TABLE}.TypeProvided, ':'), -1), ';', 1) END ;;
   }
 
   dimension: OtherTypeProvided {
@@ -80,12 +50,6 @@ view: services {
     sql: ${TABLE}.SubTypeProvided ;;
   }
 
-  dimension: SubTypeProvidedText {
-    type: string
-    label: "SubTypeProvidedText"
-    sql: CASE WHEN ${TABLE}.SubTypeProvided IS NOT NULL AND ${TABLE}.SubTypeProvided <> '' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.lookup, CONCAT('SubTypeProvided_', ${TABLE}.SubTypeProvided, ':'), -1), ';', 1) END ;;
-  }
-
   dimension: FAAmount {
     type: string
     label: "FAAmount"
@@ -96,12 +60,6 @@ view: services {
     type: string
     label: "ReferralOutcome"
     sql: ${TABLE}.ReferralOutcome ;;
-  }
-
-  dimension: ReferralOutcomeText {
-    type: string
-    label: "ReferralOutcomeText"
-    sql: CASE WHEN ${TABLE}.ReferralOutcome IS NOT NULL AND ${TABLE}.ReferralOutcome <> '' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.lookup, CONCAT('ReferralOutcome_', ${TABLE}.ReferralOutcome, ':'), -1), ';', 1) END ;;
   }
 
   dimension: DateCreated {

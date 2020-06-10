@@ -5,7 +5,6 @@ view: disabilities_counts{
       GROUP BY EnrollmentID, DataCollectionStage
        ;;
     indexes: ["PersonalID", "EnrollmentID"]
-    datagroup_trigger: client_data
   }
 
   measure: count {

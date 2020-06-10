@@ -1,7 +1,5 @@
 view: event {
-  derived_table: {
-    sql: SELECT * FROM event ;;
-  }
+  sql_table_name: event ;;
 
   dimension: EventID {
     primary_key: yes

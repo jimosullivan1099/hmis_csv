@@ -1,23 +1,5 @@
 view: enrollmentcoc {
-  derived_table: {
-    sql:
-      SELECT
-        t.*,
-        (
-          SELECT GROUP_CONCAT(ff.name, '_' , CONCAT(lv.value, ':', lv.text ) SEPARATOR '; ')
-          FROM ${list_values.SQL_TABLE_NAME} lv INNER JOIN ${file_fields.SQL_TABLE_NAME} ff ON ff.list = lv.list_code
-          WHERE ff.filename = 'EnrollmentCoC.csv'
-        ) AS lookup
-      FROM enrollmentcoc t ;;
-    indexes: ["EnrollmentCoCID", "EnrollmentID", "PersonalID"]
-    datagroup_trigger: client_data
-  }
-
-  dimension: lookup {
-    type: string
-    hidden: yes
-    sql: ${TABLE}.lookup ;;
-  }
+  sql_table_name: enrollmentcoc ;;
 
   dimension: EnrollmentCoCID {
     type: string
@@ -67,13 +49,6 @@ view: enrollmentcoc {
     label: "DataCollectionStage"
     sql: ${TABLE}.DataCollectionStage ;;
   }
-
-    # TODO - list 5.3.1 doesn't appear in HMIS CSV specs and needs to be added to database for this to populate
-#   dimension: DataCollectionStageText {
-#     type: string
-#     label: "DataCollectionStageText"
-#     sql: CASE WHEN ${TABLE}.DataCollectionStage IS NOT NULL AND ${TABLE}.DataCollectionStage <> '' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.lookup, CONCAT('DataCollectionStage_', ${TABLE}.DataCollectionStage, ':'), -1), ';', 1) END ;;
-#   }
 
   dimension: DateCreated {
     type: string

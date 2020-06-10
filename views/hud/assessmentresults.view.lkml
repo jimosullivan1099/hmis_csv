@@ -1,7 +1,5 @@
 view: assessmentresults {
-  derived_table: {
-    sql: SELECT * FROM assessmentresults ;;
-  }
+  sql_table_name: assessmentresults ;;
 
   dimension: AssessmentID {
     type: string
