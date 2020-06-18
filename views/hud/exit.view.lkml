@@ -1,5 +1,4 @@
 view: exit {
-  sql_table_name: exit ;;
 
   dimension: ExitID {
     type: string
