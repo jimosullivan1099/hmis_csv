@@ -5,7 +5,7 @@ view: disability_types_counts {
       FROM disabilities
       GROUP BY EnrollmentID, DisabilityType, DataCollectionStage
        ;;
-    indexes: ["EnrollmentID", "DisabilityType"]
+    indexes: ["EnrollmentID"]
   }
 
   dimension: EnrollmentID {
