@@ -1,12 +1,11 @@
 include: "views/hud/*.view.lkml"
 include: "views/custom/*.view.lkml"
-include: "views/analysis/*.view.lkml"
+include: "views/hud/analysis/*.view.lkml"
+include: "views/ui_elements.view"
 include: "/views/hud_standards/list_values.view"
 include: "/views/hud_standards/file_fields.view"
 
 explore: client {
-  from: client_queries
-
   join: enrollment {
     type: left_outer
     sql_on: ${client.PersonalID} = ${enrollment.PersonalID} ;;
@@ -146,6 +145,19 @@ explore: enrollment  {
   join:  employmenteducation {
     type:  left_outer
     sql_on: ${enrollment.EnrollmentID} = ${employmenteducation.EnrollmentID} ;;
+    relationship: one_to_many
+  }
+
+  join:  enrollmentcoc {
+    type:  left_outer
+    sql_on: ${enrollment.EnrollmentID} = ${enrollmentcoc.EnrollmentID} ;;
+    relationship: one_to_many
+  }
+
+  join:  enrollmentcoc_at_entry {
+    from: enrollmentcoc
+    type:  left_outer
+    sql_on: ${enrollment.EnrollmentID} = ${enrollmentcoc_at_entry.EnrollmentID} AND ${enrollmentcoc_at_entry.DataCollectionStage} = '1' ;;
     relationship: one_to_many
   }
 

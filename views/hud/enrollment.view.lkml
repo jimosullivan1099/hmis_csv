@@ -439,6 +439,11 @@ view: enrollment {
 
   measure: count_distinct_clients {
     type:  count_distinct
-    sql: ${client.PersonalID};;
+    sql: ${client.PersonalID} ;;
+  }
+
+  measure: count_distinct_households {
+    type:  count_distinct
+    sql: ${TABLE}.HouseholdID ;;
   }
 }
