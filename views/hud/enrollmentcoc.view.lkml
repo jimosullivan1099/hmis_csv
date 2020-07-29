@@ -80,6 +80,12 @@ view: enrollmentcoc {
     sql: ${TABLE}.ExportID ;;
   }
 
+  dimension: Valid_CoCCode {
+    type: yesno
+    label: "Valid CoCCode Format"
+    sql: ${TABLE}.CoCCode REGEXP '[A-Z]{2}-[0-9]{3}' ;;
+  }
+
   measure: count {
     type: count
   }
