@@ -96,10 +96,10 @@ view: exit {
     sql: ${TABLE}.AskedOrForcedToExchangeForSexPastThreeMonths ;;
   }
 
-  dimension: WorkPlaceViolenceThreats {
+  dimension: WorkplaceViolenceThreats {
     type: string
     label: "WorkPlaceViolenceThreats"
-    sql: ${TABLE}.WorkPlaceViolenceThreats ;;
+    sql: ${TABLE}.WorkplaceViolenceThreats ;;
   }
 
   dimension: WorkplacePromiseDifference {

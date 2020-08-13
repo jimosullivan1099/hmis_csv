@@ -78,6 +78,13 @@ explore: client {
     relationship: one_to_many
   }
 
+  join:  enrollmentcoc_at_entry {
+    from: enrollmentcoc
+    type:  left_outer
+    sql_on: ${enrollment.EnrollmentID} = ${enrollmentcoc_at_entry.EnrollmentID} AND ${enrollmentcoc_at_entry.DataCollectionStage} = '1' ;;
+    relationship: one_to_many
+  }
+
   join: event {
     type:  left_outer
     sql_on: ${enrollment.EnrollmentID} = ${event.EnrollmentID} ;;
@@ -142,6 +149,18 @@ explore: enrollment  {
     relationship: one_to_many
   }
 
+  join: disabilities_counts {
+    type:  left_outer
+    sql_on: ${enrollment.EnrollmentID} = ${disabilities_counts.EnrollmentID} ;;
+    relationship: one_to_many
+  }
+
+  join: disability_types_counts {
+    type:  left_outer
+    sql_on: ${enrollment.EnrollmentID} = ${disability_types_counts.EnrollmentID} ;;
+    relationship: one_to_many
+  }
+
   join:  employmenteducation {
     type:  left_outer
     sql_on: ${enrollment.EnrollmentID} = ${employmenteducation.EnrollmentID} ;;
@@ -188,6 +207,12 @@ explore: enrollment  {
   join:  project {
     type:  left_outer
     sql_on: ${enrollment.ProjectID} = ${project.ProjectID} ;;
+    relationship: one_to_many
+  }
+
+  join:  funder {
+    type:  left_outer
+    sql_on: ${project.ProjectID} = ${funder.ProjectID} ;;
     relationship: one_to_many
   }
 }
@@ -246,6 +271,12 @@ explore: currentlivingsituation {
     sql_on: ${currentlivingsituation.PersonalID} = ${client.PersonalID} ;;
     relationship: many_to_one
   }
+
+  join:  project {
+    type:  left_outer
+    sql_on: ${enrollment.ProjectID} = ${project.ProjectID} ;;
+    relationship: one_to_many
+  }
 }
 
 explore: disabilities {
@@ -261,6 +292,30 @@ explore: disabilities {
     type: left_outer
     sql_on: ${disabilities.PersonalID} = ${client.PersonalID} ;;
     relationship: many_to_one
+  }
+
+  join: disabilities_counts {
+    type:  left_outer
+    sql_on: ${enrollment.EnrollmentID} = ${disabilities_counts.EnrollmentID} ;;
+    relationship: one_to_many
+  }
+
+  join: disability_types_counts {
+    type:  left_outer
+    sql_on: ${enrollment.EnrollmentID} = ${disability_types_counts.EnrollmentID} ;;
+    relationship: one_to_many
+  }
+
+  join:  project {
+    type:  left_outer
+    sql_on: ${enrollment.ProjectID} = ${project.ProjectID} ;;
+    relationship: one_to_many
+  }
+
+  join:  funder {
+    type:  left_outer
+    sql_on: ${project.ProjectID} = ${funder.ProjectID} ;;
+    relationship: one_to_many
   }
 }
 

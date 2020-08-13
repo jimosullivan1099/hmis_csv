@@ -237,6 +237,16 @@ view: client {
     sql: ${TABLE}.ExportID ;;
   }
 
+  dimension: Funder {
+    hidden: yes
+    type: string
+    sql:  SELECT Funder
+          FROM funder f
+          INNER JOIN enrollment e ON e.ProjectID = f.ProjectID
+          INNER JOIN client c ON c.PersonalID = e.PersonalID
+          WHERE c.PersonalID = ${PersonalID}  ;;
+  }
+
   measure: count {
     type: count
   }

@@ -1,7 +1,7 @@
 view: affiliation {
   sql_table_name: affiliation ;;
 
-  dimension: AffliationID {
+  dimension: AffiliationID {
     type: string
     primary_key: yes
     sql: ${TABLE}.AffliationID ;;

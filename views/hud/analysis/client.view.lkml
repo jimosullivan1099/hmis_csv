@@ -24,6 +24,20 @@ view: +client {
     sql: ${PersonalID} ;;
   }
 
+  measure: clients_without_enrollments {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "Clients without enrollments"
+    type: count_distinct
+
+    filters: [
+      enrollment.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [client_queries_drill_fields*]
+    sql: ${PersonalID} ;;
+  }
+
   measure: non_hud_afghanistanoef {
     group_label: "NonHUD"
     view_label: "Analysis - Minor"
@@ -556,7 +570,7 @@ view: +client {
     sql: ${PersonalID} ;;
   }
 
-  measure: clients_where_all_races_are_no_but_racenone_is_not_client_doesnt_know__client_refused__or_data_not_collected {
+  measure: clients_where_all_races_are_no_but_racenone_is_not_client_doesnt_know_client_refused_or_data_not_collected {
     group_label: "dqClient"
     view_label: "Analysis - Dq"
     label: "Clients where all races are No but RaceNone is not Client Doesn't Know, Client Refused, or Data Not Collected"
@@ -575,27 +589,52 @@ view: +client {
     sql: ${PersonalID} ;;
   }
 
-#   measure: clients_where_either_client_doesnt_know__client_refused__or_data_not_collected_is_selected_for_racenone_but_there_is_a_value_for_one_of_the_race_columns {
-#     group_label: "dqClient"
-#     view_label: "Analysis - Dq"
-#     label: "Clients where either Client Doesn't Know, Client Refused, or Data Not Collected is selected for RaceNone but there is a value for one of the Race columns"
-#     type: count_distinct
-#
-#
-#     drill_fields: [client_queries_drill_fields*]
-#     sql: ${PersonalID} ;;
-#   }
+  dimension: bool_yes_for_at_least_one_race_column {
+    hidden: yes
+    type: yesno
+    sql:  CASE
+            WHEN ${client.AmIndAKNative} = "1" OR ${client.Asian} = "1" OR ${client.BlackAfAmerican} = "1" OR ${client.NativeHIOtherPacific} = "1" OR ${client.White} = "1" THEN true
+            ELSE false
+          END ;;
+  }
 
-#   measure: clients_distinct_with_a_yes_for_at_least_one_of_the_race_columns {
-#     group_label: "Counts"
-#     view_label: "Analysis - General"
-#     label: "Clients (distinct) with a Yes for at least one of the race columns"
-#     type: count_distinct
-#
-#
-#     drill_fields: [client_queries_drill_fields*]
-#     sql: ${PersonalID} ;;
-#   }
+  measure: clients_where_either_client_doesnt_know_client_refused_or_data_not_collected_is_selected_for_racenone_but_there_is_a_value_for_one_of_the_race_columns {
+    group_label: "dqClient"
+    view_label: "Analysis - Dq"
+    label: "Clients where either Client Doesn't Know, Client Refused, or Data Not Collected is selected for RaceNone but there is a value for one of the Race columns"
+    type: count_distinct
+
+    filters: [
+      client.RaceNone: "8,9,99",
+      client.bool_yes_for_at_least_one_race_column: "yes"
+    ]
+
+    drill_fields: [client_queries_drill_fields*]
+    sql: ${PersonalID} ;;
+  }
+
+  measure: clients_distinct_with_a_yes_for_at_least_one_of_the_race_columns {
+    group_label: "Counts"
+    view_label: "Analysis - General"
+    label: "Clients (distinct) with a Yes for at least one of the race columns"
+    type: count_distinct
+
+    filters: [
+      client.bool_yes_for_at_least_one_race_column: "yes"
+    ]
+
+    drill_fields: [client_queries_drill_fields*]
+    sql: ${PersonalID} ;;
+  }
+
+  dimension: bool_yes_for_at_least_one_theater {
+    hidden: yes
+    type: yesno
+    sql:  CASE
+            WHEN ${client.WorldWarII} = "1" OR ${client.KoreanWar} = "1" OR ${client.VietnamWar} = "1" OR ${client.DesertStorm} = "1" OR ${client.WorldWarII} = "1" OR ${client.AfghanistanOEF} = "1" OR ${client.IraqOIF} = "1" OR ${client.IraqOND} = "1" OR ${client.OtherTheater} = "1" THEN true
+            ELSE false
+          END ;;
+  }
 
   measure: clients_with_yes_for_one_of_the_theaters_but_do_not_have_a_yes_for_veteranstatus {
     group_label: "dqClient"
@@ -603,9 +642,20 @@ view: +client {
     label: "Clients with Yes for one of the theaters but do not have a Yes for VeteranStatus"
     type: count_distinct
 
+    filters: [
+      client.VeteranStatus: "-1",
+      client.bool_yes_for_at_least_one_theater: "yes",
+      client.Funder: "20,33"
+    ]
 
     drill_fields: [client_queries_drill_fields*]
     sql: ${PersonalID} ;;
+  }
+
+  dimension: bool_dob_after_datecreated {
+    hidden: yes
+    type: yesno
+    sql:  ${DOB} > ${DateCreated_date} ;;
   }
 
   measure: clients_with_a_dob_that_is_after_the_datecreated {
@@ -614,6 +664,9 @@ view: +client {
     label: "Clients with a DOB that is after the DateCreated"
     type: count_distinct
 
+    filters: [
+      client.bool_dob_after_datecreated: "yes"
+    ]
 
     drill_fields: [client_queries_drill_fields*, client.DOB]
     sql: ${PersonalID} ;;
@@ -649,18 +702,29 @@ view: +client {
     sql: ${PersonalID} ;;
   }
 
+  dimension: bool_year_entered_service_or_year_separated_has_value {
+    hidden: yes
+    type: yesno
+    sql: IF(${client.YearEnteredService} != "" OR ${client.YearSeparated} != "", true, false) ;;
+  }
+
   measure: clients_enrolled_in_a_va_project_with_a_value_for_yearenteredservice_or_yearseparated_but_do_not_have_a_yes_for_veteranstatus {
     group_label: "dqClient"
     view_label: "Analysis - Dq"
     label: "Clients enrolled in a VA project with a value for YearEnteredService or YearSeparated but do not have a Yes for VeteranStatus"
     type: count_distinct
 
+    filters: [
+      client.VeteranStatus: "-1",
+      client.bool_year_entered_service_or_year_separated_has_value: "yes",
+      client.Funder: "20,27,28,29,30,31,32,33"
+    ]
 
     drill_fields: [client_queries_drill_fields*]
     sql: ${PersonalID} ;;
   }
 
-  measure: invalid_date_formatting_for_dob_in_client.csv {
+  measure: invalid_date_formatting_for_dob_in_client_csv {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"
     label: "Invalid Date Formatting for DOB in Client.csv"
@@ -674,7 +738,7 @@ view: +client {
     sql: ${PersonalID} ;;
   }
 
-  measure: invalid_date_formatting_for_datecreated_in_client.csv {
+  measure: invalid_date_formatting_for_datecreated_in_client_csv {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"
     label: "Invalid Date Formatting for DateCreated in Client.csv"
@@ -688,7 +752,7 @@ view: +client {
     sql: ${PersonalID} ;;
   }
 
-  measure: invalid_date_formatting_for_dateupdated_in_client.csv {
+  measure: invalid_date_formatting_for_dateupdated_in_client_csv {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"
     label: "Invalid Date Formatting for DateUpdated in Client.csv"
