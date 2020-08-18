@@ -766,20 +766,6 @@ view: +client {
     sql: ${PersonalID} ;;
   }
 
-  measure: dob_after_datecreated {
-    group_label: "dqClient"
-    view_label: "Dq"
-    label: "DOB After DateCreated"
-    type: count_distinct
-
-    drill_fields: [client_queries_drill_fields*]
-    sql:  CASE
-            WHEN ${DOB_date} < ${DateCreated_date} THEN ${PersonalID}
-            ELSE NULL
-          END ;;
-  }
-
-
   set: client_queries_drill_fields {
     fields: [
       PersonalID

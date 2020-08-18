@@ -869,7 +869,7 @@ view: +enrollment {
     sql: ${EnrollmentID} ;;
   }
 
-  measure: invalid_date_formatting_for_datetostreetessh_in_enrollment.csv {
+  measure: invalid_date_formatting_for_datetostreetessh_in_enrollment_csv {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"
     label: "Invalid Date Formatting for DateToStreetESSH in Enrollment.csv"
@@ -883,7 +883,7 @@ view: +enrollment {
     sql: ${EnrollmentID} ;;
   }
 
-  measure: invalid_date_formatting_for_entrydate_in_enrollment.csv {
+  measure: invalid_date_formatting_for_entrydate_in_enrollment_csv {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"
     label: "Invalid Date Formatting for EntryDate in Enrollment.csv"
@@ -897,7 +897,7 @@ view: +enrollment {
     sql: ${EnrollmentID} ;;
   }
 
-  measure: invalid_date_formatting_for_datecreated_in_enrollment.csv {
+  measure: invalid_date_formatting_for_datecreated_in_enrollment_csv {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"
     label: "Invalid Date Formatting for DateCreated in Enrollment.csv"
@@ -911,7 +911,7 @@ view: +enrollment {
     sql: ${EnrollmentID} ;;
   }
 
-  measure: invalid_date_formatting_for_dateupdated_in_enrollment.csv {
+  measure: invalid_date_formatting_for_dateupdated_in_enrollment_csv {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"
     label: "Invalid Date Formatting for DateUpdated in Enrollment.csv"
