@@ -40,6 +40,21 @@ view: +assessmentquestions {
     sql: ${AssessmentQuestionID} ;;
   }
 
+  measure: total_date_formatting_values {
+    group_label: "DateFormatting"
+    view_label: "Analysis - Major"
+    label: "Total DateFormatting Values"
+    type: number
+
+    drill_fields: [
+      invalid_date_formatting_for_datecreated_in_assessmentquestions_csv,
+      invalid_date_formatting_for_dateupdated_in_assessmentquestions_csv
+    ]
+    sql:  ${invalid_date_formatting_for_datecreated_in_assessmentquestions_csv}
+          + ${invalid_date_formatting_for_dateupdated_in_assessmentquestions_csv}
+      ;;
+  }
+
   set: assessmentquestions_queries_drill_fields {
     fields: [
       assessmentquestions.AssessmentQuestionID

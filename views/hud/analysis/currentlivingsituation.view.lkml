@@ -284,6 +284,55 @@ view: +currentlivingsituation {
     sql: ${CurrentLivingSitID} ;;
   }
 
+  measure: total_major_null_values {
+    group_label: "Null"
+    view_label: "Analysis - Major"
+    label: "Total Major Null Values"
+    type: number
+
+    drill_fields: [
+      null_currentlivingsitid,
+      null_enrollmentid,
+      null_personalid,
+      null_currentlivingsituation
+    ]
+    sql:  ${null_currentlivingsitid}
+          + ${null_enrollmentid}
+          + ${null_personalid}
+          + ${null_currentlivingsituation}
+      ;;
+  }
+
+  measure: total_major_nonhud_values {
+    group_label: "NonHUD"
+    view_label: "Analysis - Major"
+    label: "Total Major NonHUD Values"
+    type: number
+
+    drill_fields: [
+      non_hud_currentlivingsituation
+    ]
+    sql:  ${non_hud_currentlivingsituation}
+      ;;
+  }
+
+  measure: total_date_formatting_values {
+    group_label: "DateFormatting"
+    view_label: "Analysis - Major"
+    label: "Total DateFormatting Values"
+    type: number
+
+    drill_fields: [
+      invalid_date_formatting_for_informationdate_in_currentlivingsituation_csv,
+      invalid_date_formatting_for_datecreated_in_currentlivingsituation_csv,
+      invalid_date_formatting_for_dateupdated_in_currentlivingsituation_csv
+    ]
+    sql:  ${invalid_date_formatting_for_informationdate_in_currentlivingsituation_csv}
+          + ${invalid_date_formatting_for_datecreated_in_currentlivingsituation_csv}
+          + ${invalid_date_formatting_for_dateupdated_in_currentlivingsituation_csv}
+      ;;
+  }
+
   set: currentlivingsituation_queries_drill_fields {
     fields: [
       currentlivingsituation.CurrentLivingSitID

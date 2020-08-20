@@ -218,11 +218,11 @@ explore: enrollment  {
 }
 
 explore: affiliation {
-  hidden: yes
+#   hidden: yes
 }
 
 explore: assessment {
-  hidden: yes
+#   hidden: yes
 
   join: enrollment {
     type: left_outer
@@ -238,7 +238,7 @@ explore: assessment {
 }
 
 explore: assessmentquestions {
-  hidden: yes
+#   hidden: yes
 
   join: enrollment {
     type: left_outer
@@ -254,11 +254,11 @@ explore: assessmentquestions {
 }
 
 explore: assessmentresults {
-  hidden: yes
+#   hidden: yes
 }
 
 explore: currentlivingsituation {
-  hidden: yes
+#   hidden: yes
 
   join: enrollment {
     type: left_outer
@@ -280,7 +280,7 @@ explore: currentlivingsituation {
 }
 
 explore: disabilities {
-  hidden: yes
+#   hidden: yes
 
   join: enrollment {
     type: left_outer
@@ -320,7 +320,7 @@ explore: disabilities {
 }
 
 explore: employmenteducation {
-  hidden: yes
+#   hidden: yes
 
   join: enrollment {
     type: left_outer
@@ -336,7 +336,7 @@ explore: employmenteducation {
 }
 
 explore: enrollmentcoc {
-  hidden: yes
+#   hidden: yes
 
   join: enrollment {
     type: left_outer
@@ -352,7 +352,7 @@ explore: enrollmentcoc {
 }
 
 explore: event {
-  hidden: yes
+#   hidden: yes
 
   join: enrollment {
     type: left_outer
@@ -368,7 +368,7 @@ explore: event {
 }
 
 explore: exit {
-  hidden: yes
+#   hidden: yes
 
   join: enrollment {
     type: left_outer
@@ -384,11 +384,11 @@ explore: exit {
 }
 
 explore: export {
-  hidden: yes
+#   hidden: yes
 }
 
 explore: healthanddv {
-  hidden: yes
+#   hidden: yes
 
   join: enrollment {
     type: left_outer
@@ -404,7 +404,7 @@ explore: healthanddv {
 }
 
 explore: incomebenefits {
-  hidden: yes
+#   hidden: yes
 
   join: enrollment {
     type: left_outer
@@ -420,27 +420,27 @@ explore: incomebenefits {
 }
 
 explore: funder {
-  hidden: yes
+#   hidden: yes
 }
 
 explore: inventory {
-  hidden: yes
+#   hidden: yes
 }
 
 explore: organization {
-  hidden: yes
+#   hidden: yes
 }
 
 explore: project {
-  hidden: yes
+#   hidden: yes
 }
 
 explore: projectcoc {
-  hidden: yes
+#   hidden: yes
 }
 
 explore: services {
-  hidden: yes
+#   hidden: yes
 
   join: enrollment {
     type: left_outer
@@ -456,7 +456,7 @@ explore: services {
 }
 
 explore: user {
-  hidden: yes
+#   hidden: yes
 }
 
 explore: assessment_custom {

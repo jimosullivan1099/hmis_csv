@@ -236,6 +236,54 @@ view: +enrollmentcoc {
     sql: ${EnrollmentCoCID} ;;
   }
 
+  measure: total_major_null_values {
+    group_label: "Null"
+    view_label: "Analysis - Major"
+    label: "Total Major Null Values"
+    type: number
+
+    drill_fields: [
+      null_coccode,
+      null_datacollectionstage,
+      null_datecreated,
+      null_dateupdated,
+      null_enrollmentcocid,
+      null_enrollmentid,
+      null_householdid,
+      null_informationdate,
+      null_personalid,
+      null_projectid
+    ]
+    sql:  ${null_coccode}
+          + ${null_datacollectionstage}
+          + ${null_datecreated}
+          + ${null_dateupdated}
+          + ${null_enrollmentcocid}
+          + ${null_enrollmentid}
+          + ${null_householdid}
+          + ${null_informationdate}
+          + ${null_personalid}
+          + ${null_projectid}
+      ;;
+  }
+
+  measure: total_date_formatting_values {
+    group_label: "DateFormatting"
+    view_label: "Analysis - Major"
+    label: "Total DateFormatting Values"
+    type: number
+
+    drill_fields: [
+      invalid_date_formatting_for_informationdate_in_enrollmentcoc_csv,
+      invalid_date_formatting_for_datecreated_in_enrollmentcoc_csv,
+      invalid_date_formatting_for_dateupdated_in_enrollmentcoc_csv
+    ]
+    sql:  ${invalid_date_formatting_for_informationdate_in_enrollmentcoc_csv}
+          + ${invalid_date_formatting_for_datecreated_in_enrollmentcoc_csv}
+          + ${invalid_date_formatting_for_dateupdated_in_enrollmentcoc_csv}
+      ;;
+  }
+
   set: enrollmentcoc_queries_drill_fields {
     fields: [
       enrollmentcoc.EnrollmentCoCID

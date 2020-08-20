@@ -349,7 +349,7 @@ view: +client {
   measure: null_amindaknative {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "Null AmIndAKNative"
+    label: "AmIndAKNative"
     type: count_distinct
 
     filters: [
@@ -363,7 +363,7 @@ view: +client {
   measure: null_asian {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "Null Asian"
+    label: "Asian"
     type: count_distinct
 
     filters: [
@@ -377,7 +377,7 @@ view: +client {
   measure: null_blackafamerican {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "Null BlackAfAmerican"
+    label: "BlackAfAmerican"
     type: count_distinct
 
     filters: [
@@ -391,7 +391,7 @@ view: +client {
   measure: null_datecreated {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "Null DateCreated"
+    label: "DateCreated"
     type: count_distinct
 
     filters: [
@@ -405,7 +405,7 @@ view: +client {
   measure: null_dateupdated {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "Null DateUpdated"
+    label: "DateUpdated"
     type: count_distinct
 
     filters: [
@@ -419,7 +419,7 @@ view: +client {
   measure: null_dobdataquality {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "Null DOBDataQuality"
+    label: "DOBDataQuality"
     type: count_distinct
 
     filters: [
@@ -433,7 +433,7 @@ view: +client {
   measure: null_ethnicity {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "Null Ethnicity"
+    label: "Ethnicity"
     type: count_distinct
 
     filters: [
@@ -447,7 +447,7 @@ view: +client {
   measure: null_exportid {
     group_label: "Null"
     view_label: "Analysis - Dq"
-    label: "Null ExportID"
+    label: "ExportID"
     type: count_distinct
 
     filters: [
@@ -461,7 +461,7 @@ view: +client {
   measure: null_gender {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "Null Gender"
+    label: "Gender"
     type: count_distinct
 
     filters: [
@@ -475,7 +475,7 @@ view: +client {
   measure: null_namedataquality {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "Null NameDataQuality"
+    label: "NameDataQuality"
     type: count_distinct
 
     filters: [
@@ -489,7 +489,7 @@ view: +client {
   measure: null_nativehiotherpacific {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "Null NativeHIOtherPacific"
+    label: "NativeHIOtherPacific"
     type: count_distinct
 
     filters: [
@@ -503,7 +503,7 @@ view: +client {
   measure: null_personalid {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "Null PersonalID"
+    label: "PersonalID"
     type: count_distinct
 
     filters: [
@@ -517,7 +517,7 @@ view: +client {
   measure: null_ssndataquality {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "Null SSNDataQuality"
+    label: "SSNDataQuality"
     type: count_distinct
 
     filters: [
@@ -531,7 +531,7 @@ view: +client {
   measure: null_userid {
     group_label: "Null"
     view_label: "Analysis - Dq"
-    label: "Null UserID"
+    label: "UserID"
     type: count_distinct
 
     filters: [
@@ -545,7 +545,7 @@ view: +client {
   measure: null_veteranstatus {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "Null VeteranStatus"
+    label: "VeteranStatus"
     type: count_distinct
 
     filters: [
@@ -559,7 +559,7 @@ view: +client {
   measure: null_white {
     group_label: "Null"
     view_label: "Analysis - Dq"
-    label: "Null White"
+    label: "White"
     type: count_distinct
 
     filters: [
@@ -764,6 +764,77 @@ view: +client {
 
     drill_fields: [client_queries_drill_fields*]
     sql: ${PersonalID} ;;
+  }
+
+  measure: total_major_null_values {
+    group_label: "Null"
+    view_label: "Analysis - Major"
+    label: "Total Major Null Values"
+    type: number
+
+    drill_fields: [
+      null_amindaknative,
+      null_asian,
+      null_blackafamerican,
+      null_datecreated,
+      null_dateupdated,
+      null_dobdataquality,
+      null_ethnicity,
+      null_gender,
+      null_namedataquality,
+      null_nativehiotherpacific,
+      null_personalid,
+      null_ssndataquality,
+      null_veteranstatus
+    ]
+    sql:  ${null_amindaknative}
+          + ${null_asian}
+          + ${null_blackafamerican}
+          + ${null_datecreated}
+          + ${null_dateupdated}
+          + ${null_dobdataquality}
+          + ${null_ethnicity}
+          + ${null_gender}
+          + ${null_namedataquality}
+          + ${null_nativehiotherpacific}
+          + ${null_personalid}
+          + ${null_ssndataquality}
+          + ${null_veteranstatus}
+      ;;
+  }
+
+  measure: total_major_nonhud_values {
+    group_label: "NonHUD"
+    view_label: "Analysis - Major"
+    label: "Total Major NonHUD Values"
+    type: number
+
+    drill_fields: [
+      non_hud_dischargestatus,
+      non_hud_militarybranch,
+      non_hud_veteranstatus
+    ]
+    sql:  ${non_hud_dischargestatus}
+          + ${non_hud_militarybranch}
+          + ${non_hud_veteranstatus}
+      ;;
+  }
+
+  measure: total_date_formatting_values {
+    group_label: "DateFormatting"
+    view_label: "Analysis - Major"
+    label: "Total DateFormatting Values"
+    type: number
+
+    drill_fields: [
+      invalid_date_formatting_for_dob_in_client_csv,
+      invalid_date_formatting_for_datecreated_in_client_csv,
+      invalid_date_formatting_for_dateupdated_in_client_csv
+    ]
+    sql:  ${invalid_date_formatting_for_dob_in_client_csv}
+          + ${invalid_date_formatting_for_datecreated_in_client_csv}
+          + ${invalid_date_formatting_for_dateupdated_in_client_csv}
+      ;;
   }
 
   set: client_queries_drill_fields {

@@ -925,6 +925,81 @@ view: +enrollment {
     sql: ${EnrollmentID} ;;
   }
 
+  measure: total_major_null_values {
+    group_label: "Null"
+    view_label: "Analysis - Major"
+    label: "Total Major Null Values"
+    type: number
+
+    drill_fields: [
+      null_datecreated,
+      null_dateupdated,
+      null_disablingcondition,
+      null_enrollmentid,
+      null_entrydate,
+      null_householdid,
+      null_personalid,
+      null_projectid,
+      null_relationshiptohoh
+    ]
+    sql:  ${null_datecreated}
+          + ${null_dateupdated}
+          + ${null_disablingcondition}
+          + ${null_enrollmentid}
+          + ${null_entrydate}
+          + ${null_householdid}
+          + ${null_personalid}
+          + ${null_projectid}
+          + ${null_relationshiptohoh}
+      ;;
+  }
+
+  measure: total_major_nonhud_values {
+    group_label: "NonHUD"
+    view_label: "Analysis - Major"
+    label: "Total Major NonHUD Values"
+    type: number
+
+    drill_fields: [
+      non_hud_disablingcondition,
+      non_hud_lengthofstay,
+      non_hud_livingsituation,
+      non_hud_losunderthreshold,
+      non_hud_monthshomelesspastthreeyears,
+      non_hud_previousstreetessh,
+      non_hud_relationshiptohoh,
+      non_hud_timeshomelesspastthreeyears
+    ]
+    sql:  ${non_hud_disablingcondition}
+          + ${non_hud_lengthofstay}
+          + ${non_hud_livingsituation}
+          + ${non_hud_losunderthreshold}
+          + ${non_hud_monthshomelesspastthreeyears}
+          + ${non_hud_previousstreetessh}
+          + ${non_hud_relationshiptohoh}
+          + ${non_hud_timeshomelesspastthreeyears}
+      ;;
+  }
+
+  measure: total_date_formatting_values {
+    group_label: "DateFormatting"
+    view_label: "Analysis - Major"
+    label: "Total DateFormatting Values"
+    type: number
+
+    drill_fields: [
+      invalid_date_formatting_for_datetostreetessh_in_enrollment_csv,
+      invalid_date_formatting_for_entrydate_in_enrollment_csv,
+      invalid_date_formatting_for_datecreated_in_enrollment_csv,
+      invalid_date_formatting_for_dateupdated_in_enrollment_csv
+    ]
+    sql:  ${invalid_date_formatting_for_datetostreetessh_in_enrollment_csv}
+          + ${invalid_date_formatting_for_entrydate_in_enrollment_csv}
+          + ${invalid_date_formatting_for_datecreated_in_enrollment_csv}
+          + ${invalid_date_formatting_for_dateupdated_in_enrollment_csv}
+      ;;
+  }
+
   set: enrollment_queries_drill_fields {
     fields: [
       EnrollmentID

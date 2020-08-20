@@ -433,6 +433,50 @@ view: +services {
     sql: ${ServicesID} ;;
   }
 
+  measure: total_major_null_values {
+    group_label: "Null"
+    view_label: "Analysis - Major"
+    label: "Total Major Null Values"
+    type: number
+
+    drill_fields: [
+      null_datecreated,
+      null_dateprovided,
+      null_dateupdated,
+      null_enrollmentid,
+      null_personalid,
+      null_recordtype,
+      null_servicesid,
+      null_typeprovided
+    ]
+    sql:  ${null_datecreated}
+          + ${null_dateprovided}
+          + ${null_dateupdated}
+          + ${null_enrollmentid}
+          + ${null_personalid}
+          + ${null_recordtype}
+          + ${null_servicesid}
+          + ${null_typeprovided}
+      ;;
+  }
+
+  measure: total_date_formatting_values {
+    group_label: "DateFormatting"
+    view_label: "Analysis - Major"
+    label: "Total DateFormatting Values"
+    type: number
+
+    drill_fields: [
+      invalid_date_formatting_for_dateprovided_in_services_csv,
+      invalid_date_formatting_for_datecreated_in_services_csv,
+      invalid_date_formatting_for_dateupdated_in_services_csv
+    ]
+    sql:  ${invalid_date_formatting_for_dateprovided_in_services_csv}
+          + ${invalid_date_formatting_for_datecreated_in_services_csv}
+          + ${invalid_date_formatting_for_dateupdated_in_services_csv}
+      ;;
+  }
+
   set: services_queries_drill_fields {
     fields: [
       services.ServicesID

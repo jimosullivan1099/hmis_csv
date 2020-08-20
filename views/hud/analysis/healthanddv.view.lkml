@@ -308,6 +308,48 @@ view: +healthanddv {
     sql: ${HealthAndDVID} ;;
   }
 
+  measure: total_major_null_values {
+    group_label: "Null"
+    view_label: "Analysis - Major"
+    label: "Total Major Null Values"
+    type: number
+
+    drill_fields: [
+      null_datacollectionstage,
+      null_datecreated,
+      null_dateupdated,
+      null_enrollmentid,
+      null_healthanddvid,
+      null_informationdate,
+      null_personalid
+    ]
+    sql:  ${null_datacollectionstage}
+          + ${null_datecreated}
+          + ${null_dateupdated}
+          + ${null_enrollmentid}
+          + ${null_healthanddvid}
+          + ${null_informationdate}
+          + ${null_personalid}
+      ;;
+  }
+
+  measure: total_date_formatting_values {
+    group_label: "DateFormatting"
+    view_label: "Analysis - Major"
+    label: "Total DateFormatting Values"
+    type: number
+
+    drill_fields: [
+      invalid_date_formatting_for_informationdate_in_healthanddv_csv,
+      invalid_date_formatting_for_datecreated_in_healthanddv_csv,
+      invalid_date_formatting_for_dateupdated_in_healthanddv_csv
+    ]
+    sql:  ${invalid_date_formatting_for_informationdate_in_healthanddv_csv}
+          + ${invalid_date_formatting_for_datecreated_in_healthanddv_csv}
+          + ${invalid_date_formatting_for_dateupdated_in_healthanddv_csv}
+      ;;
+  }
+
   set: healthanddv_queries_drill_fields {
     fields: [
       healthanddv.HealthAndDVID

@@ -571,6 +571,71 @@ view: +disabilities {
     sql: ${DisabilitiesID} ;;
   }
 
+  measure: total_major_null_values {
+    group_label: "Null"
+    view_label: "Analysis - Major"
+    label: "Total Major Null Values"
+    type: number
+
+    drill_fields: [
+      null_datacollectionstage,
+      null_datecreated,
+      null_dateupdated,
+      null_disabilitiesid,
+      null_disabilityresponse,
+      null_disabilitytype,
+      null_enrollmentid,
+      null_informationdate,
+      null_personalid
+    ]
+    sql:  ${null_datacollectionstage}
+          + ${null_datecreated}
+          + ${null_dateupdated}
+          + ${null_disabilitiesid}
+          + ${null_disabilityresponse}
+          + ${null_disabilitytype}
+          + ${null_enrollmentid}
+          + ${null_informationdate}
+          + ${null_personalid}
+      ;;
+  }
+
+  measure: total_major_nonhud_values {
+    group_label: "NonHUD"
+    view_label: "Analysis - Major"
+    label: "Total Major NonHUD Values"
+    type: number
+
+    drill_fields: [
+      non_hud_datacollectionstage,
+      non_hud_disabilityresponse,
+      non_hud_disabilitytype,
+      non_hud_indefiniteandimpairs
+    ]
+    sql:  ${non_hud_datacollectionstage}
+          + ${non_hud_disabilityresponse}
+          + ${non_hud_disabilitytype}
+          + ${non_hud_indefiniteandimpairs}
+      ;;
+  }
+
+  measure: total_date_formatting_values {
+    group_label: "DateFormatting"
+    view_label: "Analysis - Major"
+    label: "Total DateFormatting Values"
+    type: number
+
+    drill_fields: [
+      invalid_date_formatting_for_informationdate_in_disabilities_csv,
+      invalid_date_formatting_for_datecreated_in_disabilities_csv,
+      invalid_date_formatting_for_dateupdated_in_disabilities_csv
+    ]
+    sql:  ${invalid_date_formatting_for_informationdate_in_disabilities_csv}
+          + ${invalid_date_formatting_for_datecreated_in_disabilities_csv}
+          + ${invalid_date_formatting_for_dateupdated_in_disabilities_csv}
+      ;;
+  }
+
   set: disabilities_queries_drill_fields {
     fields: [
       disabilities.DisabilitiesID
