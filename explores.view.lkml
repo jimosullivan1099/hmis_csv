@@ -143,6 +143,12 @@ explore: enrollment  {
     relationship: one_to_many
   }
 
+  join: enrollment_household_counts {
+    type:  left_outer
+    sql_on: ${enrollment.HouseholdID} = ${enrollment_household_counts.HouseholdID} ;;
+    relationship: one_to_one
+  }
+
   join: disabilities {
     type:  left_outer
     sql_on: ${enrollment.EnrollmentID} = ${disabilities.EnrollmentID} ;;
@@ -294,6 +300,13 @@ explore: disabilities {
     relationship: many_to_one
   }
 
+  join: exit {
+    type: left_outer
+    sql_on: ${disabilities.EnrollmentID} = ${exit.EnrollmentID} ;;
+    sql_where: ${disabilities.DataCollectionStage} = 3 ;;
+    relationship: many_to_one
+  }
+
   join: disabilities_counts {
     type:  left_outer
     sql_on: ${enrollment.EnrollmentID} = ${disabilities_counts.EnrollmentID} ;;
@@ -333,6 +346,13 @@ explore: employmenteducation {
     sql_on: ${employmenteducation.PersonalID} = ${client.PersonalID} ;;
     relationship: many_to_one
   }
+
+  join: exit {
+    type: left_outer
+    sql_on: ${employmenteducation.EnrollmentID} = ${exit.EnrollmentID} ;;
+    sql_where: ${employmenteducation.DataCollectionStage} = 3 ;;
+    relationship: many_to_one
+  }
 }
 
 explore: enrollmentcoc {
@@ -347,6 +367,13 @@ explore: enrollmentcoc {
   join: client {
     type: left_outer
     sql_on: ${enrollmentcoc.PersonalID} = ${client.PersonalID} ;;
+    relationship: many_to_one
+  }
+
+  join: exit {
+    type: left_outer
+    sql_on: ${enrollmentcoc.EnrollmentID} = ${exit.EnrollmentID} ;;
+    sql_where: ${enrollmentcoc.DataCollectionStage} = 3 ;;
     relationship: many_to_one
   }
 }
@@ -401,6 +428,13 @@ explore: healthanddv {
     sql_on: ${healthanddv.PersonalID} = ${client.PersonalID} ;;
     relationship: many_to_one
   }
+
+  join: exit {
+    type: left_outer
+    sql_on: ${healthanddv.EnrollmentID} = ${exit.EnrollmentID} ;;
+    sql_where: ${healthanddv.DataCollectionStage} = 3 ;;
+    relationship: many_to_one
+  }
 }
 
 explore: incomebenefits {
@@ -415,6 +449,13 @@ explore: incomebenefits {
   join: client {
     type: left_outer
     sql_on: ${incomebenefits.PersonalID} = ${client.PersonalID} ;;
+    relationship: many_to_one
+  }
+
+  join: exit {
+    type: left_outer
+    sql_on: ${incomebenefits.EnrollmentID} = ${exit.EnrollmentID} ;;
+    sql_where: ${incomebenefits.DataCollectionStage} = 3 ;;
     relationship: many_to_one
   }
 }
@@ -456,6 +497,10 @@ explore: services {
 }
 
 explore: user {
+#   hidden: yes
+}
+
+explore: duplicate_identifiers {
 #   hidden: yes
 }
 

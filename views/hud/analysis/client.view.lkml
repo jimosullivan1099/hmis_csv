@@ -820,6 +820,55 @@ view: +client {
       ;;
   }
 
+  measure: total_minor_nonhud_values {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Total Minor NonHUD Values for Client.csv"
+    type: number
+
+    drill_fields: [
+      non_hud_afghanistanoef,
+      non_hud_amindaknative,
+      non_hud_asian,
+      non_hud_blackafamerican,
+      non_hud_desertstorm,
+      non_hud_dobdataquality,
+      non_hud_ethnicity,
+      non_hud_gender,
+      non_hud_iraqoif,
+      non_hud_iraqond,
+      non_hud_koreanwar,
+      non_hud_namedataquality,
+      non_hud_nativehiotherpacific,
+      non_hud_othertheater,
+      non_hud_racenone,
+      non_hud_ssndataquality,
+      non_hud_vietnamwar,
+      non_hud_white,
+      non_hud_worldwarii
+    ]
+    sql:  ${non_hud_afghanistanoef}
+          + ${non_hud_amindaknative}
+          + ${non_hud_asian}
+          + ${non_hud_blackafamerican}
+          + ${non_hud_desertstorm}
+          + ${non_hud_dobdataquality}
+          + ${non_hud_ethnicity}
+          + ${non_hud_gender}
+          + ${non_hud_iraqoif}
+          + ${non_hud_iraqond}
+          + ${non_hud_koreanwar}
+          + ${non_hud_namedataquality}
+          + ${non_hud_nativehiotherpacific}
+          + ${non_hud_othertheater}
+          + ${non_hud_racenone}
+          + ${non_hud_ssndataquality}
+          + ${non_hud_vietnamwar}
+          + ${non_hud_white}
+          + ${non_hud_worldwarii}
+      ;;
+  }
+
   measure: total_date_formatting_values {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"

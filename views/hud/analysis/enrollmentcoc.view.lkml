@@ -12,6 +12,34 @@ view: +enrollmentcoc {
     sql: ${EnrollmentCoCID} ;;
   }
 
+  measure: enrollmentcocs_that_reference_an_invalid_enrollment {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "EnrollmentCoCs that reference an invalid enrollment"
+    type: count_distinct
+
+    filters: [
+      enrollment.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [enrollmentcoc_queries_drill_fields*]
+    sql: ${EnrollmentID} ;;
+  }
+
+  measure: enrollmentcocs_that_reference_an_invalid_exit {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "EnrollmentCoCs that reference an invalid exit"
+    type: count_distinct
+
+    filters: [
+      exit.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [enrollmentcoc_queries_drill_fields*]
+    sql: ${EnrollmentCoCID} ;;
+  }
+
   measure: null_coccode {
     group_label: "Null"
     view_label: "Analysis - Major"

@@ -12,6 +12,20 @@ view: +assessment {
     sql: ${AssessmentID} ;;
   }
 
+  measure: assessments_that_reference_an_invalid_enrollment {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "Assessments that reference an invalid enrollment"
+    type: count_distinct
+
+    filters: [
+      enrollment.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [assessment_queries_drill_fields*]
+    sql: ${AssessmentID} ;;
+  }
+
   measure: invalid_date_formatting_for_assessmentdate_in_assessment_csv {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"
@@ -208,6 +222,23 @@ view: +assessment {
     sql:  ${null_assessmentid}
           + ${null_enrollmentid}
           + ${null_personalid}
+      ;;
+  }
+
+  measure: total_minor_nonhud_values_for {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Total Minor NonHUD Values for Assessment.csv"
+    type: number
+
+    drill_fields: [
+      non_hud_assessmenttype,
+      non_hud_assessmentlevel,
+      non_hud_prioritizationstatus
+    ]
+    sql:  ${non_hud_assessmenttype}
+          + ${non_hud_assessmentlevel}
+          + ${non_hud_prioritizationstatus}
       ;;
   }
 

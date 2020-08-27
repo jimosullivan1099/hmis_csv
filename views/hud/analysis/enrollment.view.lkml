@@ -981,6 +981,93 @@ view: +enrollment {
       ;;
   }
 
+  measure: total_minor_nonhud_values {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Total Minor NonHUD Values for Enrollment.csv"
+    type: number
+
+    drill_fields: [
+      non_hud_addressdataquality,
+      non_hud_alcoholdrugabusefam,
+      non_hud_annualpercentami,
+      non_hud_childwelfareyears,
+      non_hud_clientenrolledinpath,
+      non_hud_criminalrecord,
+      non_hud_dependentunder6,
+      non_hud_disabledhoh,
+      non_hud_eligibleforrhy,
+      non_hud_evictionhistory,
+      non_hud_femvet,
+      non_hud_financialchange,
+      non_hud_formerwardchildwelfare,
+      non_hud_formerwardjuvenilejustice,
+      non_hud_hh5plus,
+      non_hud_householdchange,
+      non_hud_incarceratedparent,
+      non_hud_insufficientincome,
+      non_hud_iraqafghanistan,
+      non_hud_juvenilejusticeyears,
+      non_hud_literalhomelesshistory,
+      non_hud_mentalhealthissuesfam,
+      non_hud_percentami,
+      non_hud_physicaldisabilityfam,
+      non_hud_reasonnoservices,
+      non_hud_reasonnotenrolled,
+      non_hud_referralsource,
+      non_hud_runawayyouth,
+      non_hud_sexoffender,
+      non_hud_sexualorientation,
+      non_hud_singleparent,
+      non_hud_subsidyatrisk,
+      non_hud_timetohousingloss,
+      non_hud_unemploymentfam,
+      non_hud_urgentreferral,
+      non_hud_vamcstation,
+      non_hud_worsthousingsituation,
+      non_hud_zeroincome
+    ]
+    sql:  ${non_hud_addressdataquality}
+          + ${non_hud_alcoholdrugabusefam}
+          + ${non_hud_annualpercentami}
+          + ${non_hud_childwelfareyears}
+          + ${non_hud_clientenrolledinpath}
+          + ${non_hud_criminalrecord}
+          + ${non_hud_dependentunder6}
+          + ${non_hud_disabledhoh}
+          + ${non_hud_eligibleforrhy}
+          + ${non_hud_evictionhistory}
+          + ${non_hud_femvet}
+          + ${non_hud_financialchange}
+          + ${non_hud_formerwardchildwelfare}
+          + ${non_hud_formerwardjuvenilejustice}
+          + ${non_hud_hh5plus}
+          + ${non_hud_householdchange}
+          + ${non_hud_incarceratedparent}
+          + ${non_hud_insufficientincome}
+          + ${non_hud_iraqafghanistan}
+          + ${non_hud_juvenilejusticeyears}
+          + ${non_hud_literalhomelesshistory}
+          + ${non_hud_mentalhealthissuesfam}
+          + ${non_hud_percentami}
+          + ${non_hud_physicaldisabilityfam}
+          + ${non_hud_reasonnoservices}
+          + ${non_hud_reasonnotenrolled}
+          + ${non_hud_referralsource}
+          + ${non_hud_runawayyouth}
+          + ${non_hud_sexoffender}
+          + ${non_hud_sexualorientation}
+          + ${non_hud_singleparent}
+          + ${non_hud_subsidyatrisk}
+          + ${non_hud_timetohousingloss}
+          + ${non_hud_unemploymentfam}
+          + ${non_hud_urgentreferral}
+          + ${non_hud_vamcstation}
+          + ${non_hud_worsthousingsituation}
+          + ${non_hud_zeroincome}
+      ;;
+  }
+
   measure: total_date_formatting_values {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"

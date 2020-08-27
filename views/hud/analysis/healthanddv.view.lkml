@@ -12,6 +12,34 @@ view: +healthanddv {
     sql: ${HealthAndDVID} ;;
   }
 
+  measure: healthanddvs_that_reference_an_invalid_enrollment {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "HealthAndDVs that reference an invalid enrollment"
+    type: count_distinct
+
+    filters: [
+      enrollment.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [healthanddv_queries_drill_fields*]
+    sql: ${EnrollmentID} ;;
+  }
+
+  measure: healthanddvs_that_reference_an_invalid_exit {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "HealthAndDVs that reference an invalid exit"
+    type: count_distinct
+
+    filters: [
+      exit.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [healthanddv_queries_drill_fields*]
+    sql: ${EnrollmentID} ;;
+  }
+
   measure: non_hud_currentlyfleeing {
     group_label: "NonHUD"
     view_label: "Analysis - Minor"
@@ -347,6 +375,31 @@ view: +healthanddv {
     sql:  ${invalid_date_formatting_for_informationdate_in_healthanddv_csv}
           + ${invalid_date_formatting_for_datecreated_in_healthanddv_csv}
           + ${invalid_date_formatting_for_dateupdated_in_healthanddv_csv}
+      ;;
+  }
+
+  measure: total_minor_nonhud_values {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Total Minor NonHUD Values for HealthAndDV.csv"
+    type: number
+
+    drill_fields: [
+      non_hud_currentlyfleeing,
+      non_hud_dentalhealthstatus,
+      non_hud_domesticviolencevictim,
+      non_hud_generalhealthstatus,
+      non_hud_mentalhealthstatus,
+      non_hud_pregnancystatus,
+      non_hud_whenoccurred
+    ]
+    sql:  ${non_hud_currentlyfleeing}
+          + ${non_hud_dentalhealthstatus}
+          + ${non_hud_domesticviolencevictim}
+          + ${non_hud_generalhealthstatus}
+          + ${non_hud_mentalhealthstatus}
+          + ${non_hud_pregnancystatus}
+          + ${non_hud_whenoccurred}
       ;;
   }
 

@@ -12,6 +12,20 @@ view: +exit {
     sql: ${ExitID} ;;
   }
 
+  measure: exits_that_reference_an_invalid_enrollment {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "Exits that reference an invalid enrollment"
+    type: count_distinct
+
+    filters: [
+      enrollment.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [exit_queries_drill_fields*]
+    sql: ${EnrollmentID} ;;
+  }
+
   measure: non_hud_aftercareprovided {
     group_label: "NonHUD"
     view_label: "Analysis - Minor"
@@ -895,6 +909,77 @@ view: +exit {
     sql:  ${invalid_date_formatting_for_exitdate_in_exit_csv}
           + ${invalid_date_formatting_for_datecreated_in_exit_csv}
           + ${invalid_date_formatting_for_dateupdated_in_exit_csv}
+      ;;
+  }
+
+  measure: total_minor_nonhud_values {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Total Minor NonHUD Values for Exit.csv"
+    type: number
+
+    drill_fields: [
+      non_hud_aftercareprovided,
+      non_hud_askedorforcedtoexchangeforsex,
+      non_hud_askedorforcedtoexchangeforsexpastthreemonths,
+      non_hud_cmexitreason,
+      non_hud_coercedtocontinuework,
+      non_hud_counselingreceived,
+      non_hud_countofexchangeforsex,
+      non_hud_destination,
+      non_hud_destinationsafeclient,
+      non_hud_destinationsafeworker,
+      non_hud_earlyexitreason,
+      non_hud_emailsocialmedia,
+      non_hud_exchangeforsex,
+      non_hud_exchangeforsexpastthreemonths,
+      non_hud_familycounseling,
+      non_hud_groupcounseling,
+      non_hud_housingassessment,
+      non_hud_individualcounseling,
+      non_hud_inpersongroup,
+      non_hud_inpersonindividual,
+      non_hud_laborexploitpastthreemonths,
+      non_hud_posadultconnections,
+      non_hud_poscommunityconnections,
+      non_hud_pospeerconnections,
+      non_hud_postexitcounselingplan,
+      non_hud_projectcompletionstatus,
+      non_hud_subsidyinformation,
+      non_hud_telephone,
+      non_hud_workplacepromisedifference,
+      non_hud_workplaceviolencethreats
+    ]
+    sql:  ${non_hud_aftercareprovided}
+          + ${non_hud_askedorforcedtoexchangeforsex}
+          + ${non_hud_askedorforcedtoexchangeforsexpastthreemonths}
+          + ${non_hud_cmexitreason}
+          + ${non_hud_coercedtocontinuework}
+          + ${non_hud_counselingreceived}
+          + ${non_hud_countofexchangeforsex}
+          + ${non_hud_destination}
+          + ${non_hud_destinationsafeclient}
+          + ${non_hud_destinationsafeworker}
+          + ${non_hud_earlyexitreason}
+          + ${non_hud_emailsocialmedia}
+          + ${non_hud_exchangeforsex}
+          + ${non_hud_exchangeforsexpastthreemonths}
+          + ${non_hud_familycounseling}
+          + ${non_hud_groupcounseling}
+          + ${non_hud_housingassessment}
+          + ${non_hud_individualcounseling}
+          + ${non_hud_inpersongroup}
+          + ${non_hud_inpersonindividual}
+          + ${non_hud_laborexploitpastthreemonths}
+          + ${non_hud_posadultconnections}
+          + ${non_hud_poscommunityconnections}
+          + ${non_hud_pospeerconnections}
+          + ${non_hud_postexitcounselingplan}
+          + ${non_hud_projectcompletionstatus}
+          + ${non_hud_subsidyinformation}
+          + ${non_hud_telephone}
+          + ${non_hud_workplacepromisedifference}
+          + ${non_hud_workplaceviolencethreats}
       ;;
   }
 

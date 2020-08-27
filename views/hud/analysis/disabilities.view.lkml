@@ -14,6 +14,34 @@ view: +disabilities {
     sql: ${DisabilitiesID} ;;
   }
 
+  measure: disabilities_that_reference_an_invalid_enrollment {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "Disabilities that reference an invalid enrollment"
+    type: count_distinct
+
+    filters: [
+      enrollment.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [disabilities_queries_drill_fields*]
+    sql: ${EnrollmentID} ;;
+  }
+
+  measure: disabilities_that_reference_an_invalid_exit {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "Disabilities that reference an invalid exit"
+    type: count_distinct
+
+    filters: [
+      exit.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [disabilities_queries_drill_fields*]
+    sql: ${DisabilitiesID} ;;
+  }
+
   measure: non_hud_datacollectionstage {
     group_label: "NonHUD"
     view_label: "Analysis - Major"
@@ -616,6 +644,25 @@ view: +disabilities {
           + ${non_hud_disabilityresponse}
           + ${non_hud_disabilitytype}
           + ${non_hud_indefiniteandimpairs}
+      ;;
+  }
+
+  measure: total_minor_nonhud_values {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Total Minor NonHUD Values for Disabilities.csv"
+    type: number
+
+    drill_fields: [
+      non_hud_tcellcountavailable,
+      non_hud_tcellsource,
+      non_hud_viralloadavailable,
+      non_hud_viralloadsource
+    ]
+    sql:  ${non_hud_tcellcountavailable}
+          + ${non_hud_tcellsource}
+          + ${non_hud_viralloadavailable}
+          + ${non_hud_viralloadsource}
       ;;
   }
 

@@ -12,6 +12,20 @@ view: +assessmentquestions {
     sql: ${AssessmentQuestionID} ;;
   }
 
+  measure: assessmentquestions_that_reference_an_invalid_enrollment {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "AssessmentQuestions that reference an invalid enrollment"
+    type: count_distinct
+
+    filters: [
+      enrollment.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [assessmentquestions_queries_drill_fields*]
+    sql: ${AssessmentQuestionID} ;;
+  }
+
   measure: invalid_date_formatting_for_datecreated_in_assessmentquestions_csv {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"

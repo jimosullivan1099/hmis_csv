@@ -12,6 +12,34 @@ view: +incomebenefits {
     sql: ${IncomeBenefitsID} ;;
   }
 
+  measure: incomebenefits_that_reference_an_invalid_enrollment {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "IncomeBenefits that reference an invalid enrollment"
+    type: count_distinct
+
+    filters: [
+      enrollment.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [incomebenefits_queries_drill_fields*]
+    sql: ${EnrollmentID} ;;
+  }
+
+  measure: incomebenefits_that_reference_an_invalid_exit {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "IncomeBenefits that reference an invalid exit"
+    type: count_distinct
+
+    filters: [
+      exit.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [incomebenefits_queries_drill_fields*]
+    sql: ${IncomeBenefitsID} ;;
+  }
+
   dimension: bool_no_income_type_is_1 {
     hidden: yes
     type: yesno
@@ -1359,6 +1387,113 @@ view: +incomebenefits {
       non_hud_datacollectionstage
     ]
     sql:  ${non_hud_datacollectionstage}
+      ;;
+  }
+
+  measure: total_minor_nonhud_values {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Total Minor NonHUD Values for IncomeBenefits.csv"
+    type: number
+
+    drill_fields: [
+      non_hud_adap,
+      non_hud_alimony,
+      non_hud_benefitsfromanysource,
+      non_hud_childsupport,
+      non_hud_cobra,
+      non_hud_connectionwithsoar,
+      non_hud_earned,
+      non_hud_employerprovided,
+      non_hud_ga,
+      non_hud_hivaidsassistance,
+      non_hud_incomefromanysource,
+      non_hud_indianhealthservices,
+      non_hud_insurancefromanysource,
+      non_hud_medicaid,
+      non_hud_medicare,
+      non_hud_noadapreason,
+      non_hud_nocobrareason,
+      non_hud_noemployerprovidedreason,
+      non_hud_nohivaidsassistancereason,
+      non_hud_noindianhealthservicesreason,
+      non_hud_nomedicaidreason,
+      non_hud_nomedicarereason,
+      non_hud_noprivatepayreason,
+      non_hud_noschipreason,
+      non_hud_nostatehealthinsreason,
+      non_hud_novamedreason,
+      non_hud_otherbenefitssource,
+      non_hud_otherincomesource,
+      non_hud_otherinsurance,
+      non_hud_othertanf,
+      non_hud_pension,
+      non_hud_privatedisability,
+      non_hud_privatepay,
+      non_hud_schip,
+      non_hud_snap,
+      non_hud_socsecretirement,
+      non_hud_ssdi,
+      non_hud_ssi,
+      non_hud_statehealthins,
+      non_hud_tanf,
+      non_hud_tanfchildcare,
+      non_hud_tanftransportation,
+      non_hud_unemployment,
+      non_hud_vadisabilitynonservice,
+      non_hud_vadisabilityservice,
+      non_hud_vamedicalservices,
+      non_hud_wic,
+      non_hud_workerscomp
+    ]
+    sql:  ${non_hud_adap}
+          + ${non_hud_alimony}
+          + ${non_hud_benefitsfromanysource}
+          + ${non_hud_childsupport}
+          + ${non_hud_cobra}
+          + ${non_hud_connectionwithsoar}
+          + ${non_hud_earned}
+          + ${non_hud_employerprovided}
+          + ${non_hud_ga}
+          + ${non_hud_hivaidsassistance}
+          + ${non_hud_incomefromanysource}
+          + ${non_hud_indianhealthservices}
+          + ${non_hud_insurancefromanysource}
+          + ${non_hud_medicaid}
+          + ${non_hud_medicare}
+          + ${non_hud_noadapreason}
+          + ${non_hud_nocobrareason}
+          + ${non_hud_noemployerprovidedreason}
+          + ${non_hud_nohivaidsassistancereason}
+          + ${non_hud_noindianhealthservicesreason}
+          + ${non_hud_nomedicaidreason}
+          + ${non_hud_nomedicarereason}
+          + ${non_hud_noprivatepayreason}
+          + ${non_hud_noschipreason}
+          + ${non_hud_nostatehealthinsreason}
+          + ${non_hud_novamedreason}
+          + ${non_hud_otherbenefitssource}
+          + ${non_hud_otherincomesource}
+          + ${non_hud_otherinsurance}
+          + ${non_hud_othertanf}
+          + ${non_hud_pension}
+          + ${non_hud_privatedisability}
+          + ${non_hud_privatepay}
+          + ${non_hud_schip}
+          + ${non_hud_snap}
+          + ${non_hud_socsecretirement}
+          + ${non_hud_ssdi}
+          + ${non_hud_ssi}
+          + ${non_hud_statehealthins}
+          + ${non_hud_tanf}
+          + ${non_hud_tanfchildcare}
+          + ${non_hud_tanftransportation}
+          + ${non_hud_unemployment}
+          + ${non_hud_vadisabilitynonservice}
+          + ${non_hud_vadisabilityservice}
+          + ${non_hud_vamedicalservices}
+          + ${non_hud_wic}
+          + ${non_hud_workerscomp}
       ;;
   }
 

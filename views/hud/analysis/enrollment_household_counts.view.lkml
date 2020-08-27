@@ -70,6 +70,7 @@ view: +enrollment_household_counts {
       enrollment.HouseholdID: "-NULL,-EMPTY"
     ]
 
+    drill_fields: [enrollment_household_counts_queries_drill_fields*]
     sql: ${HouseholdID} ;;
   }
 

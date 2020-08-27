@@ -12,6 +12,34 @@ view: +employmenteducation {
     sql: ${EmploymentEducationID} ;;
   }
 
+  measure: employmenteducations_that_reference_an_invalid_enrollment {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "EmploymentEducations that reference an invalid enrollment"
+    type: count_distinct
+
+    filters: [
+      enrollment.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [employmenteducation_queries_drill_fields*]
+    sql: ${EnrollmentID} ;;
+  }
+
+  measure: employmenteducations_that_reference_an_invalid_exit {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "EmploymentEducations that reference an invalid exit"
+    type: count_distinct
+
+    filters: [
+      exit.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [employmenteducation_queries_drill_fields*]
+    sql: ${EmploymentEducationID} ;;
+  }
+
   measure: non_hud_employed {
     group_label: "NonHUD"
     view_label: "Analysis - Minor"
@@ -319,6 +347,27 @@ view: +employmenteducation {
     sql:  ${invalid_date_formatting_for_informationdate_in_employmenteducation_csv}
           + ${invalid_date_formatting_for_datecreated_in_employmenteducation_csv}
           + ${invalid_date_formatting_for_dateupdated_in_employmenteducation_csv}
+      ;;
+  }
+
+  measure: total_minor_nonhud_values {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Total Minor NonHUD Values for EmploymentEducation.csv"
+    type: number
+
+    drill_fields: [
+      non_hud_employed,
+      non_hud_employmenttype,
+      non_hud_lastgradecompleted,
+      non_hud_notemployedreason,
+      non_hud_schoolstatus
+    ]
+    sql:  ${non_hud_employed}
+          + ${non_hud_employmenttype}
+          + ${non_hud_lastgradecompleted}
+          + ${non_hud_notemployedreason}
+          + ${non_hud_schoolstatus}
       ;;
   }
 

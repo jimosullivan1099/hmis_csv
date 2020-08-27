@@ -12,6 +12,20 @@ view: +services {
     sql: ${ServicesID} ;;
   }
 
+  measure: services_that_reference_an_invalid_enrollment {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "Services that reference an invalid enrollment"
+    type: count_distinct
+
+    filters: [
+      enrollment.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [services_queries_drill_fields*]
+    sql: ${ServicesID} ;;
+  }
+
   measure: non_hud_recordtype {
     group_label: "NonHUD"
     view_label: "Analysis - Minor"
@@ -474,6 +488,41 @@ view: +services {
     sql:  ${invalid_date_formatting_for_dateprovided_in_services_csv}
           + ${invalid_date_formatting_for_datecreated_in_services_csv}
           + ${invalid_date_formatting_for_dateupdated_in_services_csv}
+      ;;
+  }
+
+  measure: total_minor_nonhud_values {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Total Minor NonHUD Values for Services.csv"
+    type: number
+
+    drill_fields: [
+      non_hud_recordtype,
+      non_hud_service_typeprovided_with_a_path_services_141_recordtype,
+      non_hud_service_typeprovided_with_a_rhy_services_connections_142_recordtype,
+      non_hud_service_typeprovided_with_a_hopwa_services_143_recordtype,
+      non_hud_service_typeprovided_with_a_ssvf_services_144_recordtype,
+      non_hud_service_typeprovided_with_a_hopwa_financial_assistance_151_recordtype,
+      non_hud_service_typeprovided_with_a_ssvf_financial_assistance_152_recordtype,
+      non_hud_service_typeprovided_with_a_path_referral_161_recordtype,
+      non_hud_service_typeprovided_with_a_bed_night_200_recordtype,
+      non_hud_service_typeprovided_with_a_hud_vash_oth_voucher_tracking_210_recordtype,
+      non_hud_service_subtypeprovided,
+      non_hud_referraloutcome
+    ]
+    sql:  ${non_hud_recordtype}
+          + ${non_hud_service_typeprovided_with_a_path_services_141_recordtype}
+          + ${non_hud_service_typeprovided_with_a_rhy_services_connections_142_recordtype}
+          + ${non_hud_service_typeprovided_with_a_hopwa_services_143_recordtype}
+          + ${non_hud_service_typeprovided_with_a_ssvf_services_144_recordtype}
+          + ${non_hud_service_typeprovided_with_a_hopwa_financial_assistance_151_recordtype}
+          + ${non_hud_service_typeprovided_with_a_ssvf_financial_assistance_152_recordtype}
+          + ${non_hud_service_typeprovided_with_a_path_referral_161_recordtype}
+          + ${non_hud_service_typeprovided_with_a_bed_night_200_recordtype}
+          + ${non_hud_service_typeprovided_with_a_hud_vash_oth_voucher_tracking_210_recordtype}
+          + ${non_hud_service_subtypeprovided}
+          + ${non_hud_referraloutcome}
       ;;
   }
 

@@ -12,6 +12,20 @@ view: +currentlivingsituation {
     sql: ${CurrentLivingSitID} ;;
   }
 
+  measure: currentlivingsituations_that_reference_an_invalid_enrollment {
+    group_label: "Invalid Reference"
+    view_label: "Analysis - Major"
+    label: "CurrentLivingSituations that reference an invalid enrollment"
+    type: count_distinct
+
+    filters: [
+      enrollment.EnrollmentID: "NULL,EMPTY"
+    ]
+
+    drill_fields: [currentlivingsituation_queries_drill_fields*]
+    sql: ${EnrollmentID} ;;
+  }
+
   measure: invalid_date_formatting_for_informationdate_in_currentlivingsituation_csv {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"
@@ -313,6 +327,27 @@ view: +currentlivingsituation {
       non_hud_currentlivingsituation
     ]
     sql:  ${non_hud_currentlivingsituation}
+      ;;
+  }
+
+  measure: total_minor_nonhud_values {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Total Minor NonHUD Values for CurrentLivingSituation.csv"
+    type: number
+
+    drill_fields: [
+      non_hud_leavesituation14days,
+      non_hud_subsequentresidence,
+      non_hud_resourcestoobtain,
+      non_hud_leaseown60day,
+      non_hud_movedtwoormore
+    ]
+    sql:  ${non_hud_leavesituation14days}
+          + ${non_hud_subsequentresidence}
+          + ${non_hud_resourcestoobtain}
+          + ${non_hud_leaseown60day}
+          + ${non_hud_movedtwoormore}
       ;;
   }
 
