@@ -5,6 +5,7 @@ view: disabilities_counts{
       GROUP BY EnrollmentID, DataCollectionStage
        ;;
     indexes: ["PersonalID", "EnrollmentID"]
+    persist_for: "24 hours"
   }
 
   measure: count {

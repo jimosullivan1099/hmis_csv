@@ -6,6 +6,7 @@ view: disability_types_counts {
       GROUP BY EnrollmentID, DisabilityType, DataCollectionStage
        ;;
     indexes: ["EnrollmentID"]
+    persist_for: "24 hours"
   }
 
   dimension: EnrollmentID {
