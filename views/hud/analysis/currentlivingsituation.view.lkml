@@ -351,6 +351,29 @@ view: +currentlivingsituation {
       ;;
   }
 
+  measure: total_dq_issues {
+    group_label: "dqCurrentLivingSituation"
+    view_label: "Analysis - Dq"
+    label: "Total DQ Issues"
+    type: number
+
+    drill_fields: [
+      currentlivingsituations_where_projecttype_is_not_14_but_verifiedby_is_not_null,
+      currentlivingsituations_where_leavesituation14days_is_not_null_while_currentlivingsituation_is_not_one_of_the_conditional_values_for_leavesituation14days,
+      currentlivingsituations_where_leavesituation14days_is_not_yes_but_subsequentresidence_is_not_null,
+      currentlivingsituations_where_leavesituation14days_is_not_yes_but_resourcestoobtain_is_not_null,
+      currentlivingsituations_where_leavesituation14days_is_not_yes_but_leaseown60day_is_not_null,
+      currentlivingsituations_where_leavesituation14days_is_not_yes_but_movedtwoormore_is_not_null
+    ]
+    sql:  ${currentlivingsituations_where_projecttype_is_not_14_but_verifiedby_is_not_null}
+          + ${currentlivingsituations_where_leavesituation14days_is_not_null_while_currentlivingsituation_is_not_one_of_the_conditional_values_for_leavesituation14days}
+          + ${currentlivingsituations_where_leavesituation14days_is_not_yes_but_subsequentresidence_is_not_null}
+          + ${currentlivingsituations_where_leavesituation14days_is_not_yes_but_resourcestoobtain_is_not_null}
+          + ${currentlivingsituations_where_leavesituation14days_is_not_yes_but_leaseown60day_is_not_null}
+          + ${currentlivingsituations_where_leavesituation14days_is_not_yes_but_movedtwoormore_is_not_null}
+      ;;
+  }
+
   measure: total_date_formatting_values {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"

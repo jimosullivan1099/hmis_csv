@@ -371,6 +371,21 @@ view: +employmenteducation {
       ;;
   }
 
+  measure: total_dq_issues {
+    group_label: "dqClient"
+    view_label: "Analysis - Dq"
+    label: "Total DQ Issues"
+    type: number
+
+    drill_fields: [
+      employmenteducation_records_with_yes_for_employed_but_no_value_for_employmenttype,
+      employmenteducation_records_with_no_for_employed_but_no_value_for_notemployedreason
+    ]
+    sql:  ${employmenteducation_records_with_yes_for_employed_but_no_value_for_employmenttype}
+          + ${employmenteducation_records_with_no_for_employed_but_no_value_for_notemployedreason}
+      ;;
+  }
+
   set: employmenteducation_queries_drill_fields {
     fields: [
       employmenteducation.EmploymentEducationID

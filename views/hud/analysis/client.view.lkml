@@ -869,6 +869,31 @@ view: +client {
       ;;
   }
 
+  measure: total_dq_issues {
+    group_label: "dqClient"
+    view_label: "Analysis - Dq"
+    label: "Total DQ Issues"
+    type: number
+
+    drill_fields: [
+      clients_where_all_races_are_no_but_racenone_is_not_client_doesnt_know_client_refused_or_data_not_collected,
+      clients_where_either_client_doesnt_know_client_refused_or_data_not_collected_is_selected_for_racenone_but_there_is_a_value_for_one_of_the_race_columns,
+      clients_with_yes_for_one_of_the_theaters_but_do_not_have_a_yes_for_veteranstatus,
+      clients_with_a_dob_that_is_after_the_datecreated,
+      clients_where_dobdataquality_is_data_not_collected_but_there_is_a_value_for_dob,
+      clients_where_ssndataquality_is_data_not_collected_but_there_is_a_value_for_ssn,
+      clients_enrolled_in_a_va_project_with_a_value_for_yearenteredservice_or_yearseparated_but_do_not_have_a_yes_for_veteranstatus
+    ]
+    sql:  ${clients_where_all_races_are_no_but_racenone_is_not_client_doesnt_know_client_refused_or_data_not_collected}
+          + ${clients_where_either_client_doesnt_know_client_refused_or_data_not_collected_is_selected_for_racenone_but_there_is_a_value_for_one_of_the_race_columns}
+          + ${clients_with_yes_for_one_of_the_theaters_but_do_not_have_a_yes_for_veteranstatus}
+          + ${clients_with_a_dob_that_is_after_the_datecreated}
+          + ${clients_where_dobdataquality_is_data_not_collected_but_there_is_a_value_for_dob}
+          + ${clients_where_ssndataquality_is_data_not_collected_but_there_is_a_value_for_ssn}
+          + ${clients_enrolled_in_a_va_project_with_a_value_for_yearenteredservice_or_yearseparated_but_do_not_have_a_yes_for_veteranstatus}
+      ;;
+  }
+
   measure: total_date_formatting_values {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"

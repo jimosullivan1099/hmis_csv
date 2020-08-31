@@ -526,6 +526,25 @@ view: +services {
       ;;
   }
 
+  measure: total_dq_issues {
+    group_label: "dqClient"
+    view_label: "Analysis - Dq"
+    label: "Total DQ Issues"
+    type: number
+
+    drill_fields: [
+      services_where_recordtype_is_144_and_typeprovided_is_6_but_there_is_no_value_for_othertypeprovided,
+      services_where_recordtype_is_144_and_typeprovided_is_either_3_4_or_5_but_there_is_no_value_for_subtypeprovided,
+      services_where_recordtype_is_151_or_152_but_there_is_no_value_for_faamount,
+      services_where_recordtype_is_161_but_there_is_no_value_for_referraloutcome
+    ]
+    sql:  ${services_where_recordtype_is_144_and_typeprovided_is_6_but_there_is_no_value_for_othertypeprovided}
+          + ${services_where_recordtype_is_144_and_typeprovided_is_either_3_4_or_5_but_there_is_no_value_for_subtypeprovided}
+          + ${services_where_recordtype_is_151_or_152_but_there_is_no_value_for_faamount}
+          + ${services_where_recordtype_is_161_but_there_is_no_value_for_referraloutcome}
+      ;;
+  }
+
   set: services_queries_drill_fields {
     fields: [
       services.ServicesID

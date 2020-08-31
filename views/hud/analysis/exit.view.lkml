@@ -983,6 +983,51 @@ view: +exit {
       ;;
   }
 
+  measure: total_dq_issues {
+    group_label: "dqClient"
+    view_label: "Analysis - Dq"
+    label: "Total DQ Issues"
+    type: number
+
+    drill_fields: [
+      exits_where_destination_is_not_other_and_otherdestination_is_not_null,
+      exits_where_projectcompletionstatus_is_not_3_and_earlyexitreason_not_null,
+      exits_where_exchangeforsex_is_not_yes_but_exchangeforsexpastthreemonths_is_not_null,
+      exits_where_exchangeforsex_is_not_yes_but_countofexhangeforsex_is_not_null,
+      exits_where_exchangeforsex_is_not_yes_but_askedorforcedtoexchangeforsex_is_not_null,
+      exits_where_askedorforcedtoexchangeforsex_is_not_yes_but_askedorforcedtoexchangeforsexpastthreemonths_is_not_null,
+      exits_where_workplacepromisedifference_and_workplaceviolencethreats_are_both_not_yes_but_coercedtocontinuework_is_not_null,
+      exits_where_workplacepromisedifference_and_workplaceviolencethreats_are_both_not_yes_but_laborexploitpastthreemonths_is_not_null,
+      exits_where_counselingreceived_is_not_yes_but_individualcounseling_is_not_null,
+      exits_where_counselingreceived_is_not_yes_but_familycounseling_is_not_null,
+      exits_where_counselingreceived_is_not_yes_but_groupcounseling_is_not_null,
+      exits_where_counselingreceived_is_not_yes_but_sessioncountatexit_is_not_null,
+      exits_where_postexitcounselingplan_is_not_yes_but_sessionsinplan_is_not_null,
+      exits_where_aftercareprovided_is_not_yes_but_emailsocialmedia_is_not_null,
+      exits_where_aftercareprovided_is_not_yes_but_telephone_is_not_null,
+      exits_where_aftercareprovided_is_not_yes_but_inpersonindividual_is_not_null,
+      exits_where_aftercareprovided_is_not_yes_but_inpersongroup_is_not_null
+    ]
+    sql:  ${exits_where_destination_is_not_other_and_otherdestination_is_not_null}
+          + ${exits_where_projectcompletionstatus_is_not_3_and_earlyexitreason_not_null}
+          + ${exits_where_exchangeforsex_is_not_yes_but_exchangeforsexpastthreemonths_is_not_null}
+          + ${exits_where_exchangeforsex_is_not_yes_but_countofexhangeforsex_is_not_null}
+          + ${exits_where_exchangeforsex_is_not_yes_but_askedorforcedtoexchangeforsex_is_not_null}
+          + ${exits_where_askedorforcedtoexchangeforsex_is_not_yes_but_askedorforcedtoexchangeforsexpastthreemonths_is_not_null}
+          + ${exits_where_workplacepromisedifference_and_workplaceviolencethreats_are_both_not_yes_but_coercedtocontinuework_is_not_null}
+          + ${exits_where_workplacepromisedifference_and_workplaceviolencethreats_are_both_not_yes_but_laborexploitpastthreemonths_is_not_null}
+          + ${exits_where_counselingreceived_is_not_yes_but_individualcounseling_is_not_null}
+          + ${exits_where_counselingreceived_is_not_yes_but_familycounseling_is_not_null}
+          + ${exits_where_counselingreceived_is_not_yes_but_groupcounseling_is_not_null}
+          + ${exits_where_counselingreceived_is_not_yes_but_sessioncountatexit_is_not_null}
+          + ${exits_where_postexitcounselingplan_is_not_yes_but_sessionsinplan_is_not_null}
+          + ${exits_where_aftercareprovided_is_not_yes_but_emailsocialmedia_is_not_null}
+          + ${exits_where_aftercareprovided_is_not_yes_but_telephone_is_not_null}
+          + ${exits_where_aftercareprovided_is_not_yes_but_inpersonindividual_is_not_null}
+          + ${exits_where_aftercareprovided_is_not_yes_but_inpersongroup_is_not_null}
+      ;;
+  }
+
   set: exit_queries_drill_fields {
     fields: [
       exit.ExitID

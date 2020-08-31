@@ -403,6 +403,21 @@ view: +healthanddv {
       ;;
   }
 
+  measure: total_dq_issues {
+    group_label: "dqClient"
+    view_label: "Analysis - Dq"
+    label: "Total DQ Issues"
+    type: number
+
+    drill_fields: [
+      healthanddv_records_where_domesticviolencevictim_is_yes_but_there_is_no_value_for_currentlyfleeing,
+      healthanddv_records_where_pregnancystatus_is_yes_but_there_is_no_value_for_duedate
+    ]
+    sql:  ${healthanddv_records_where_domesticviolencevictim_is_yes_but_there_is_no_value_for_currentlyfleeing}
+          + ${healthanddv_records_where_pregnancystatus_is_yes_but_there_is_no_value_for_duedate}
+      ;;
+  }
+
   set: healthanddv_queries_drill_fields {
     fields: [
       healthanddv.HealthAndDVID

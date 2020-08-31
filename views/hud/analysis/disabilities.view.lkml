@@ -321,7 +321,7 @@ view: +disabilities {
     ]
 
     drill_fields: [disabilities_queries_drill_fields*]
-    sql: ${DisabilitiesID} ;;
+    sql: ${enrollment.EnrollmentID} ;;
   }
 
   measure: clients_with_invalid_number_of_disabilities_at_exit {
@@ -337,7 +337,7 @@ view: +disabilities {
     ]
 
     drill_fields: [disabilities_queries_drill_fields*]
-    sql: ${DisabilitiesID} ;;
+    sql: ${enrollment.EnrollmentID} ;;
   }
 
   measure: clients_with_invalid_number_of_disabilities_at_update {
@@ -352,7 +352,7 @@ view: +disabilities {
     ]
 
     drill_fields: [disabilities_queries_drill_fields*]
-    sql: ${DisabilitiesID} ;;
+    sql: ${enrollment.EnrollmentID} ;;
   }
 
   measure: clients_with_invalid_number_of_disabilities_at_annual_assessment {
@@ -367,7 +367,7 @@ view: +disabilities {
     ]
 
     drill_fields: [disabilities_queries_drill_fields*]
-    sql: ${DisabilitiesID} ;;
+    sql: ${enrollment.EnrollmentID} ;;
   }
 
   measure: clients_with_multiple_records_for_the_same_disabilitytype_at_entry {
@@ -382,7 +382,7 @@ view: +disabilities {
     ]
 
     drill_fields: [disabilities_queries_drill_fields*]
-    sql: ${DisabilitiesID} ;;
+    sql: ${enrollment.EnrollmentID} ;;
   }
 
   measure: clients_with_multiple_records_for_the_same_disabilitytype_at_exit {
@@ -397,7 +397,7 @@ view: +disabilities {
     ]
 
     drill_fields: [disabilities_queries_drill_fields*]
-    sql: ${DisabilitiesID} ;;
+    sql: ${enrollment.EnrollmentID} ;;
   }
 
   measure: clients_with_0_disabilities_at_entry {
@@ -412,7 +412,7 @@ view: +disabilities {
     ]
 
     drill_fields: [disabilities_queries_drill_fields*]
-    sql: ${DisabilitiesID} ;;
+    sql: ${enrollment.EnrollmentID} ;;
   }
 
   measure: clients_with_0_disabilities_at_exit {
@@ -427,7 +427,7 @@ view: +disabilities {
     ]
 
     drill_fields: [disabilities_queries_drill_fields*]
-    sql: ${DisabilitiesID} ;;
+    sql: ${enrollment.EnrollmentID} ;;
   }
 
   measure: hiv_aids_disabilities_without_tcellcountavailable_values {
@@ -663,6 +663,33 @@ view: +disabilities {
           + ${non_hud_tcellsource}
           + ${non_hud_viralloadavailable}
           + ${non_hud_viralloadsource}
+      ;;
+  }
+
+  measure: total_dq_issues {
+    group_label: "dqDisabilities"
+    view_label: "Analysis - Dq"
+    label: "Total DQ Issues"
+    type: number
+
+    drill_fields: [
+      disability_response_of_1_for_development_hiv_aids_but_disablingcondition_is_not_1_on_enrollment,
+      disabilityresponse_and_indefiniteandimpairs_is_1_for_5_7_9_or_10_but_disablingcondition_is_not_1_on_enrollment,
+      hiv_aids_disabilities_without_tcellcountavailable_values,
+      disabilities_with_tcellcountavailable_as_yes_but_no_value_for_tcellcount,
+      disabilities_with_a_value_for_tcellcount_but_no_value_for_tcellsource,
+      hiv_aids_disabilities_without_viralloadavailable_values,
+      disabilities_with_viralloadavailable_as_yes_but_no_value_for_viralload,
+      disabilities_with_a_value_for_viralload_but_no_value_for_viralloadsource
+    ]
+    sql:  ${disability_response_of_1_for_development_hiv_aids_but_disablingcondition_is_not_1_on_enrollment}
+          + ${disabilityresponse_and_indefiniteandimpairs_is_1_for_5_7_9_or_10_but_disablingcondition_is_not_1_on_enrollment}
+          + ${hiv_aids_disabilities_without_tcellcountavailable_values}
+          + ${disabilities_with_tcellcountavailable_as_yes_but_no_value_for_tcellcount}
+          + ${disabilities_with_a_value_for_tcellcount_but_no_value_for_tcellsource}
+          + ${hiv_aids_disabilities_without_viralloadavailable_values}
+          + ${disabilities_with_viralloadavailable_as_yes_but_no_value_for_viralload}
+          + ${disabilities_with_a_value_for_viralload_but_no_value_for_viralloadsource}
       ;;
   }
 

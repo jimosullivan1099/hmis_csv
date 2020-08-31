@@ -1068,6 +1068,23 @@ view: +enrollment {
       ;;
   }
 
+  measure: total_dq_issues {
+    group_label: "dqClient"
+    view_label: "Analysis - Dq"
+    label: "Total DQ Issues"
+    type: number
+
+    drill_fields: [
+      clientenrolledinpath_is_not_no_and_reasonnotenrolled_not_null,
+      enrollments_where_eligibleforrhy_is_not_no_and_reasonnoservices_is_not_null,
+      enrollments_where_eligibleforrhy_is_yes_and_runawayyouth_is_not_null
+    ]
+    sql:  ${clientenrolledinpath_is_not_no_and_reasonnotenrolled_not_null}
+          + ${enrollments_where_eligibleforrhy_is_not_no_and_reasonnoservices_is_not_null}
+          + ${enrollments_where_eligibleforrhy_is_yes_and_runawayyouth_is_not_null}
+      ;;
+  }
+
   measure: total_date_formatting_values {
     group_label: "DateFormatting"
     view_label: "Analysis - Major"
