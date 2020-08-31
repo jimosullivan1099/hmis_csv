@@ -404,7 +404,7 @@ view: +healthanddv {
   }
 
   measure: total_dq_issues {
-    group_label: "dqClient"
+    group_label: "dqHealthAndDV"
     view_label: "Analysis - Dq"
     label: "Total DQ Issues"
     type: number

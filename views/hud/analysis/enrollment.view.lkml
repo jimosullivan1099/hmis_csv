@@ -1069,7 +1069,7 @@ view: +enrollment {
   }
 
   measure: total_dq_issues {
-    group_label: "dqClient"
+    group_label: "dqEnrollment"
     view_label: "Analysis - Dq"
     label: "Total DQ Issues"
     type: number
