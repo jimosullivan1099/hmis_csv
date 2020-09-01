@@ -77,7 +77,8 @@ view: +enrollment_household_counts {
   set: enrollment_household_counts_queries_drill_fields {
     fields: [
       HouseholdID,
-      enrollment.ProjectID
+      enrollment.ProjectID,
+      project.ProjectName
     ]
   }
 }

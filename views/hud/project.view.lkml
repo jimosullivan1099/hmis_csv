@@ -4,58 +4,67 @@ view: project {
   dimension: ProjectID {
     primary_key: yes
     type: string
+    label: "ProjectID"
     sql: ${TABLE}.ProjectID ;;
   }
 
   dimension: ContinuumProject {
     type: string
+    label: "ContinuumProject"
     sql: ${TABLE}.ContinuumProject ;;
   }
 
   dimension: DateCreated {
     type: string
+    label: "DateCreated"
     sql: ${TABLE}.DateCreated ;;
   }
 
   dimension: DateDeleted {
     type: string
+    label: "DateDeleted"
     sql: ${TABLE}.DateDeleted ;;
   }
 
   dimension: DateUpdated {
     type: string
+    label: "DateUpdated"
     sql: ${TABLE}.DateUpdated ;;
   }
 
   dimension: ExportID {
     type: string
-    # hidden: yes
+    label: "ExportID"
     sql: ${TABLE}.ExportID ;;
   }
 
   dimension: OrganizationID {
     type: string
-    # hidden: yes
+    label: "OrganizationID"
     sql: ${TABLE}.OrganizationID ;;
   }
 
   dimension: PITCount {
     type: string
+    label: "PITCount"
     sql: ${TABLE}.PITCount ;;
   }
 
   dimension: ProjectCommonName {
     type: string
+    label: "ProjectCommonName"
     sql: ${TABLE}.ProjectCommonName ;;
   }
 
   dimension: ProjectName {
     type: string
+    label: "ProjectName"
     sql: ${TABLE}.ProjectName ;;
   }
 
   dimension: ProjectType {
     type: string
+    label: "ProjectType"
     sql: ${TABLE}.ProjectType ;;
   }
 
@@ -119,26 +128,31 @@ view: project {
 
   dimension: ResidentialAffiliation {
     type: string
+    label: "ResidentialAffiliation"
     sql: ${TABLE}.ResidentialAffiliation ;;
   }
 
   dimension: TargetPopulation {
     type: string
+    label: "PersonalID"
     sql: ${TABLE}.TargetPopulation ;;
   }
 
   dimension: TrackingMethod {
     type: string
+    label: "PersonalID"
     sql: ${TABLE}.TrackingMethod ;;
   }
 
   dimension: HMISParticipatingProject {
     type: string
+    label: "HMISParticipatingProject"
     sql: ${TABLE}.HMISParticipatingProject ;;
   }
 
   dimension: UserID {
     type: string
+    label: "UserID"
     sql: ${TABLE}.UserID ;;
   }
 
