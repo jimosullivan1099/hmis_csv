@@ -420,7 +420,10 @@ view: +healthanddv {
 
   set: healthanddv_queries_drill_fields {
     fields: [
-      healthanddv.HealthAndDVID
+      healthanddv.HealthAndDVID,
+      healthanddv.EnrollmentID,
+      project.ProjectID,
+      project.ProjectName
     ]
   }
 }

@@ -314,7 +314,10 @@ view: +enrollmentcoc {
 
   set: enrollmentcoc_queries_drill_fields {
     fields: [
-      enrollmentcoc.EnrollmentCoCID
+      enrollmentcoc.EnrollmentCoCID,
+      enrollmentcoc.EnrollmentID,
+      project.ProjectID,
+      project.ProjectName
     ]
   }
 }

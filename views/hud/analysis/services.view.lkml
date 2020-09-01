@@ -547,7 +547,10 @@ view: +services {
 
   set: services_queries_drill_fields {
     fields: [
-      services.ServicesID
+      services.ServicesID,
+      services.EnrollmentID,
+      project.ProjectID,
+      project.ProjectName
     ]
   }
 

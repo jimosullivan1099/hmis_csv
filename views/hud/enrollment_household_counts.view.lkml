@@ -1,4 +1,4 @@
-view: enrollment_household_counts{
+view: enrollment_household_counts {
   derived_table: {
     sql:
       SELECT HouseholdID,
@@ -25,6 +25,7 @@ view: enrollment_household_counts{
   dimension: HouseholdID {
     type: string
     primary_key: yes
+    label: "HouseholdID"
     sql: ${TABLE}.HouseholdID ;;
   }
 

@@ -1516,7 +1516,10 @@ view: +incomebenefits {
 
   set: incomebenefits_queries_drill_fields {
     fields: [
-      incomebenefits.IncomeBenefitsID
+      incomebenefits.IncomeBenefitsID,
+      incomebenefits.EnrollmentID,
+      project.ProjectID,
+      project.ProjectName
     ]
   }
 }

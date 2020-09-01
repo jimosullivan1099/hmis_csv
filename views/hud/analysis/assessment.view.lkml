@@ -261,7 +261,10 @@ view: +assessment {
 
   set: assessment_queries_drill_fields {
     fields: [
-      assessment.AssessmentID
+      assessment.AssessmentID,
+      assessment.EnrollmentID,
+      project.ProjectID,
+      project.ProjectName
     ]
   }
 }

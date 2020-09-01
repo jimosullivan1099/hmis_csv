@@ -241,6 +241,12 @@ explore: assessment {
     sql_on: ${assessment.PersonalID} = ${client.PersonalID} ;;
     relationship: many_to_one
   }
+
+  join:  project {
+    type:  left_outer
+    sql_on: ${enrollment.ProjectID} = ${project.ProjectID} ;;
+    relationship: one_to_many
+  }
 }
 
 explore: assessmentquestions {
@@ -256,6 +262,12 @@ explore: assessmentquestions {
     type: left_outer
     sql_on: ${assessmentquestions.PersonalID} = ${client.PersonalID} ;;
     relationship: many_to_one
+  }
+
+  join:  project {
+    type:  left_outer
+    sql_on: ${enrollment.ProjectID} = ${project.ProjectID} ;;
+    relationship: one_to_many
   }
 }
 
@@ -353,6 +365,12 @@ explore: employmenteducation {
     sql_where: ${employmenteducation.DataCollectionStage} = 3 ;;
     relationship: many_to_one
   }
+
+  join:  project {
+    type:  left_outer
+    sql_on: ${enrollment.ProjectID} = ${project.ProjectID} ;;
+    relationship: one_to_many
+  }
 }
 
 explore: enrollmentcoc {
@@ -376,6 +394,12 @@ explore: enrollmentcoc {
     sql_where: ${enrollmentcoc.DataCollectionStage} = 3 ;;
     relationship: many_to_one
   }
+
+  join:  project {
+    type:  left_outer
+    sql_on: ${enrollment.ProjectID} = ${project.ProjectID} ;;
+    relationship: one_to_many
+  }
 }
 
 explore: event {
@@ -392,6 +416,12 @@ explore: event {
     sql_on: ${event.PersonalID} = ${client.PersonalID} ;;
     relationship: many_to_one
   }
+
+  join:  project {
+    type:  left_outer
+    sql_on: ${enrollment.ProjectID} = ${project.ProjectID} ;;
+    relationship: one_to_many
+  }
 }
 
 explore: exit {
@@ -407,6 +437,12 @@ explore: exit {
     type: left_outer
     sql_on: ${exit.PersonalID} = ${client.PersonalID} ;;
     relationship: many_to_one
+  }
+
+  join:  project {
+    type:  left_outer
+    sql_on: ${enrollment.ProjectID} = ${project.ProjectID} ;;
+    relationship: one_to_many
   }
 }
 
@@ -435,6 +471,12 @@ explore: healthanddv {
     sql_where: ${healthanddv.DataCollectionStage} = 3 ;;
     relationship: many_to_one
   }
+
+  join:  project {
+    type:  left_outer
+    sql_on: ${enrollment.ProjectID} = ${project.ProjectID} ;;
+    relationship: one_to_many
+  }
 }
 
 explore: incomebenefits {
@@ -457,6 +499,12 @@ explore: incomebenefits {
     sql_on: ${incomebenefits.EnrollmentID} = ${exit.EnrollmentID} ;;
     sql_where: ${incomebenefits.DataCollectionStage} = 3 ;;
     relationship: many_to_one
+  }
+
+  join:  project {
+    type:  left_outer
+    sql_on: ${enrollment.ProjectID} = ${project.ProjectID} ;;
+    relationship: one_to_many
   }
 }
 
@@ -493,6 +541,12 @@ explore: services {
     type: left_outer
     sql_on: ${services.PersonalID} = ${client.PersonalID} ;;
     relationship: many_to_one
+  }
+
+  join:  project {
+    type:  left_outer
+    sql_on: ${enrollment.ProjectID} = ${project.ProjectID} ;;
+    relationship: one_to_many
   }
 }
 

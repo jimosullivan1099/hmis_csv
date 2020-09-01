@@ -393,7 +393,10 @@ view: +currentlivingsituation {
 
   set: currentlivingsituation_queries_drill_fields {
     fields: [
-      currentlivingsituation.CurrentLivingSitID
+      currentlivingsituation.CurrentLivingSitID,
+      currentlivingsituation.EnrollmentID,
+      project.ProjectID,
+      project.ProjectName
     ]
   }
 }

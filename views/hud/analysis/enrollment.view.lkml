@@ -1106,7 +1106,9 @@ view: +enrollment {
 
   set: enrollment_queries_drill_fields {
     fields: [
-      EnrollmentID
+      EnrollmentID,
+      project.ProjectID,
+      project.ProjectName
     ]
   }
 }

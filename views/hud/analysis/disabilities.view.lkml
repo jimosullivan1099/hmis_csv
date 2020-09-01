@@ -712,7 +712,10 @@ view: +disabilities {
 
   set: disabilities_queries_drill_fields {
     fields: [
-      disabilities.DisabilitiesID
+      disabilities.DisabilitiesID,
+      disabilities.EnrollmentID,
+      project.ProjectID,
+      project.ProjectName
     ]
   }
 }

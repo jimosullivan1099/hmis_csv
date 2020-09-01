@@ -388,7 +388,10 @@ view: +employmenteducation {
 
   set: employmenteducation_queries_drill_fields {
     fields: [
-      employmenteducation.EmploymentEducationID
+      employmenteducation.EmploymentEducationID,
+      employmenteducation.EnrollmentID,
+      project.ProjectID,
+      project.ProjectName
     ]
   }
 }

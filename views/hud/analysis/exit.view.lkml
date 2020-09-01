@@ -1030,7 +1030,10 @@ view: +exit {
 
   set: exit_queries_drill_fields {
     fields: [
-      exit.ExitID
+      exit.ExitID,
+      exit.EnrollmentID,
+      project.ProjectID,
+      project.ProjectName
     ]
   }
 }
