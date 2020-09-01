@@ -237,6 +237,24 @@ view: client {
     sql: ${TABLE}.ExportID ;;
   }
 
+  dimension: RaceList {
+    type: string
+    label: "Race (List)"
+    sql:
+      TRIM(TRAILING ', ' FROM
+        CONCAT(
+          IF(AmIndAKNative = '1', 'AmIndAKNative, ', ''),
+          IF(Asian = '1', 'Asian, ', ''),
+          IF(BlackAfAmerican = '1', 'BlackAfAmerican, ', ''),
+          IF(NativeHIOtherPacific = '1', 'NativeHIOtherPacific, ', ''),
+          IF(White = '1', 'White, ', ''),
+          IF(RaceNone = '8', 'Client Doesn''t Know, ', ''),
+          IF(RaceNone = '9', 'Client Refused, ', ''),
+          IF(RaceNone = '99', 'Data Not Collected, ', '')
+        )
+      ) ;;
+  }
+
   dimension: Funder {
     hidden: yes
     type: string
