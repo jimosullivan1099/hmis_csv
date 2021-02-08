@@ -1,5 +1,6 @@
 include: "views/hud/*.view.lkml"
 include: "views/custom/*.view.lkml"
+include: "views/custom/analysis/*.view.lkml"
 include: "views/hud/analysis/*.view.lkml"
 include: "views/ui_elements.view"
 include: "/views/hud_standards/list_values.view"
