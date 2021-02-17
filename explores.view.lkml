@@ -584,7 +584,7 @@ explore: notes_custom {
 }
 
 explore: roi_custom {
-  hidden: yes
+
 }
 
 explore: services_custom {
