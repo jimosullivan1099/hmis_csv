@@ -40,7 +40,7 @@ view: +client_files {
   measure: file_name_null_or_empty_value_count {
     group_label: "Counts"
     view_label: "Analysis - Custom"
-    label: "Address1 is Null or Empty Count"
+    label: "File Name is Null or Empty Count"
     type: count_distinct
     filters: [
       FileName: "NULL,EMPTY"
