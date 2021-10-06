@@ -150,18 +150,99 @@ view: +client {
     sql: ${PersonalID} ;;
   }
 
-  measure: non_hud_gender {
+  measure: non_hud_gender_female {
     group_label: "NonHUD"
     view_label: "Analysis - Minor"
-    label: "Non HUD Gender"
+    label: "Non HUD Gender Female"
     type: count_distinct
-
     filters: [
-      client.Gender: "-0,-1,-2,-3,-4,-8,-9,-99,-NULL,-EMPTY"
+      client.Female: "-0,-1,-8,-9,-99"
     ]
 
     drill_fields: [client_queries_drill_fields*]
     sql: ${PersonalID} ;;
+  }
+
+  measure: non_hud_gender_male {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Non HUD Gender Male"
+    type: count_distinct
+    filters: [
+      client.Male: "-0,-1,-8,-9,-99"
+    ]
+
+    drill_fields: [client_queries_drill_fields*]
+    sql: ${PersonalID} ;;
+  }
+
+  measure: non_hud_gender_no_single_gender {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Non HUD Gender NoSingleGender"
+    type: count_distinct
+    filters: [
+      client.NoSingleGender: "-0,-1,-8,-9,-99"
+    ]
+
+    drill_fields: [client_queries_drill_fields*]
+    sql: ${PersonalID} ;;
+  }
+
+  measure: non_hud_gender_transgender {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Non HUD Gender Transgender"
+    type: count_distinct
+    filters: [
+      client.Transgender: "-0,-1,-8,-9,-99"
+    ]
+
+    drill_fields: [client_queries_drill_fields*]
+    sql: ${PersonalID} ;;
+  }
+
+  measure: non_hud_gender_questioning {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Non HUD Gender Questioning"
+    type: count_distinct
+    filters: [
+      client.Questioning: "-0,-1,-8,-9,-99"
+    ]
+
+    drill_fields: [client_queries_drill_fields*]
+    sql: ${PersonalID} ;;
+  }
+
+  measure: non_hud_gender_gender_none {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Non HUD Gender GenderNone"
+    # type: count_distinct
+    # filters: [
+    #   client.non_hud_gender_questioning: ">0",
+
+    # ]
+
+    # drill_fields: [client_queries_drill_fields*]
+    # sql: ${PersonalID} ;;
+    sql: 0 ;;
+  }
+
+
+  measure: non_hud_gender {
+    group_label: "NonHUD"
+    view_label: "Analysis - Minor"
+    label: "Non HUD Gender"
+    type: number
+    sql: ${non_hud_gender_female} +
+         ${non_hud_gender_male} +
+         ${non_hud_gender_no_single_gender} +
+         ${non_hud_gender_transgender} +
+         ${non_hud_gender_questioning}
+        -- ${non_hud_gender_gender_none}
+    ;;
   }
 
   measure: non_hud_iraqoif {
@@ -237,11 +318,11 @@ view: +client {
   measure: non_hud_nativehiotherpacific {
     group_label: "NonHUD"
     view_label: "Analysis - Minor"
-    label: "Non HUD NativeHIOtherPacific"
+    label: "Non HUD NativeHIPacific"
     type: count_distinct
 
     filters: [
-      client.NativeHIOtherPacific: "-0,-1,-99,-NULL,-EMPTY"
+      client.NativeHIPacific: "-0,-1,-99,-NULL,-EMPTY"
     ]
 
     drill_fields: [client_queries_drill_fields*]
@@ -458,20 +539,6 @@ view: +client {
     sql: ${PersonalID} ;;
   }
 
-  measure: null_gender {
-    group_label: "Null"
-    view_label: "Analysis - Major"
-    label: "Gender"
-    type: count_distinct
-
-    filters: [
-      client.Gender: "NULL,EMPTY"
-    ]
-
-    drill_fields: [client_queries_drill_fields*]
-    sql: ${PersonalID} ;;
-  }
-
   measure: null_namedataquality {
     group_label: "Null"
     view_label: "Analysis - Major"
@@ -489,11 +556,11 @@ view: +client {
   measure: null_nativehiotherpacific {
     group_label: "Null"
     view_label: "Analysis - Major"
-    label: "NativeHIOtherPacific"
+    label: "NativeHIPacific"
     type: count_distinct
 
     filters: [
-      client.NativeHIOtherPacific: "NULL,EMPTY"
+      client.NativeHIPacific: "NULL,EMPTY"
     ]
 
     drill_fields: [client_queries_drill_fields*]
@@ -581,7 +648,7 @@ view: +client {
       client.AmIndAKNative: "0,99",
       client.Asian: "0,99",
       client.BlackAfAmerican: "0,99",
-      client.NativeHIOtherPacific: "0,99",
+      client.NativeHIPacific: "0,99",
       client.White: "0,99"
     ]
 
@@ -593,7 +660,7 @@ view: +client {
     hidden: yes
     type: yesno
     sql:  CASE
-            WHEN ${client.AmIndAKNative} = "1" OR ${client.Asian} = "1" OR ${client.BlackAfAmerican} = "1" OR ${client.NativeHIOtherPacific} = "1" OR ${client.White} = "1" THEN true
+            WHEN ${client.AmIndAKNative} = "1" OR ${client.Asian} = "1" OR ${client.BlackAfAmerican} = "1" OR ${client.NativeHIPacific} = "1" OR ${client.White} = "1" THEN true
             ELSE false
           END ;;
   }
@@ -780,7 +847,6 @@ view: +client {
       null_dateupdated,
       null_dobdataquality,
       null_ethnicity,
-      null_gender,
       null_namedataquality,
       null_nativehiotherpacific,
       null_personalid,
@@ -794,7 +860,6 @@ view: +client {
           + ${null_dateupdated}
           + ${null_dobdataquality}
           + ${null_ethnicity}
-          + ${null_gender}
           + ${null_namedataquality}
           + ${null_nativehiotherpacific}
           + ${null_personalid}

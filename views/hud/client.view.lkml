@@ -87,10 +87,10 @@ view: client {
     sql: ${TABLE}.BlackAfAmerican ;;
   }
 
-  dimension: NativeHIOtherPacific {
+  dimension: NativeHIPacific {
     type: string
-    label: "NativeHIOtherPacific"
-    sql: ${TABLE}.NativeHIOtherPacific ;;
+    label: "NativeHIPacific"
+    sql: ${TABLE}.NativeHIPacific ;;
   }
 
   dimension: White {
@@ -111,10 +111,40 @@ view: client {
     sql: ${TABLE}.Ethnicity ;;
   }
 
-  dimension: Gender {
+  dimension: Female {
     type: string
     label: "Gender"
-    sql: ${TABLE}.Gender ;;
+    sql: ${TABLE}.Female ;;
+  }
+
+  dimension: Male {
+    type: string
+    label: "Gender"
+    sql: ${TABLE}.Male ;;
+  }
+
+  dimension: NoSingleGender {
+    type: string
+    label: "Gender"
+    sql: ${TABLE}.NoSingleGender ;;
+  }
+
+  dimension: Transgender {
+    type: string
+    label: "Gender"
+    sql: ${TABLE}.Transgender ;;
+  }
+
+  dimension: Questioning {
+    type: string
+    label: "Gender"
+    sql: ${TABLE}.Questioning ;;
+  }
+
+  dimension: GenderNone {
+    type: string
+    label: "Gender"
+    sql: ${TABLE}.GenderNone ;;
   }
 
   dimension: VeteranStatus {
@@ -246,7 +276,7 @@ view: client {
           IF(AmIndAKNative = '1', 'AmIndAKNative, ', ''),
           IF(Asian = '1', 'Asian, ', ''),
           IF(BlackAfAmerican = '1', 'BlackAfAmerican, ', ''),
-          IF(NativeHIOtherPacific = '1', 'NativeHIOtherPacific, ', ''),
+          IF(NativeHIPacific = '1', 'NativeHIPacific, ', ''),
           IF(White = '1', 'White, ', ''),
           IF(RaceNone = '8', 'Client Doesn''t Know, ', ''),
           IF(RaceNone = '9', 'Client Refused, ', ''),
