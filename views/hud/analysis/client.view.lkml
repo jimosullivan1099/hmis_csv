@@ -156,7 +156,7 @@ view: +client {
     label: "Non HUD Gender Female"
     type: count_distinct
     filters: [
-      client.Female: "-0,-1,-8,-9,-99"
+      client.Female: "-0,-1,-99"
     ]
 
     drill_fields: [client_queries_drill_fields*]
@@ -169,7 +169,7 @@ view: +client {
     label: "Non HUD Gender Male"
     type: count_distinct
     filters: [
-      client.Male: "-0,-1,-8,-9,-99"
+      client.Male: "-0,-1,-99"
     ]
 
     drill_fields: [client_queries_drill_fields*]
@@ -182,7 +182,7 @@ view: +client {
     label: "Non HUD Gender NoSingleGender"
     type: count_distinct
     filters: [
-      client.NoSingleGender: "-0,-1,-8,-9,-99"
+      client.NoSingleGender: "-0,-1,-99"
     ]
 
     drill_fields: [client_queries_drill_fields*]
@@ -195,7 +195,7 @@ view: +client {
     label: "Non HUD Gender Transgender"
     type: count_distinct
     filters: [
-      client.Transgender: "-0,-1,-8,-9,-99"
+      client.Transgender: "-0,-1,-99"
     ]
 
     drill_fields: [client_queries_drill_fields*]
@@ -208,7 +208,7 @@ view: +client {
     label: "Non HUD Gender Questioning"
     type: count_distinct
     filters: [
-      client.Questioning: "-0,-1,-8,-9,-99"
+      client.Questioning: "-0,-1,-99"
     ]
 
     drill_fields: [client_queries_drill_fields*]
